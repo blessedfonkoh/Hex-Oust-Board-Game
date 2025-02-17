@@ -2,2041 +2,1896 @@
 
 <?import java.lang.Double?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Polygon?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1200.0" minWidth="1200.0" prefHeight="720.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp20050.hexagonalboard.HelloController">
+<AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp20050.hexagonalboard.HelloController">
    <children>
-      <Polygon fx:id="hex1" fill="#f6f4e0a8" layoutX="351.0" layoutY="246.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex3" fill="#f6f4e0a8" layoutX="387.0" layoutY="225.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1911111" fill="#f6f4e0a8" layoutX="172.0" layoutY="612.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1111111111" fill="#f6f4e0a8" layoutX="172.0" layoutY="569.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex411111111" fill="#f6f4e0a8" layoutX="172.0" layoutY="526.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211" fill="#f6f4e0a8" layoutX="172.0" layoutY="483.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111" fill="#f6f4e0a8" layoutX="172.0" layoutY="440.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112121" fill="#f6f4e0a8" layoutX="172.0" layoutY="397.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111" fill="#f6f4e0a8" layoutX="172.0" layoutY="354.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex19111111" fill="#f6f4e0a8" layoutX="208.0" layoutY="590.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex11111111111" fill="#f6f4e0a8" layoutX="208.0" layoutY="547.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex4111111111" fill="#f6f4e0a8" layoutX="208.0" layoutY="504.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112112" fill="#f6f4e0a8" layoutX="208.0" layoutY="461.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121112" fill="#f6f4e0a8" layoutX="208.0" layoutY="418.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121211" fill="#f6f4e0a8" layoutX="208.0" layoutY="375.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211111" fill="#f6f4e0a8" layoutX="208.0" layoutY="332.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex191111111" fill="#f6f4e0a8" layoutX="208.0" layoutY="633.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex191111112" fill="#f6f4e0a8" layoutX="243.0" layoutY="612.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex111111111111" fill="#f6f4e0a8" layoutX="243.0" layoutY="569.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex41111111111" fill="#f6f4e0a8" layoutX="243.0" layoutY="526.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121121" fill="#f6f4e0a8" layoutX="243.0" layoutY="483.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211121" fill="#f6f4e0a8" layoutX="243.0" layoutY="440.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111212111" fill="#f6f4e0a8" layoutX="243.0" layoutY="397.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111111" fill="#f6f4e0a8" layoutX="243.0" layoutY="354.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1911111111" fill="#f6f4e0a8" layoutX="243.0" layoutY="655.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111111" fill="#f6f4e0a8" layoutX="243.0" layoutY="311.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1911111121" fill="#f6f4e0a8" layoutX="279.0" layoutY="633.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1111111111111" fill="#f6f4e0a8" layoutX="279.0" layoutY="590.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex411111111111" fill="#f6f4e0a8" layoutX="279.0" layoutY="547.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211211" fill="#f6f4e0a8" layoutX="279.0" layoutY="504.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111211" fill="#f6f4e0a8" layoutX="279.0" layoutY="461.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112121111" fill="#f6f4e0a8" layoutX="279.0" layoutY="418.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111112" fill="#f6f4e0a8" layoutX="279.0" layoutY="375.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex19111111111" fill="#f6f4e0a8" layoutX="279.0" layoutY="676.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211111111" fill="#f6f4e0a8" layoutX="279.0" layoutY="332.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111111111" fill="#f6f4e0a8" layoutX="279.0" layoutY="289.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex19111111211" fill="#f6f4e0a8" layoutX="315.0" layoutY="655.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex11111111111111" fill="#f6f4e0a8" layoutX="315.0" layoutY="612.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex4111111111111" fill="#f6f4e0a8" layoutX="315.0" layoutY="569.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112112111" fill="#f6f4e0a8" layoutX="315.0" layoutY="526.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121112111" fill="#f6f4e0a8" layoutX="315.0" layoutY="483.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121211111" fill="#f6f4e0a8" layoutX="315.0" layoutY="440.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211111121" fill="#f6f4e0a8" layoutX="315.0" layoutY="397.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex191111111111" fill="#f6f4e0a8" layoutX="315.0" layoutY="698.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111111112" fill="#f6f4e0a8" layoutX="315.0" layoutY="354.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111111111" fill="#f6f4e0a8" layoutX="315.0" layoutY="311.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211111111111" fill="#f6f4e0a8" layoutX="315.0" layoutY="268.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex191111112111" fill="#f6f4e0a8" layoutX="351.0" layoutY="676.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex111111111111111" fill="#f6f4e0a8" layoutX="351.0" layoutY="633.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex41111111111111" fill="#f6f4e0a8" layoutX="351.0" layoutY="590.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121121111" fill="#f6f4e0a8" layoutX="351.0" layoutY="547.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211121111" fill="#f6f4e0a8" layoutX="351.0" layoutY="504.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111212111111" fill="#f6f4e0a8" layoutX="351.0" layoutY="461.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111111211" fill="#f6f4e0a8" layoutX="351.0" layoutY="418.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1911111111111" fill="#f6f4e0a8" layoutX="351.0" layoutY="719.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111111121" fill="#f6f4e0a8" layoutX="351.0" layoutY="375.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211111111112" fill="#f6f4e0a8" layoutX="351.0" layoutY="332.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111111111111" fill="#f6f4e0a8" layoutX="351.0" layoutY="289.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex11" fill="#f6f4e0a8" layoutX="387.0" layoutY="268.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1911111121111" fill="#f6f4e0a8" layoutX="387.0" layoutY="698.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1111111111111111" fill="#f6f4e0a8" layoutX="387.0" layoutY="655.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex411111111111111" fill="#f6f4e0a8" layoutX="387.0" layoutY="612.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211211111" fill="#f6f4e0a8" layoutX="387.0" layoutY="569.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111211111" fill="#f6f4e0a8" layoutX="387.0" layoutY="526.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112121111111" fill="#f6f4e0a8" layoutX="387.0" layoutY="483.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111112111" fill="#f6f4e0a8" layoutX="387.0" layoutY="440.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex19111111111111" fill="#f6f4e0a8" layoutX="387.0" layoutY="741.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211111111211" fill="#f6f4e0a8" layoutX="387.0" layoutY="397.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111111111121" fill="#f6f4e0a8" layoutX="387.0" layoutY="354.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111111111111" fill="#f6f4e0a8" layoutX="387.0" layoutY="311.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex12" fill="#f6f4e0a8" layoutX="423.0" layoutY="719.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex19111112" fill="#f6f4e0a8" layoutX="602.0" layoutY="354.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex11111111112" fill="#f6f4e0a8" layoutX="602.0" layoutY="397.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex4111111112" fill="#f6f4e0a8" layoutX="602.0" layoutY="440.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112113" fill="#f6f4e0a8" layoutX="602.0" layoutY="483.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121113" fill="#f6f4e0a8" layoutX="602.0" layoutY="526.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121212" fill="#f6f4e0a8" layoutX="602.0" layoutY="569.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211112" fill="#f6f4e0a8" layoutX="602.0" layoutY="612.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex191111113" fill="#f6f4e0a8" layoutX="566.0" layoutY="375.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex111111111112" fill="#f6f4e0a8" layoutX="566.0" layoutY="418.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex41111111112" fill="#f6f4e0a8" layoutX="566.0" layoutY="461.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121122" fill="#f6f4e0a8" layoutX="566.0" layoutY="504.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211122" fill="#f6f4e0a8" layoutX="566.0" layoutY="547.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111212112" fill="#f6f4e0a8" layoutX="566.0" layoutY="590.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111112" fill="#f6f4e0a8" layoutX="566.0" layoutY="633.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1911111112" fill="#f6f4e0a8" layoutX="566.0" layoutY="332.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1911111122" fill="#f6f4e0a8" layoutX="531.0" layoutY="354.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1111111111112" fill="#f6f4e0a8" layoutX="531.0" layoutY="397.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex411111111112" fill="#f6f4e0a8" layoutX="531.0" layoutY="440.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211212" fill="#f6f4e0a8" layoutX="531.0" layoutY="483.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111212" fill="#f6f4e0a8" layoutX="531.0" layoutY="526.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112121112" fill="#f6f4e0a8" layoutX="531.0" layoutY="569.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111113" fill="#f6f4e0a8" layoutX="531.0" layoutY="612.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex19111111112" fill="#f6f4e0a8" layoutX="531.0" layoutY="311.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211111112" fill="#f6f4e0a8" layoutX="531.0" layoutY="655.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex19111111212" fill="#f6f4e0a8" layoutX="495.0" layoutY="332.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex11111111111112" fill="#f6f4e0a8" layoutX="495.0" layoutY="375.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex4111111111112" fill="#f6f4e0a8" layoutX="495.0" layoutY="418.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112112112" fill="#f6f4e0a8" layoutX="495.0" layoutY="461.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121112112" fill="#f6f4e0a8" layoutX="495.0" layoutY="504.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121211112" fill="#f6f4e0a8" layoutX="495.0" layoutY="547.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211111122" fill="#f6f4e0a8" layoutX="495.0" layoutY="590.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex191111111112" fill="#f6f4e0a8" layoutX="495.0" layoutY="289.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111111113" fill="#f6f4e0a8" layoutX="495.0" layoutY="633.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111111112" fill="#f6f4e0a8" layoutX="495.0" layoutY="676.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex191111112112" fill="#f6f4e0a8" layoutX="459.0" layoutY="311.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex111111111111112" fill="#f6f4e0a8" layoutX="459.0" layoutY="354.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex41111111111112" fill="#f6f4e0a8" layoutX="459.0" layoutY="397.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121121112" fill="#f6f4e0a8" layoutX="459.0" layoutY="440.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211121112" fill="#f6f4e0a8" layoutX="459.0" layoutY="483.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111212111112" fill="#f6f4e0a8" layoutX="459.0" layoutY="526.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111111212" fill="#f6f4e0a8" layoutX="459.0" layoutY="569.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111111122" fill="#f6f4e0a8" layoutX="459.0" layoutY="612.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211111111113" fill="#f6f4e0a8" layoutX="459.0" layoutY="655.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111111111112" fill="#f6f4e0a8" layoutX="459.0" layoutY="698.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex1111111111111112" fill="#f6f4e0a8" layoutX="423.0" layoutY="332.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex411111111111112" fill="#f6f4e0a8" layoutX="423.0" layoutY="375.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111111111112" fill="#f6f4e0a8" layoutX="423.0" layoutY="676.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211211112" fill="#f6f4e0a8" layoutX="423.0" layoutY="418.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111211112" fill="#f6f4e0a8" layoutX="423.0" layoutY="461.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112121111112" fill="#f6f4e0a8" layoutX="423.0" layoutY="504.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex71111121111112112" fill="#f6f4e0a8" layoutX="423.0" layoutY="547.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex711111211111111212" fill="#f6f4e0a8" layoutX="423.0" layoutY="590.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112111111111122" fill="#f6f4e0a8" layoutX="423.0" layoutY="633.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex11111111111111121" fill="#f6f4e0a8" layoutX="459.0" layoutY="268.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex4111111111111121" fill="#f6f4e0a8" layoutX="423.0" layoutY="246.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="hex7111112112111121" fill="#f6f4e0a8" layoutX="423.0" layoutY="289.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="-50.0" />
-            <Double fx:value="45" />
-            <Double fx:value="-25.0" />
-            <Double fx:value="45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="50.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="25.0" />
-            <Double fx:value="-45" />
-            <Double fx:value="-25.0" />
-         </points>
-      </Polygon>
+      <Pane fx:id="boardPane" layoutX="-87.0" layoutY="-67.0" scaleX="0.7" scaleY="0.7">
+         <children>
+            <Polygon fx:id="hex11" fill="#fffae5" layoutX="308.0" layoutY="276.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex21" fill="#fffae5" layoutX="251.0" layoutY="310.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex31" fill="#fffae5" layoutX="366.0" layoutY="310.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex41" fill="#fffae5" layoutX="308.0" layoutY="344.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex51" fill="#fffae5" layoutX="251.0" layoutY="379.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex61" fill="#fffae5" layoutX="366.0" layoutY="379.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex71" fill="#fffae5" layoutX="309.0" layoutY="413.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex81" fill="#fffae5" layoutX="252.0" layoutY="448.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex91" fill="#fffae5" layoutX="366.0" layoutY="448.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex101" fill="#fffae5" layoutX="309.0" layoutY="482.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex111" fill="#fffae5" layoutX="252.0" layoutY="516.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex121" fill="#fffae5" layoutX="366.0" layoutY="516.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex131" fill="#fffae5" layoutX="309.0" layoutY="551.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex141" fill="#fffae5" layoutX="194.0" layoutY="344.0" onMouseClicked="#getHexID" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0" />
+            <Polygon fx:id="hex151" fill="#fffae5" layoutX="195.0" layoutY="413.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex161" fill="#fffae5" layoutX="195.0" layoutY="482.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex171" fill="#fffae5" layoutX="423.0" layoutY="344.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex181" fill="#fffae5" layoutX="423.0" layoutY="413.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex191" fill="#fffae5" layoutX="423.0" layoutY="482.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex112" fill="#fffae5" layoutX="593.0" layoutY="310.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex211" fill="#fffae5" layoutX="536.0" layoutY="344.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex311" fill="#fffae5" layoutX="651.0" layoutY="344.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex411" fill="#fffae5" layoutX="593.0" layoutY="378.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex511" fill="#fffae5" layoutX="536.0" layoutY="413.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex611" fill="#fffae5" layoutX="651.0" layoutY="413.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex711" fill="#fffae5" layoutX="594.0" layoutY="447.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex811" fill="#fffae5" layoutX="537.0" layoutY="482.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex911" fill="#fffae5" layoutX="651.0" layoutY="482.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1011" fill="#fffae5" layoutX="594.0" layoutY="516.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1111" fill="#fffae5" layoutX="537.0" layoutY="550.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1211" fill="#fffae5" layoutX="651.0" layoutY="550.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1311" fill="#fffae5" layoutX="594.0" layoutY="585.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1411" fill="#fffae5" layoutX="479.0" layoutY="378.0" onMouseClicked="#getHexID" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0" />
+            <Polygon fx:id="hex1511" fill="#fffae5" layoutX="480.0" layoutY="447.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1611" fill="#fffae5" layoutX="480.0" layoutY="516.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1711" fill="#fffae5" layoutX="708.0" layoutY="378.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1811" fill="#fffae5" layoutX="708.0" layoutY="447.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1911" fill="#fffae5" layoutX="708.0" layoutY="516.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1121" fill="#fffae5" layoutX="423.0" layoutY="551.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex2111" fill="#fffae5" layoutX="366.0" layoutY="585.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex3111" fill="#fffae5" layoutX="481.0" layoutY="585.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex4111" fill="#fffae5" layoutX="423.0" layoutY="619.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex5111" fill="#fffae5" layoutX="366.0" layoutY="654.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex6111" fill="#fffae5" layoutX="481.0" layoutY="653.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex7111" fill="#fffae5" layoutX="424.0" layoutY="688.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex8111" fill="#fffae5" layoutX="367.0" layoutY="723.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex9111" fill="#fffae5" layoutX="481.0" layoutY="722.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex10111" fill="#fffae5" layoutX="424.0" layoutY="757.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex11111" fill="#fffae5" layoutX="367.0" layoutY="791.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex12111" fill="#fffae5" layoutX="481.0" layoutY="791.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex13111" fill="#fffae5" layoutX="424.0" layoutY="826.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex14111" fill="#fffae5" layoutX="309.0" layoutY="619.0" onMouseClicked="#getHexID" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0" />
+            <Polygon fx:id="hex15111" fill="#fffae5" layoutX="310.0" layoutY="688.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex16111" fill="#fffae5" layoutX="310.0" layoutY="757.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex17111" fill="#fffae5" layoutX="538.0" layoutY="619.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex18111" fill="#fffae5" layoutX="538.0" layoutY="688.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex19111" fill="#fffae5" layoutX="538.0" layoutY="757.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex81111" fill="#fffae5" layoutX="140.0" layoutY="654.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex101111" fill="#fffae5" layoutX="197.0" layoutY="688.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex121111" fill="#fffae5" layoutX="253.0" layoutY="723.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex151111" fill="#fffae5" layoutX="83.0" layoutY="619.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex51111" fill="#fffae5" layoutX="139.0" layoutY="585.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex71111" fill="#fffae5" layoutX="197.0" layoutY="619.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex91112" fill="#fffae5" layoutX="254.0" layoutY="654.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex141111" fill="#fffae5" layoutX="82.0" layoutY="550.0" onMouseClicked="#getHexID" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0" />
+            <Polygon fx:id="hex511111" fill="#fffae5" layoutX="138.0" layoutY="516.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex711111" fill="#fffae5" layoutX="196.0" layoutY="550.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex911121" fill="#fffae5" layoutX="253.0" layoutY="585.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1411111" fill="#fffae5" layoutX="81.0" layoutY="481.0" onMouseClicked="#getHexID" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0" />
+            <Polygon fx:id="hex91111" fill="#fffae5" layoutX="708.0" layoutY="653.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex101112" fill="#fffae5" layoutX="651.0" layoutY="688.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex111111" fill="#fffae5" layoutX="594.0" layoutY="722.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex181111" fill="#fffae5" layoutX="766.0" layoutY="619.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex12112" fill="#fffae5" layoutX="651.0" layoutY="619.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex13112" fill="#fffae5" layoutX="594.0" layoutY="653.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex19112" fill="#fffae5" layoutX="708.0" layoutY="585.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex113" fill="#fffae5" layoutX="80.0" layoutY="206.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex412" fill="#fffae5" layoutX="80.0" layoutY="274.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex712" fill="#fffae5" layoutX="81.0" layoutY="343.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1012" fill="#fffae5" layoutX="81.0" layoutY="412.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1131" fill="#fffae5" layoutX="137.0" layoutY="241.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex4121" fill="#fffae5" layoutX="137.0" layoutY="309.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex7121" fill="#fffae5" layoutX="138.0" layoutY="378.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex10121" fill="#fffae5" layoutX="138.0" layoutY="447.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1411112" fill="#fffae5" layoutX="765.0" layoutY="551.0" onMouseClicked="#getHexID" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0" />
+            <Polygon fx:id="hex14111111" fill="#fffae5" layoutX="764.0" layoutY="482.0" onMouseClicked="#getHexID" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0" />
+            <Polygon fx:id="hex1132" fill="#fffae5" layoutX="763.0" layoutY="207.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex4122" fill="#fffae5" layoutX="763.0" layoutY="275.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex7122" fill="#fffae5" layoutX="764.0" layoutY="344.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex10122" fill="#fffae5" layoutX="764.0" layoutY="413.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex912" fill="#fffae5" layoutX="251.0" layoutY="241.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1013" fill="#fffae5" layoutX="194.0" layoutY="275.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex7112" fill="#fffae5" layoutX="479.0" layoutY="240.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex8112" fill="#fffae5" layoutX="422.0" layoutY="275.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex9112" fill="#fffae5" layoutX="536.0" layoutY="275.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex10112" fill="#fffae5" layoutX="479.0" layoutY="309.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex15112" fill="#fffae5" layoutX="365.0" layoutY="241.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex18112" fill="#fffae5" layoutX="593.0" layoutY="241.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex3112" fill="#fffae5" layoutX="650.0" layoutY="207.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex6112" fill="#fffae5" layoutX="650.0" layoutY="276.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex17112" fill="#fffae5" layoutX="707.0" layoutY="241.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex18113" fill="#fffae5" layoutX="707.0" layoutY="310.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex512" fill="#fffae5" layoutX="194.0" layoutY="207.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex612" fill="#fffae5" layoutX="309.0" layoutY="207.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex4112" fill="#fffae5" layoutX="536.0" layoutY="206.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex14112" fill="#fffae5" layoutX="422.0" layoutY="206.0" onMouseClicked="#getHexID" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0" />
+            <Polygon fx:id="hex114" fill="#fffae5" layoutX="308.0" layoutY="70.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex212" fill="#fffae5" layoutX="251.0" layoutY="104.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex312" fill="#fffae5" layoutX="366.0" layoutY="104.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex413" fill="#fffae5" layoutX="308.0" layoutY="138.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex513" fill="#fffae5" layoutX="251.0" layoutY="173.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex613" fill="#fffae5" layoutX="366.0" layoutY="173.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1412" fill="#fffae5" layoutX="194.0" layoutY="138.0" onMouseClicked="#getHexID" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0" />
+            <Polygon fx:id="hex1712" fill="#fffae5" layoutX="423.0" layoutY="138.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex1122" fill="#fffae5" layoutX="593.0" layoutY="104.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex2112" fill="#fffae5" layoutX="536.0" layoutY="138.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex3113" fill="#fffae5" layoutX="651.0" layoutY="138.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex4113" fill="#fffae5" layoutX="593.0" layoutY="172.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex14113" fill="#fffae5" layoutX="479.0" layoutY="172.0" onMouseClicked="#getHexID" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0" />
+            <Polygon fx:id="hex17113" fill="#fffae5" layoutX="708.0" layoutY="173.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex71211" fill="#fffae5" layoutX="138.0" layoutY="172.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex10131" fill="#fffae5" layoutX="422.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex81121" fill="#fffae5" layoutX="422.0" layoutY="69.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex91121" fill="#fffae5" layoutX="536.0" layoutY="69.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex101121" fill="#fffae5" layoutX="479.0" layoutY="103.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex61121" fill="#fffae5" layoutX="365.0" layoutY="35.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+            <Polygon fx:id="hex181131" fill="#fffae5" layoutX="479.0" layoutY="35.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.8" scaleY="0.8" stroke="#531414" strokeType="INSIDE" strokeWidth="4.0">
+               <points>
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="-25.0" />
+                  <Double fx:value="45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="25.0" />
+                  <Double fx:value="-45" />
+                  <Double fx:value="-25.0" />
+               </points>
+            </Polygon>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

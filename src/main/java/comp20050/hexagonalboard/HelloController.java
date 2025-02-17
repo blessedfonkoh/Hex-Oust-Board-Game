@@ -8,11 +8,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 
-import static javafx.scene.paint.Color.BLACK;
-
 public class HelloController {
+    @FXML
+    private Pane boardPane; // The container holding all hexagons
+
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -80,7 +84,21 @@ public class HelloController {
     @FXML
     void getHexID(MouseEvent event) {
         Polygon hexagon = (Polygon) event.getSource();
-        hexagon.setFill(BLACK);
+
+        //create a blue circle
+        Circle blueCircle = new Circle(20, Color.BLUE);
+        blueCircle.setStroke(Color.NAVY);
+        blueCircle.setStrokeWidth(5);
+
+        double centerX = hexagon.getLayoutX();
+        double centerY = hexagon.getLayoutY();
+
+        //set the circle position
+        blueCircle.setLayoutX(centerX);
+        blueCircle.setLayoutY(centerY);
+
+        //add circle to the boardPane
+        boardPane.getChildren().add(blueCircle);
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
