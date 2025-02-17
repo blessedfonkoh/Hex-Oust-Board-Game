@@ -8,9 +8,9 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp20050.hexagonalboard.HelloController">
    <children>
-      <Pane layoutX="7.0" layoutY="12.0" prefHeight="700.0" prefWidth="560.0">
+      <Pane fx:id="boardPane" layoutX="7.0" layoutY="12.0" prefHeight="700.0" prefWidth="560.0">
          <children>
-            <Polygon fx:id="boardPane" fill="#f6f4e0a8" layoutX="243.0" layoutY="67.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
+            <Polygon fill="#f6f4e0a8" layoutX="243.0" layoutY="67.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.5" scaleY="0.5" stroke="#c3b6b6" strokeType="INSIDE" strokeWidth="4.0">
                <points>
                   <Double fx:value="0.0" />
                   <Double fx:value="-50.0" />
