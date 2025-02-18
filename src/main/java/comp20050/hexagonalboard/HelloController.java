@@ -4,6 +4,7 @@ package comp20050.hexagonalboard;
  * Sample Skeleton for 'hello-view.fxml' Controller Class
  */
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -86,9 +87,9 @@ public class HelloController {
         Polygon hexagon = (Polygon) event.getSource();
 
         //create a blue circle
-        Circle blueCircle = new Circle(20, Color.BLUE);
+        Circle blueCircle = new Circle(12, Color.BLUE);
         blueCircle.setStroke(Color.NAVY);
-        blueCircle.setStrokeWidth(5);
+        blueCircle.setStrokeWidth(4);
 
         double centerX = hexagon.getLayoutX();
         double centerY = hexagon.getLayoutY();
@@ -125,4 +126,9 @@ public class HelloController {
 
     }
 
+    public void resetGame(MouseEvent mouseEvent) {
+        boardPane.getChildren().removeIf(node -> node instanceof Circle);
+
+
+    }
 }
