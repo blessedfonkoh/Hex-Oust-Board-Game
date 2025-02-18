@@ -15,6 +15,13 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 
 public class HelloController {
+    boolean turn = true; // true for red, false for blue
+
+    public boolean switchTurn () {
+        turn = !turn;
+        return turn;
+    }
+
     @FXML
     private Pane boardPane; // The container holding all hexagons
 
@@ -98,8 +105,28 @@ public class HelloController {
         blueCircle.setLayoutX(centerX);
         blueCircle.setLayoutY(centerY);
 
+        //create a red circle
+        Circle redCircle = new Circle(12, Color.RED);
+        redCircle.setStroke(Color.MAROON);
+        redCircle.setStrokeWidth(4);
+
+        //set the circle position
+        redCircle.setLayoutX(centerX);
+        redCircle.setLayoutY(centerY);
+
+
         //add circle to the boardPane
-        boardPane.getChildren().add(blueCircle);
+        if(!turn)
+        {
+            boardPane.getChildren().add(blueCircle);
+
+        }
+        else if(turn){
+            boardPane.getChildren().add(redCircle);
+        }
+        switchTurn();
+
+
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
@@ -127,6 +154,7 @@ public class HelloController {
     }
 
     public void resetGame(MouseEvent mouseEvent) {
+        turn = true;
         boardPane.getChildren().removeIf(node -> node instanceof Circle);
 
 
