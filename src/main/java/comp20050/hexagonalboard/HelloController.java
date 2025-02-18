@@ -4,7 +4,6 @@ package comp20050.hexagonalboard;
  * Sample Skeleton for 'hello-view.fxml' Controller Class
  */
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -19,12 +18,15 @@ public class HelloController {
 
     public boolean switchTurn () {
         turn = !turn;
+        displayTurn(); //display next turn
         return turn;
     }
 
     @FXML
     private Pane boardPane; // The container holding all hexagons
 
+    @FXML
+    private Pane turnPane; // The container holding the turns and the test "To Make a Move"
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -93,36 +95,36 @@ public class HelloController {
     void getHexID(MouseEvent event) {
         Polygon hexagon = (Polygon) event.getSource();
 
-        //create a blue circle
-        Circle blueCircle = new Circle(12, Color.BLUE);
-        blueCircle.setStroke(Color.NAVY);
-        blueCircle.setStrokeWidth(4);
+        //create a blue stone
+        Circle blueStone = new Circle(12, Color.BLUE);
+        blueStone.setStroke(Color.NAVY);
+        blueStone.setStrokeWidth(4);
 
         double centerX = hexagon.getLayoutX();
         double centerY = hexagon.getLayoutY();
 
         //set the circle position
-        blueCircle.setLayoutX(centerX);
-        blueCircle.setLayoutY(centerY);
+        blueStone.setLayoutX(centerX);
+        blueStone.setLayoutY(centerY);
 
         //create a red circle
-        Circle redCircle = new Circle(12, Color.RED);
-        redCircle.setStroke(Color.MAROON);
-        redCircle.setStrokeWidth(4);
+        Circle redStone = new Circle(12, Color.RED);
+        redStone.setStroke(Color.MAROON);
+        redStone.setStrokeWidth(4);
 
         //set the circle position
-        redCircle.setLayoutX(centerX);
-        redCircle.setLayoutY(centerY);
+        redStone.setLayoutX(centerX);
+        redStone.setLayoutY(centerY);
 
 
         //add circle to the boardPane
         if(!turn)
         {
-            boardPane.getChildren().add(blueCircle);
+            boardPane.getChildren().add(blueStone);
 
         }
         else if(turn){
-            boardPane.getChildren().add(redCircle);
+            boardPane.getChildren().add(redStone);
         }
         switchTurn();
 
@@ -131,6 +133,7 @@ public class HelloController {
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
+        displayTurn(); // display turns, red to make a move first
         assert hex1 != null : "fx:id=\"hex1\" was not injected: check your FXML file 'hello-view.fxml'.";
         assert hex10 != null : "fx:id=\"hex10\" was not injected: check your FXML file 'hello-view.fxml'.";
         assert hex11 != null : "fx:id=\"hex11\" was not injected: check your FXML file 'hello-view.fxml'.";
@@ -157,7 +160,23 @@ public class HelloController {
     public void restartGame(MouseEvent mouseEvent) {
         turn = true;
         boardPane.getChildren().removeIf(node -> node instanceof Circle);
+        displayTurn();
+
+    }
+    void displayTurn(){
+
+            //create a red circle
+            Circle redStone = new Circle(12, Color.RED);
+            redStone.setStroke(Color.MAROON);
+            redStone.setStrokeWidth(4);
+            Circle stone = new Circle(12, turn? Color.RED : Color.BLUE);
+            stone.setStroke(turn? Color.MAROON : Color.NAVY);
+            stone.setStrokeWidth(4);
+            stone.setCenterX(-30);
+            stone.setCenterY(-9);
+            turnPane.getChildren().add(stone);
 
 
     }
+
 }
