@@ -153,7 +153,8 @@ public class HelloController {
 
     }
 
-    public void resetGame(MouseEvent mouseEvent) {
+    //fx:id="restartButton"
+    public void restartGame(MouseEvent mouseEvent) {
         turn = true;
         boardPane.getChildren().removeIf(node -> node instanceof Circle);
 
