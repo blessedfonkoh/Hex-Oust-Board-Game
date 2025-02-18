@@ -1,20 +1,20 @@
 package comp20050.hexagonalboard;
 
 /**
- * Sample Skeleton for 'hello-view.fxml' Controller Class
+ * Game Controller Class
+ * for 'game-view.fxml'
  */
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 
-public class HelloController {
+public class GameController {
     boolean turn = true; // true for red, false for blue
 
     public boolean switchTurn () {
@@ -136,25 +136,25 @@ public class HelloController {
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         displayTurn(); // display turns, red to make a move first
-        assert hex1 != null : "fx:id=\"hex1\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex10 != null : "fx:id=\"hex10\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex11 != null : "fx:id=\"hex11\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex12 != null : "fx:id=\"hex12\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex13 != null : "fx:id=\"hex13\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex14 != null : "fx:id=\"hex14\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex15 != null : "fx:id=\"hex15\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex16 != null : "fx:id=\"hex16\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex17 != null : "fx:id=\"hex17\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex18 != null : "fx:id=\"hex18\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex19 != null : "fx:id=\"hex19\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex2 != null : "fx:id=\"hex2\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex3 != null : "fx:id=\"hex3\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex4 != null : "fx:id=\"hex4\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex5 != null : "fx:id=\"hex5\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex6 != null : "fx:id=\"hex6\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex7 != null : "fx:id=\"hex7\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex8 != null : "fx:id=\"hex8\" was not injected: check your FXML file 'hello-view.fxml'.";
-        assert hex9 != null : "fx:id=\"hex9\" was not injected: check your FXML file 'hello-view.fxml'.";
+        assert hex1 != null : "fx:id=\"hex1\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex10 != null : "fx:id=\"hex10\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex11 != null : "fx:id=\"hex11\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex12 != null : "fx:id=\"hex12\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex13 != null : "fx:id=\"hex13\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex14 != null : "fx:id=\"hex14\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex15 != null : "fx:id=\"hex15\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex16 != null : "fx:id=\"hex16\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex17 != null : "fx:id=\"hex17\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex18 != null : "fx:id=\"hex18\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex19 != null : "fx:id=\"hex19\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex2 != null : "fx:id=\"hex2\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex3 != null : "fx:id=\"hex3\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex4 != null : "fx:id=\"hex4\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex5 != null : "fx:id=\"hex5\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex6 != null : "fx:id=\"hex6\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex7 != null : "fx:id=\"hex7\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex8 != null : "fx:id=\"hex8\" was not injected: check your FXML file 'game-view.fxml'.";
+        assert hex9 != null : "fx:id=\"hex9\" was not injected: check your FXML file 'game-view.fxml'.";
 
     }
 
