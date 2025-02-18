@@ -7,6 +7,7 @@ package comp20050.hexagonalboard;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -94,6 +95,7 @@ public class HelloController {
     @FXML
     void getHexID(MouseEvent event) {
         Polygon hexagon = (Polygon) event.getSource();
+        hexagon.setDisable(true);
 
         //create a blue stone
         Circle blueStone = new Circle(12, Color.BLUE);
@@ -160,9 +162,15 @@ public class HelloController {
     public void restartGame(MouseEvent mouseEvent) {
         turn = true;
         boardPane.getChildren().removeIf(node -> node instanceof Circle);
+        boardPane.getChildren().forEach(node -> {
+            if (node instanceof Polygon) {
+                node.setDisable(false);
+            }
+        }
+        );
         displayTurn();
-
     }
+
     void displayTurn(){
 
             //create a red circle
@@ -175,7 +183,6 @@ public class HelloController {
             stone.setCenterX(-30);
             stone.setCenterY(-9);
             turnPane.getChildren().add(stone);
-
 
     }
 
