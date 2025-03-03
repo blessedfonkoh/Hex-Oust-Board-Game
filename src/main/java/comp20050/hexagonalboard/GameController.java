@@ -1,10 +1,5 @@
 package comp20050.hexagonalboard;
 
-/**
- * Game Controller Class
- * for 'game-view.fxml'
- */
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +7,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -20,6 +16,10 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Line;
 
 
+/**
+ * Game Controller Class
+ * for 'game-view.fxml'
+ */
 public class GameController {
     boolean turn = true; // true for red, false for blue
 
@@ -27,6 +27,10 @@ public class GameController {
         turn = !turn;
         displayTurn(); //display next turn
     }
+
+    @FXML
+    public Button restartButton;
+
 
     @FXML
     private Pane boardPane; // The container holding all hexagons
@@ -123,7 +127,7 @@ public class GameController {
     }
 
     //fx:id="restartButton"
-    public void restartGame(MouseEvent mouseEvent) {
+    public void restartGame() {
         turn = true;
         boardPane.getChildren().removeIf(node -> node instanceof Circle);
         boardPane.getChildren().forEach(node -> {
@@ -142,7 +146,7 @@ public class GameController {
     @FXML
     void showX(MouseEvent event) {
         currentHex = (Polygon) event.getSource();
-         // /
+        // /
         line1.setStartX(-8);
         line1.setStartY(8);
         line1.setEndX(8);
@@ -161,19 +165,62 @@ public class GameController {
         // styling
         line1.setStroke(Color.RED);
         line1.setStrokeWidth(4);
-       line2.setStroke(Color.RED);
+        line2.setStroke(Color.RED);
         line2.setStrokeWidth(4);
 
         // Add to the pane if not already added
         if (!boardPane.getChildren().contains(line1)) {
             boardPane.getChildren().addAll(line1, line2);
         }
+
     }
 
     @FXML
     void removeX(MouseEvent event) {
-//TODO
-}
+        boardPane.getChildren().remove(line1);
+        boardPane.getChildren().remove(line2);
+
+    }
+    void checkValid(MouseEvent event) {
+        Circle red = new Circle(12, Color.RED);
+        Circle blue = new Circle(12, Color.BLUE);
+        if(turn){
+
+
+
+        }
+        else{
+            /*
+            its blues turn rn.
+            so if there is an instance of a red stone
+            then set surrounding hexagons to invalid i.e
+            call show X (if hovered above but already implied by function)
+
+
+boardPane.getChildren().removeIf(node -> node instanceof Circle);
+        boardPane.getChildren().forEach(node -> {
+                    if (node instanceof Polygon) {
+                        node.setDisable(false);
+                    }
+                }
+        );
+             */
+
+            if(boardPane.getChildren().contains(red)){
+                List<String> blueInvalid = new ArrayList<>();
+                currentHex = (Polygon) event.getSource();
+                String hex = currentHex.getId();
+
+                for (int i = 'A'; i <= 'H'; i++) {
+                    for(int j = 1; j <= 8; j++) {
+                        blueInvalid.add(hex);
+                    }
+                }
+
+            }
+
+        }
+    }
 
     void displayTurn() {
 
