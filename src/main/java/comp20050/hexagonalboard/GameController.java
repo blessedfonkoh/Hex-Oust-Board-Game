@@ -17,6 +17,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Line;
+
 
 public class GameController {
     boolean turn = true; // true for red, false for blue
@@ -76,42 +78,6 @@ public class GameController {
         Polygon hexagon = (Polygon) event.getSource();
         hexagon.setDisable(true);
 
-/*
-
-    SEE COMPACT VERSION BELOW!!!
-
-        //create a blue stone
-        Circle blueStone = new Circle(12, Color.BLUE);
-        blueStone.setStroke(Color.NAVY);
-        blueStone.setStrokeWidth(4);
-
-        double centerX = hexagon.getLayoutX();
-        double centerY = hexagon.getLayoutY();
-
-        //set the circle position
-        blueStone.setLayoutX(centerX);
-        blueStone.setLayoutY(centerY);
-
-        //create a red circle
-        Circle redStone = new Circle(12, Color.RED);
-        redStone.setStroke(Color.MAROON);
-        redStone.setStrokeWidth(4);
-
-        //set the circle position
-        redStone.setLayoutX(centerX);
-        redStone.setLayoutY(centerY);
-
-        //add circle to the boardPane
-        if(turn)
-        {
-            boardPane.getChildren().add(redStone);
-        }
-        else {
-            boardPane.getChildren().add(blueStone);
-        }
-        switchTurn();
- */
-
         //Creating blue or red stone depending on whose turn it is
         Circle stone = new Circle(12, turn ? Color.RED : Color.BLUE);
 
@@ -168,6 +134,46 @@ public class GameController {
         );
         displayTurn();
     }
+
+    private Line line1 = new Line();
+    private Line line2 = new Line();
+    private Polygon currentHex;
+
+    @FXML
+    void showX(MouseEvent event) {
+        currentHex = (Polygon) event.getSource();
+         // /
+        line1.setStartX(-8);
+        line1.setStartY(8);
+        line1.setEndX(8);
+        line1.setEndY(-8);
+        line1.setLayoutX(currentHex.getLayoutX());
+        line1.setLayoutY(currentHex.getLayoutY());
+
+        // \
+        line2.setStartX(-8);
+        line2.setStartY(-8);
+        line2.setEndX(8);
+        line2.setEndY(8);
+        line2.setLayoutX(currentHex.getLayoutX());
+        line2.setLayoutY(currentHex.getLayoutY());
+
+        // styling
+        line1.setStroke(Color.RED);
+        line1.setStrokeWidth(4);
+       line2.setStroke(Color.RED);
+        line2.setStrokeWidth(4);
+
+        // Add to the pane if not already added
+        if (!boardPane.getChildren().contains(line1)) {
+            boardPane.getChildren().addAll(line1, line2);
+        }
+    }
+
+    @FXML
+    void removeX(MouseEvent event) {
+//TODO
+}
 
     void displayTurn() {
 

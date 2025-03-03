@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="HexagonalBoard:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/HexagonalBoard_jar</output-path>
+    <output-path>$PROJECT_DIR$/../..</output-path>
     <root id="archive" name="HexagonalBoard.jar">
       <element id="module-output" name="HexagonalBoard" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/20.0.1/javafx-controls-20.0.1-linux.jar" path-in-jar="/" />
