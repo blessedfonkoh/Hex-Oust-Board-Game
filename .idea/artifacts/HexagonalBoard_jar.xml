@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="HexagonalBoard:jar">
+  <artifact type="jar" build-on-make="true" name="HexagonalBoard:jar">
     <output-path>$PROJECT_DIR$/../..</output-path>
     <root id="archive" name="HexagonalBoard.jar">
       <element id="module-output" name="HexagonalBoard" />
