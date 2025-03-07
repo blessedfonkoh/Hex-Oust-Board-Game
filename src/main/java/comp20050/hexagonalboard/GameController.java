@@ -13,17 +13,23 @@ import javafx.scene.shape.Line;
 
 import javax.swing.*;
 
-
 /**
  * Game Controller Class
  * for 'game-view.fxml'
  */
 public class GameController {
-    boolean turn = true; // true for red, false for blue
 
+    private boolean turn = true; // True for red, False for blue
+
+    private final List<String> redHexagons = new ArrayList<>(); // List to store RED players moves
+    private final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
+
+    /**
+     * Method to switch players turns
+     */
     public void switchTurn() {
         turn = !turn;
-        displayTurn(); //display next turn
+        displayTurn(); // Calling displayTurn() method to display next turn
     }
 
     @FXML
@@ -67,10 +73,6 @@ public class GameController {
     @FXML
     private Polygon M7, M8, M9, M10, M11, M12, M13;
 
-    List<String> redHexagons = new ArrayList<>();
-    List<String> blueHexagons = new ArrayList<>();
-
-    // TODO - add javadoc description
 
     /**
      * Method to allow the user to place a stone on the base-7 hexagonal grid
@@ -78,10 +80,12 @@ public class GameController {
      * @param event : Mouse event triggered by clicking on a hexagon.
      */
     @FXML
-    void placeStone(MouseEvent event) {
+    public void placeStone(MouseEvent event) {
+
         Polygon hexagon = (Polygon) event.getSource();
+
         if (hexagon.isDisabled()) {
-            return; //preventing placement on disabled hexagons
+            return; // Preventing placement on disabled hexagons
         }
 
         String hexId = hexagon.getId();
@@ -92,38 +96,43 @@ public class GameController {
         // Display pop-up error message if current hex is invalid, cancels stone placement
         if (invalidHexes.contains(hexagon.getId())) {
             JPanel panel = new JPanel();
-            JOptionPane.showMessageDialog(panel, "Invalid Cell Placement.", "Invalid Move", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Invalid Cell Placement.",
+                    "Invalid Move", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         //Creating blue or red stone depending on whose turn it is
         Circle stone = new Circle(12, turn ? Color.RED : Color.BLUE);
+
         //Setting the stone border colour and width
         stone.setStroke(turn ? Color.MAROON : Color.NAVY);
         stone.setStrokeWidth(4);
+
         //Setting the stone position
         stone.setLayoutX(hexagon.getLayoutX());
         stone.setLayoutY(hexagon.getLayoutY());
+
         //Display stone to board
         boardPane.getChildren().add(stone);
 
-        hexagon.setDisable(true); // disabling hexagons with stones to prevent placement on them
+        hexagon.setDisable(true); // Disabling hexagons with stones to prevent placement on them
 
 
         if (turn) { // Red's turn
-            redHexagons.add(hexId);
+            redHexagons.add(hexId); // Add placed stone to RED's list
         } else { // Blue's turn
-            blueHexagons.add(hexId);
+            blueHexagons.add(hexId); // Add placed stone to BLUE's list
         }
 
-        //Switch player's turn
+        // Switch player's turn
         switchTurn();
 
     }
 
-    // first line "/"
+    // Lines to display X
+    // First line "/"
     Line line1 = new Line(-8, 8, 8, -8);
-    // second line "\"
+    // Second line "\"
     Line line2 = new Line(-8, -8, 8, 8);
 
     /**
@@ -131,8 +140,8 @@ public class GameController {
      *
      * @param event : Mouse event triggered by cursor hovering on the hexagon.
      */
-@FXML
-    void showX(MouseEvent event) {
+    @FXML
+    public void showX(MouseEvent event) {
         Polygon currentHex = (Polygon) event.getSource();
 
         // Get restricted hexes based on current player
@@ -147,12 +156,13 @@ public class GameController {
             line2.setLayoutX(currentHex.getLayoutX());
             line2.setLayoutY(currentHex.getLayoutY());
 
-            // styling
+            // Styling the lines to make them RED
             line1.setStroke(Color.RED);
             line1.setStrokeWidth(4);
             line2.setStroke(Color.RED);
             line2.setStrokeWidth(4);
 
+            // Setting it transparent so when clicked on, error message will pop up
             line1.setMouseTransparent(true);
             line2.setMouseTransparent(true);
 
@@ -162,14 +172,14 @@ public class GameController {
             }
         }
 
-
     }
 
     /**
      * Method to remove the red X from the board after hovering
      */
     @FXML
-    void removeX() {
+    public void removeX() {
+        // Removing the line from the view of the board
         boardPane.getChildren().remove(line1);
         boardPane.getChildren().remove(line2);
     }
@@ -181,6 +191,7 @@ public class GameController {
      * @return invalidHexes : A list of hexagon IDs that are invalid for placement based on the player's occupied hexagons.
      */
     private List<String> getInvalidHexes(List<String> playersHexagons) {
+
         List<String> invalidHexes = new ArrayList<>();
         for (String hexId : playersHexagons) {
             invalidHexes.addAll(getNeighbourHex(hexId));
@@ -189,27 +200,27 @@ public class GameController {
     }
 
     /**
-     * Method to get all valid neighbouring hexagons for a given Hex Id
+     * Method to get all valid neighbouring hexagons for a given Hex ID
      *
      * @param hexId : The ID of the hexagon
      * @return A list of hexagon IDs representing the neighboring hexagons.
      */
     private List<String> getNeighbourHex(String hexId) {
-        char letter = hexId.charAt(0); //getting the letter for the row e.g A,B,C
-        int num = Integer.parseInt(hexId.substring(1)); //getting the column number
+        char letter = hexId.charAt(0); // Letter for the row e.g A,B,C
+        int num = Integer.parseInt(hexId.substring(1)); // Number for the column
 
         return new ArrayList<>(Arrays.asList(String.valueOf((char) (letter + 1)) + num,  // Top
                 String.valueOf((char) (letter + 1)) + (num + 1), // Top
-                String.valueOf( (letter)) + (num - 1),  // Left
-                String.valueOf( (letter)) + (num + 1), // Right
+                String.valueOf((letter)) + (num - 1),  // Left
+                String.valueOf((letter)) + (num + 1), // Right
                 String.valueOf((char) (letter - 1)) + (num - 1), // Bottom left
                 String.valueOf((char) (letter - 1)) + num));
     }
 
     @FXML
-        // This method is called by the FXMLLoader when initialization is complete
-    void initialize() {
-        displayTurn(); // display turns, red to make a move first
+    public void initialize() { // Called by the FXMLLoader when initialization is complete
+
+        displayTurn(); // Display turns, RED to make a move first
 
         List<Polygon> hexagons = Arrays.asList(
                 A1, A2, A3, A4, A5, A6, A7,
@@ -231,37 +242,40 @@ public class GameController {
         }
     }
 
-    //fx:id="restartButton"
     /**
-     * Mehod to restart the game by clearing the board and removing all stones
+     * Method to restart the game by clearing the board and removing all stones
      */
     public void restartGame() {
-        turn = true;
-        boardPane.getChildren().removeIf(node -> node instanceof Circle);
-        boardPane.getChildren().forEach(node -> { //remove all stones from the board
-                    if (node instanceof Polygon) {
-                        node.setDisable(false);
-                    }
-                }
-        );
-        // erasing memory of placed stones for red and blue
+
+        turn = true; // Reset turn to begin from RED
+
+        boardPane.getChildren().removeIf(node -> node instanceof Circle); // Remove all stones from the board
+        boardPane.getChildren().forEach(node -> {
+            if (node instanceof Polygon) {
+                node.setDisable(false); // Enable all the hexagons
+            }
+        });
+
+        // Erasing Lists of placed stones for RED and BLUE
         redHexagons.clear();
         blueHexagons.clear();
-        displayTurn();
+
+        displayTurn(); // Display turn from beginning
     }
 
     /**
      * Method to display turns below the board.
      */
-    void displayTurn() {
+    public void displayTurn() {
 
-        //Display stone depending on players turn
+        // Display stone depending on players turn
         Circle stone = new Circle(12, turn ? Color.RED : Color.BLUE);
         stone.setStroke(turn ? Color.MAROON : Color.NAVY);
         stone.setStrokeWidth(4);
         stone.setCenterX(-30);
         stone.setCenterY(-9);
-        turnPane.getChildren().add(stone);
+
+        turnPane.getChildren().add(stone); // Add stone to the board
 
     }
 
