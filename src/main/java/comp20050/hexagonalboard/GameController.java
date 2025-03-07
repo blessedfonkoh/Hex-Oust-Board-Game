@@ -1,6 +1,5 @@
 package comp20050.hexagonalboard;
 
-import java.net.URL;
 import java.util.*;
 
 import javafx.fxml.FXML;
@@ -35,13 +34,6 @@ public class GameController {
 
     @FXML
     private Pane turnPane; // The container holding the turns and the test "To Make a Move"
-
-    @FXML // ResourceBundle that was given to the FXMLLoader
-    private ResourceBundle resources;
-
-    @FXML // URL location of the FXML file that was given to the FXMLLoader
-    private URL location;
-
 
     /**
      * Hexagon instances
@@ -175,14 +167,11 @@ public class GameController {
 
     /**
      * Method to remove the red X from the board after hovering
-     *
-     * @param event : Mouse event triggered by cursor leaving the hexagon
      */
     @FXML
-    void removeX(MouseEvent event) {
+    void removeX() {
         boardPane.getChildren().remove(line1);
         boardPane.getChildren().remove(line2);
-
     }
 
     /**
@@ -211,8 +200,8 @@ public class GameController {
 
         return new ArrayList<>(Arrays.asList(String.valueOf((char) (letter + 1)) + num,  // Top
                 String.valueOf((char) (letter + 1)) + (num + 1), // Top
-                String.valueOf((char) (letter)) + (num - 1),  // Left
-                String.valueOf((char) (letter)) + (num + 1), // Right
+                String.valueOf( (letter)) + (num - 1),  // Left
+                String.valueOf( (letter)) + (num + 1), // Right
                 String.valueOf((char) (letter - 1)) + (num - 1), // Bottom left
                 String.valueOf((char) (letter - 1)) + num));
     }
