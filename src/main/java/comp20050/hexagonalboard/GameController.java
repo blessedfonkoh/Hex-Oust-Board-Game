@@ -87,7 +87,7 @@ public class GameController {
     /**
      * Method to allow the user to place a stone on the base-7 hexagonal grid
      *
-     * @param event
+     * @param event : Mouse event triggered by clicking on a hexagon.
      */
     @FXML
     void placeStone(MouseEvent event) {
@@ -176,7 +176,7 @@ public class GameController {
     /**
      * Method to remove the red X from the board after hovering
      *
-     * @param event
+     * @param event : Mouse event triggered by cursor leaving the hexagon
      */
     @FXML
     void removeX(MouseEvent event) {
@@ -190,8 +190,8 @@ public class GameController {
     /**
      * Method to get all the invalid hexagons that are restricted for the current player
      *
-     * @param playersHexagons
-     * @return
+     * @param playersHexagons : A list of hexagon IDs representing the hexagons occupied by the current player.
+     * @return invalidHexes : A list of hexagon IDs that are invalid for placement based on the player's occupied hexagons.
      */
     private List<String> getInvalidHexes(List<String> playersHexagons) {
         List<String> invalidHexes = new ArrayList<>();
@@ -204,10 +204,10 @@ public class GameController {
     // TODO - add javadoc description
 
     /**
-     * Method to get all valid neighbouring hexagons for a give Hex Id
+     * Method to get all valid neighbouring hexagons for a given Hex Id
      *
-     * @param hexId
-     * @return
+     * @param hexId : The ID of the hexagon
+     * @return A list of hexagon IDs representing the neighboring hexagons.
      */
     private List<String> getNeighbourHex(String hexId) {
         char letter = hexId.charAt(0); //getting the letter for the row e.g A,B,C
