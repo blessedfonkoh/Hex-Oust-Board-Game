@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.*;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Point2D;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -11,6 +12,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Line;
+
+import javax.swing.*;
 
 
 /**
@@ -89,7 +92,18 @@ public class GameController {
         if (hexagon.isDisabled()) {
             return; //preventing placement on disabled hexagons
         }
+
         String hexId = hexagon.getId();
+
+        // Get restricted hexes based on current player
+        List<String> invalidHexes = getInvalidHexes(turn ? redHexagons : blueHexagons);
+
+        // Display pop-up error message if current hex is invalid, cancels stone placement
+        if (invalidHexes.contains(hexagon.getId())) {
+            JPanel panel = new JPanel();
+            JOptionPane.showMessageDialog(panel, "Invalid Cell Placement.", "Invalid Move", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         //Creating blue or red stone depending on whose turn it is
         Circle stone = new Circle(12, turn ? Color.RED : Color.BLUE);
@@ -110,27 +124,10 @@ public class GameController {
         } else { // Blue's turn
             blueHexagons.add(hexId);
         }
-        disableNeighbourHex(); //depending on turn disable neighbouring hexagons
 
         //Switch player's turn
         switchTurn();
 
-    }
-
-    /**
-     * Method to disable neighbouring hexagons for the current player's future turns.
-     */
-    private void disableNeighbourHex() {
-        List<String> playersHexagons = turn ? redHexagons : blueHexagons;
-        for (String hexId : playersHexagons) {
-            List<String> neighbours = getNeighbourHex(hexId);
-            for (String neighbour : neighbours) {
-                Polygon hex = (Polygon) boardPane.lookup(neighbour);
-                if (hex != null && !hex.isDisabled()) {
-                    hex.setDisable(true);
-                }
-            }
-        }
     }
 
     private final Line line1 = new Line();
@@ -138,8 +135,6 @@ public class GameController {
 
     @FXML
     void showX(MouseEvent event) {
-
-
         Polygon currentHex = (Polygon) event.getSource();
 
         // Get restricted hexes based on current player
