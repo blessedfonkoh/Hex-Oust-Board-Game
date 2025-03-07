@@ -4,10 +4,6 @@ import java.net.URL;
 import java.util.*;
 
 import javafx.fxml.FXML;
-import javafx.geometry.Point2D;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -138,6 +134,11 @@ public class GameController {
     // second line "\"
     Line line2 = new Line(-8, -8, 8, 8);
 
+    /**
+     * Method to show the red X on the board when hovering on a hexagon.
+     *
+     * @param event : Mouse event triggered by cursor hovering on the hexagon.
+     */
 @FXML
     void showX(MouseEvent event) {
         Polygon currentHex = (Polygon) event.getSource();
@@ -171,7 +172,6 @@ public class GameController {
 
 
     }
-    // TODO - add javadoc description
 
     /**
      * Method to remove the red X from the board after hovering
@@ -184,8 +184,6 @@ public class GameController {
         boardPane.getChildren().remove(line2);
 
     }
-
-    // TODO - add javadoc description
 
     /**
      * Method to get all the invalid hexagons that are restricted for the current player
@@ -200,8 +198,6 @@ public class GameController {
         }
         return invalidHexes;
     }
-
-    // TODO - add javadoc description
 
     /**
      * Method to get all valid neighbouring hexagons for a given Hex Id
