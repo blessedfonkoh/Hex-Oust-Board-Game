@@ -5,6 +5,9 @@ import java.util.*;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
+import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -130,10 +133,12 @@ public class GameController {
 
     }
 
-    private final Line line1 = new Line();
-    private final Line line2 = new Line();
+    // first line "/"
+    Line line1 = new Line(-8, 8, 8, -8);
+    // second line "\"
+    Line line2 = new Line(-8, -8, 8, 8);
 
-    @FXML
+@FXML
     void showX(MouseEvent event) {
         Polygon currentHex = (Polygon) event.getSource();
 
@@ -142,21 +147,10 @@ public class GameController {
 
         // Show the X on hover if its invalid
         if (invalidHexes.contains(currentHex.getId())) {
-            // TODO - make more efficient xx & add javadoc comment to top!
-            // /
 
-            line1.setStartX(-8);
-            line1.setStartY(8);
-            line1.setEndX(8);
-            line1.setEndY(-8);
             line1.setLayoutX(currentHex.getLayoutX());
             line1.setLayoutY(currentHex.getLayoutY());
 
-            // \
-            line2.setStartX(-8);
-            line2.setStartY(-8);
-            line2.setEndX(8);
-            line2.setEndY(8);
             line2.setLayoutX(currentHex.getLayoutX());
             line2.setLayoutY(currentHex.getLayoutY());
 
@@ -165,6 +159,9 @@ public class GameController {
             line1.setStrokeWidth(4);
             line2.setStroke(Color.RED);
             line2.setStrokeWidth(4);
+
+            line1.setMouseTransparent(true);
+            line2.setMouseTransparent(true);
 
             // Add to the pane if not already added
             if (!boardPane.getChildren().contains(line1)) {
