@@ -1,7 +1,10 @@
 package comp20050.hexagonalboard;
 
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -27,6 +30,7 @@ public class GameController {
 
     @FXML
     public Button restartButton;
+
 
     @FXML
     private Pane boardPane; // The container holding all hexagons
@@ -73,132 +77,29 @@ public class GameController {
     @FXML
     private Polygon M7, M8, M9, M10, M11, M12, M13;
 
-    List<String> redHexagons = new ArrayList<>();
-    List<String> blueHexagons = new ArrayList<>();
-
     @FXML
-    void placeStone(MouseEvent event) {
+    void getHexID(MouseEvent event) {
         Polygon hexagon = (Polygon) event.getSource();
-        if (hexagon.isDisabled()) {
-            return; //preventing placement on disabled hexagons
-        }
-        String hexId = hexagon.getId();
+        hexagon.setDisable(true);
 
         //Creating blue or red stone depending on whose turn it is
         Circle stone = new Circle(12, turn ? Color.RED : Color.BLUE);
+
         //Setting the stone border colour and width
         stone.setStroke(turn ? Color.MAROON : Color.NAVY);
         stone.setStrokeWidth(4);
+
         //Setting the stone position
         stone.setLayoutX(hexagon.getLayoutX());
         stone.setLayoutY(hexagon.getLayoutY());
+
         //Display stone to board
         boardPane.getChildren().add(stone);
-
-        hexagon.setDisable(true); // disabling hexagons with stones to prevent placement on them
-
-
-        if (turn) { // Red's turn
-            redHexagons.add(hexId);
-        } else { // Blue's turn
-            blueHexagons.add(hexId);
-        }
-        disableNeighbourHex(); //depending on turn disable neighbouring hexagons
 
         //Switch player's turn
         switchTurn();
 
     }
-
-    //method to disableNeighbouring hexagons for players
-    private void disableNeighbourHex() {
-        List<String> playersHexagons = turn ? redHexagons : blueHexagons;
-        for (String hexId : playersHexagons) {
-            List<String> neighbours = getNeighbourHex(hexId);
-            for (String neighbour : neighbours) {
-                Polygon hex = (Polygon) boardPane.lookup(neighbour);
-                if (hex != null && !hex.isDisabled()) {
-                    hex.setDisable(true);
-                }
-            }
-        }
-    }
-
-    private final Line line1 = new Line();
-    private final Line line2 = new Line();
-
-    @FXML
-    void showX(MouseEvent event) {
-
-
-        Polygon currentHex = (Polygon) event.getSource();
-
-        // Get restricted hexes based on current player
-        List<String> invalidHexes = getInvalidHexes(turn ? redHexagons : blueHexagons);
-
-        // Only show X if the hovered hex is restricted
-        if (invalidHexes.contains(currentHex.getId())) {
-            // TODO - make more efficient xx
-
-
-            // /
-
-            line1.setStartX(-8);
-            line1.setStartY(8);
-            line1.setEndX(8);
-            line1.setEndY(-8);
-            line1.setLayoutX(currentHex.getLayoutX());
-            line1.setLayoutY(currentHex.getLayoutY());
-
-            // \
-            line2.setStartX(-8);
-            line2.setStartY(-8);
-            line2.setEndX(8);
-            line2.setEndY(8);
-            line2.setLayoutX(currentHex.getLayoutX());
-            line2.setLayoutY(currentHex.getLayoutY());
-
-            // styling
-            line1.setStroke(Color.RED);
-            line1.setStrokeWidth(4);
-            line2.setStroke(Color.RED);
-            line2.setStrokeWidth(4);
-
-            // Add to the pane if not already added
-            if (!boardPane.getChildren().contains(line1)) {
-                boardPane.getChildren().addAll(line1, line2);
-            }
-        }
-
-    }
-    // Method to remove the red X from the board after hovering
-    @FXML
-    void removeX(MouseEvent event) {
-        boardPane.getChildren().remove(line1);
-        boardPane.getChildren().remove(line2);
-
-    }
-
-    //method to get all the invalid hexagons that are restricted for the current player
-    private List<String> getInvalidHexes(List<String> playersHexagons) {
-        List<String> invalidHexes = new ArrayList<>();
-        for (String hexId : playersHexagons) {
-            invalidHexes.addAll(getNeighbourHex(hexId));
-        }
-        return invalidHexes;
-    }
-
-    private List<String> getNeighbourHex(String hexId) {
-        char letter = hexId.charAt(0);
-        int num = Integer.parseInt(hexId.substring(1));
-        return new ArrayList<>(Arrays.asList(String.valueOf((char) (letter + 1)) + num,  //top
-                String.valueOf((char) (letter + 1)) + (num + 1), //top
-                String.valueOf((char) (letter)) + (num - 1),  //left
-                String.valueOf((char) (letter)) + (num + 1), //right
-                String.valueOf((char) (letter - 1)) + (num - 1), //bottom left
-                String.valueOf((char) (letter - 1)) + num)); //bottom right
-    }
-
 
     @FXML
         // This method is called by the FXMLLoader when initialization is complete
@@ -229,16 +130,96 @@ public class GameController {
     public void restartGame() {
         turn = true;
         boardPane.getChildren().removeIf(node -> node instanceof Circle);
-        boardPane.getChildren().forEach(node -> { //remove all stones from the board
+        boardPane.getChildren().forEach(node -> {
                     if (node instanceof Polygon) {
                         node.setDisable(false);
                     }
                 }
         );
-        // erasing memory of placed stones for red and blue
-        redHexagons.clear();
-        blueHexagons.clear();
         displayTurn();
+    }
+
+    private Line line1 = new Line();
+    private Line line2 = new Line();
+    private Polygon currentHex;
+
+    @FXML
+    void showX(MouseEvent event) {
+        currentHex = (Polygon) event.getSource();
+        // /
+        line1.setStartX(-8);
+        line1.setStartY(8);
+        line1.setEndX(8);
+        line1.setEndY(-8);
+        line1.setLayoutX(currentHex.getLayoutX());
+        line1.setLayoutY(currentHex.getLayoutY());
+
+        // \
+        line2.setStartX(-8);
+        line2.setStartY(-8);
+        line2.setEndX(8);
+        line2.setEndY(8);
+        line2.setLayoutX(currentHex.getLayoutX());
+        line2.setLayoutY(currentHex.getLayoutY());
+
+        // styling
+        line1.setStroke(Color.RED);
+        line1.setStrokeWidth(4);
+        line2.setStroke(Color.RED);
+        line2.setStrokeWidth(4);
+
+        // Add to the pane if not already added
+        if (!boardPane.getChildren().contains(line1)) {
+            boardPane.getChildren().addAll(line1, line2);
+        }
+
+    }
+
+    @FXML
+    void removeX(MouseEvent event) {
+        boardPane.getChildren().remove(line1);
+        boardPane.getChildren().remove(line2);
+
+    }
+    void checkValid(MouseEvent event) {
+        Circle red = new Circle(12, Color.RED);
+        Circle blue = new Circle(12, Color.BLUE);
+        if(turn){
+
+
+
+        }
+        else{
+            /*
+            its blues turn rn.
+            so if there is an instance of a red stone
+            then set surrounding hexagons to invalid i.e
+            call show X (if hovered above but already implied by function)
+
+
+boardPane.getChildren().removeIf(node -> node instanceof Circle);
+        boardPane.getChildren().forEach(node -> {
+                    if (node instanceof Polygon) {
+                        node.setDisable(false);
+                    }
+                }
+        );
+             */
+
+            if(boardPane.getChildren().contains(red)){
+                List<String> blueInvalid = new ArrayList<>();
+                currentHex = (Polygon) event.getSource();
+                String hex = currentHex.getId();
+
+                for (int i = 'A'; i <= 'H'; i++) {
+                    for(int j = 1; j <= 8; j++) {
+                        blueInvalid.add(hex);
+                    }
+                }
+
+            }
+
+        }
     }
 
     void displayTurn() {
