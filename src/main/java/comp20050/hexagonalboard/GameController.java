@@ -124,27 +124,10 @@ public class GameController {
         } else { // Blue's turn
             blueHexagons.add(hexId);
         }
-        disableNeighbourHex(); //depending on turn disable neighbouring hexagons
 
         //Switch player's turn
         switchTurn();
 
-    }
-
-    /**
-     * Method to disable neighbouring hexagons for the current player's future turns.
-     */
-    private void disableNeighbourHex() {
-        List<String> playersHexagons = turn ? redHexagons : blueHexagons;
-        for (String hexId : playersHexagons) {
-            List<String> neighbours = getNeighbourHex(hexId);
-            for (String neighbour : neighbours) {
-                Polygon hex = (Polygon) boardPane.lookup(neighbour);
-                if (hex != null && !hex.isDisabled()) {
-                    hex.setDisable(true);
-                }
-            }
-        }
     }
 
     private final Line line1 = new Line();
