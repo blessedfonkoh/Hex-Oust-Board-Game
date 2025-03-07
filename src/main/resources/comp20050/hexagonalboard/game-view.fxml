@@ -2054,7 +2054,7 @@
                         <Font name="Times New Roman" size="27.0" />
                     </font>
                 </Text>
-                <Pane id="turnPane" fx:id="turnPane" layoutX="235.0" layoutY="615.0" onMouseEntered="#showX" onMouseExited="#removeX">
+                <Pane id="turnPane" fx:id="turnPane" layoutX="235.0" layoutY="615.0">
                     <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="To Make a Move">
                             <font>
