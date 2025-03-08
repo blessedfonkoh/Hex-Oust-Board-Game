@@ -1,5 +1,6 @@
 package comp20050.hexagonalboard;
 
+import java.awt.Font;
 import java.util.*;
 
 import javafx.fxml.FXML;
@@ -87,9 +88,8 @@ public class GameController {
 
         // Display pop-up error message if current hex is invalid, cancels stone placement
         if (invalidHexes.contains(hexagon.getId())) {
-            JPanel panel = new JPanel();
-            JOptionPane.showMessageDialog(panel, "Invalid Cell Placement.",
-                    "Invalid Move", JOptionPane.ERROR_MESSAGE);
+            JDialog dialog = showErrorMessage();
+            dialog.setVisible(true);
             return;
         }
 
@@ -118,6 +118,32 @@ public class GameController {
         // Switch player's turn
         turn.switchTurn();
 
+    }
+
+    /**
+     * Method to create a custom error message dialog for invalid cell placement.
+     *
+     * @return dialog : JDialog instance displaying the custom error message.
+     */
+    private JDialog showErrorMessage() {
+        JPanel panel = new JPanel();
+
+        // Create a custom message label
+        JLabel messageLabel = new JLabel("Invalid Cell Placement.");
+        messageLabel.setFont(new Font("Calibri", Font.BOLD, 16));
+
+        // Create a custom button
+        JButton okButton = new JButton("OK");
+        okButton.setFont(new Font("Calibri", Font.BOLD, 14));
+        okButton.setFocusPainted(false);
+
+        JOptionPane optionPane = new JOptionPane(messageLabel, JOptionPane.ERROR_MESSAGE,
+                JOptionPane.DEFAULT_OPTION, null, new Object[] {okButton});
+
+        JDialog dialog = optionPane.createDialog(panel, "Invalid Move");
+        okButton.addActionListener(e -> dialog.dispose());
+
+        return dialog;
     }
 
     // Lines to display X
