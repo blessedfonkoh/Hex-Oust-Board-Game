@@ -19,19 +19,11 @@ import javax.swing.*;
  */
 public class GameController {
 
-    private boolean turn = true; // True for red, False for blue
 
     private final List<String> redHexagons = new ArrayList<>(); // List to store RED players moves
     private final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
 
-    /**
-     * Method to switch players turns
-     */
-    public void switchTurn() {
-        turn = !turn;
-        displayTurn(); // Calling displayTurn() method to display next turn
-    }
-
+    private TurnManager turn;
     @FXML
     public Button restartButton;
 
@@ -39,7 +31,7 @@ public class GameController {
     private Pane boardPane; // The container holding all hexagons
 
     @FXML
-    private Pane turnPane; // The container holding the turns and the test "To Make a Move"
+    private Pane turnPane; // The container holding the turns and the text "To Make a Move"
 
     /**
      * Hexagon instances
@@ -91,7 +83,7 @@ public class GameController {
         String hexId = hexagon.getId();
 
         // Get restricted hexes based on current player
-        List<String> invalidHexes = getInvalidHexes(turn ? redHexagons : blueHexagons);
+        List<String> invalidHexes = getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons);
 
         // Display pop-up error message if current hex is invalid, cancels stone placement
         if (invalidHexes.contains(hexagon.getId())) {
@@ -102,10 +94,10 @@ public class GameController {
         }
 
         //Creating blue or red stone depending on whose turn it is
-        Circle stone = new Circle(12, turn ? Color.RED : Color.BLUE);
+        Circle stone = new Circle(12, turn.isRedTurn() ? Color.RED : Color.BLUE);
 
         //Setting the stone border colour and width
-        stone.setStroke(turn ? Color.MAROON : Color.NAVY);
+        stone.setStroke(turn.isRedTurn() ? Color.MAROON : Color.NAVY);
         stone.setStrokeWidth(4);
 
         //Setting the stone position
@@ -117,15 +109,14 @@ public class GameController {
 
         hexagon.setDisable(true); // Disabling hexagons with stones to prevent placement on them
 
-
-        if (turn) { // Red's turn
+        if (turn.isRedTurn()) { // Red's turn
             redHexagons.add(hexId); // Add placed stone to RED's list
         } else { // Blue's turn
             blueHexagons.add(hexId); // Add placed stone to BLUE's list
         }
 
         // Switch player's turn
-        switchTurn();
+        turn.switchTurn();
 
     }
 
@@ -145,7 +136,7 @@ public class GameController {
         Polygon currentHex = (Polygon) event.getSource();
 
         // Get restricted hexes based on current player
-        List<String> invalidHexes = getInvalidHexes(turn ? redHexagons : blueHexagons);
+        List<String> invalidHexes = getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons);
 
         // Show the X on hover if its invalid
         if (invalidHexes.contains(currentHex.getId())) {
@@ -219,8 +210,8 @@ public class GameController {
 
     @FXML
     public void initialize() { // Called by the FXMLLoader when initialization is complete
-
-        displayTurn(); // Display turns, RED to make a move first
+        turn = new TurnManager(turnPane);
+        turn.displayTurn(); // Display turns, RED to make a move first
 
         List<Polygon> hexagons = Arrays.asList(
                 A1, A2, A3, A4, A5, A6, A7,
@@ -247,8 +238,7 @@ public class GameController {
      */
     public void restartGame() {
 
-        turn = true; // Reset turn to begin from RED
-
+        turn.resetTurn(); // Reset turn to begin from RED
         boardPane.getChildren().removeIf(node -> node instanceof Circle); // Remove all stones from the board
         boardPane.getChildren().forEach(node -> {
             if (node instanceof Polygon) {
@@ -259,24 +249,6 @@ public class GameController {
         // Erasing Lists of placed stones for RED and BLUE
         redHexagons.clear();
         blueHexagons.clear();
-
-        displayTurn(); // Display turn from beginning
+        turn.displayTurn(); // Display turn from beginning
     }
-
-    /**
-     * Method to display turns below the board.
-     */
-    public void displayTurn() {
-
-        // Display stone depending on players turn
-        Circle stone = new Circle(12, turn ? Color.RED : Color.BLUE);
-        stone.setStroke(turn ? Color.MAROON : Color.NAVY);
-        stone.setStrokeWidth(4);
-        stone.setCenterX(-30);
-        stone.setCenterY(-9);
-
-        turnPane.getChildren().add(stone); // Add stone to the board
-
-    }
-
 }
