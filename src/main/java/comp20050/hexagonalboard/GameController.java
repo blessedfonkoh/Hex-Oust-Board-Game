@@ -1,6 +1,5 @@
 package comp20050.hexagonalboard;
 
-import java.awt.Font;
 import java.util.*;
 
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Line;
 
 import javax.swing.*;
 
@@ -20,11 +18,12 @@ import javax.swing.*;
  */
 public class GameController {
 
-
     private final List<String> redHexagons = new ArrayList<>(); // List to store RED players moves
     private final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
 
     private TurnManager turn;
+    private HoverUI hover;
+
     @FXML
     public Button restartButton;
 
@@ -66,7 +65,6 @@ public class GameController {
     @FXML
     private Polygon M7, M8, M9, M10, M11, M12, M13;
 
-
     /**
      * Method to allow the user to place a stone on the base-7 hexagonal grid
      *
@@ -84,11 +82,11 @@ public class GameController {
         String hexId = hexagon.getId();
 
         // Get restricted hexes based on current player
-        List<String> invalidHexes = getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons);
+        List<String> invalidHexes = HexUtil.getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons);
 
         // Display pop-up error message if current hex is invalid, cancels stone placement
         if (invalidHexes.contains(hexagon.getId())) {
-            JDialog dialog = showErrorMessage();
+            JDialog dialog = MessageUtil.showErrorMessage();
             dialog.setVisible(true);
             return;
         }
@@ -121,38 +119,6 @@ public class GameController {
     }
 
     /**
-     * Method to create a custom error message dialog for invalid cell placement.
-     *
-     * @return dialog : JDialog instance displaying the custom error message.
-     */
-    private JDialog showErrorMessage() {
-        JPanel panel = new JPanel();
-
-        // Create a custom message label
-        JLabel messageLabel = new JLabel("Invalid Cell Placement.");
-        messageLabel.setFont(new Font("Calibri", Font.BOLD, 16));
-
-        // Create a custom button
-        JButton okButton = new JButton("OK");
-        okButton.setFont(new Font("Calibri", Font.BOLD, 14));
-        okButton.setFocusPainted(false);
-
-        JOptionPane optionPane = new JOptionPane(messageLabel, JOptionPane.ERROR_MESSAGE,
-                JOptionPane.DEFAULT_OPTION, null, new Object[] {okButton});
-
-        JDialog dialog = optionPane.createDialog(panel, "Invalid Move");
-        okButton.addActionListener(e -> dialog.dispose());
-
-        return dialog;
-    }
-
-    // Lines to display X
-    // First line "/"
-    Line line1 = new Line(-8, 8, 8, -8);
-    // Second line "\"
-    Line line2 = new Line(-8, -8, 8, 8);
-
-    /**
      * Method to show the red X on the board when hovering on a hexagon.
      *
      * @param event : Mouse event triggered by cursor hovering on the hexagon.
@@ -162,33 +128,11 @@ public class GameController {
         Polygon currentHex = (Polygon) event.getSource();
 
         // Get restricted hexes based on current player
-        List<String> invalidHexes = getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons);
-
+        List<String> invalidHexes = HexUtil.getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons);
         // Show the X on hover if its invalid
         if (invalidHexes.contains(currentHex.getId())) {
-
-            line1.setLayoutX(currentHex.getLayoutX());
-            line1.setLayoutY(currentHex.getLayoutY());
-
-            line2.setLayoutX(currentHex.getLayoutX());
-            line2.setLayoutY(currentHex.getLayoutY());
-
-            // Styling the lines to make them RED
-            line1.setStroke(Color.RED);
-            line1.setStrokeWidth(4);
-            line2.setStroke(Color.RED);
-            line2.setStrokeWidth(4);
-
-            // Setting it transparent so when clicked on, error message will pop up
-            line1.setMouseTransparent(true);
-            line2.setMouseTransparent(true);
-
-            // Add to the pane if not already added
-            if (!boardPane.getChildren().contains(line1)) {
-                boardPane.getChildren().addAll(line1, line2);
-            }
+            hover.createX(currentHex);
         }
-
     }
 
     /**
@@ -196,47 +140,13 @@ public class GameController {
      */
     @FXML
     public void removeX() {
-        // Removing the line from the view of the board
-        boardPane.getChildren().remove(line1);
-        boardPane.getChildren().remove(line2);
-    }
-
-    /**
-     * Method to get all the invalid hexagons that are restricted for the current player
-     *
-     * @param playersHexagons : A list of hexagon IDs representing the hexagons occupied by the current player.
-     * @return invalidHexes : A list of hexagon IDs that are invalid for placement based on the player's occupied hexagons.
-     */
-    private List<String> getInvalidHexes(List<String> playersHexagons) {
-
-        List<String> invalidHexes = new ArrayList<>();
-        for (String hexId : playersHexagons) {
-            invalidHexes.addAll(getNeighbourHex(hexId));
-        }
-        return invalidHexes;
-    }
-
-    /**
-     * Method to get all valid neighbouring hexagons for a given Hex ID
-     *
-     * @param hexId : The ID of the hexagon
-     * @return A list of hexagon IDs representing the neighboring hexagons.
-     */
-    private List<String> getNeighbourHex(String hexId) {
-        char letter = hexId.charAt(0); // Letter for the row e.g A,B,C
-        int num = Integer.parseInt(hexId.substring(1)); // Number for the column
-
-        return new ArrayList<>(Arrays.asList(String.valueOf((char) (letter + 1)) + num,  // Top
-                String.valueOf((char) (letter + 1)) + (num + 1), // Top
-                String.valueOf((letter)) + (num - 1),  // Left
-                String.valueOf((letter)) + (num + 1), // Right
-                String.valueOf((char) (letter - 1)) + (num - 1), // Bottom left
-                String.valueOf((char) (letter - 1)) + num));
+        hover.removeX();
     }
 
     @FXML
     public void initialize() { // Called by the FXMLLoader when initialization is complete
         turn = new TurnManager(turnPane);
+        hover = new HoverUI(boardPane);
         turn.displayTurn(); // Display turns, RED to make a move first
 
         List<Polygon> hexagons = Arrays.asList(
