@@ -5,4 +5,6 @@ module comp20050.hexagonalboard {
 
     opens comp20050.hexagonalboard to javafx.fxml;
     exports comp20050.hexagonalboard;
+    exports GameController.utils;
+    opens GameController.utils to javafx.fxml;
 }
