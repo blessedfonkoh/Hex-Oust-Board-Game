@@ -1,14 +1,14 @@
-package comp20050.hexagonalboard;
+package GameController.utils;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-public class TurnManager {
+public class TurnUtil {
     private boolean redTurn = true; // True for red, False for blue
     private final Pane turnPane; // The container holding the turns and the text "To Make a Move"
 
-    public TurnManager(Pane turnPane) {
+    public TurnUtil(Pane turnPane) {
         this.turnPane = turnPane;
     }
 

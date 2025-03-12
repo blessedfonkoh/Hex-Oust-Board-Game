@@ -2,6 +2,7 @@ package comp20050.hexagonalboard;
 
 import java.util.*;
 
+import GameController.utils.OnHoverUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -9,6 +10,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
+import GameController.utils.HexUtil;
+import GameController.utils.MessageUtil;
+import GameController.utils.TurnUtil;
 
 import javax.swing.*;
 
@@ -21,8 +25,8 @@ public class GameController {
     private final List<String> redHexagons = new ArrayList<>(); // List to store RED players moves
     private final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
 
-    private TurnManager turn;
-    private HoverUI hover;
+    private TurnUtil turn;
+    private OnHoverUtil hover;
 
     @FXML
     public Button restartButton;
@@ -145,8 +149,8 @@ public class GameController {
 
     @FXML
     public void initialize() { // Called by the FXMLLoader when initialization is complete
-        turn = new TurnManager(turnPane);
-        hover = new HoverUI(boardPane);
+        turn = new TurnUtil(turnPane);
+        hover = new OnHoverUtil(boardPane);
         turn.displayTurn(); // Display turns, RED to make a move first
 
         List<Polygon> hexagons = Arrays.asList(

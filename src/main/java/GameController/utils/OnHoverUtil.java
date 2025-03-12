@@ -1,11 +1,14 @@
-package comp20050.hexagonalboard;
+package GameController.utils;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 
-public class HoverUI {
+/**
+ * This class holds all the utility methods to display objects to the user on hover
+ */
+public class OnHoverUtil {
     private final Pane boardPane;
 
     // Lines to display X
@@ -14,7 +17,7 @@ public class HoverUI {
     // Second line "\"
     private final Line line2 = new Line(-8, -8, 8, 8);
 
-    public HoverUI(Pane boardPane) {
+    public OnHoverUtil(Pane boardPane) {
         this.boardPane = boardPane;
         // Styling the lines to make them RED
         line1.setStroke(Color.RED);

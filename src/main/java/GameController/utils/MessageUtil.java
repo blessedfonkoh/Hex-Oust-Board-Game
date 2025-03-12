@@ -1,4 +1,4 @@
-package comp20050.hexagonalboard;
+package GameController.utils;
 
 import javax.swing.*;
 import java.awt.*;

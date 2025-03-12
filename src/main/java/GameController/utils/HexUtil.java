@@ -1,4 +1,4 @@
-package comp20050.hexagonalboard;
+package GameController.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,8 +32,8 @@ public class HexUtil {
 
         return new ArrayList<>(Arrays.asList(String.valueOf((char) (letter + 1)) + num,  // Top
                 String.valueOf((char) (letter + 1)) + (num + 1), // Top
-                String.valueOf((letter)) + (num - 1),  // Left
-                String.valueOf((letter)) + (num + 1), // Right
+                String.valueOf(letter) + (num - 1),  // Left
+                String.valueOf(letter) + (num + 1), // Right
                 String.valueOf((char) (letter - 1)) + (num - 1), // Bottom left
                 String.valueOf((char) (letter - 1)) + num));
     }
