@@ -16,6 +16,7 @@ import GameController.utils.TurnUtil;
 
 import javax.swing.*;
 
+
 /**
  * Game Controller Class
  * for 'game-view.fxml'
@@ -119,7 +120,6 @@ public class GameController {
 
         // Switch player's turn
         turn.switchTurn();
-
     }
 
     /**

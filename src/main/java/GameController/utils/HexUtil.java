@@ -37,4 +37,34 @@ public class HexUtil {
                 String.valueOf((char) (letter - 1)) + (num - 1), // Bottom left
                 String.valueOf((char) (letter - 1)) + num));
     }
+    public static List<String> getGroup(String hexId, List<String> playerHexagons) {
+        List<String> group = new ArrayList<>();
+        List<String> visited = new ArrayList<>();
+
+        // check if the given hexagon is occupied by the player
+        if (playerHexagons.contains(hexId)) {
+            search(hexId, playerHexagons, visited, group);
+        }
+
+        return group;
+    }
+
+
+    private static void search(String hexId, List<String> playerHexagons, List<String> visited, List<String> group) {
+        visited.add(hexId);
+        group.add(hexId);
+
+        // get neighbors of the current hexagon
+        List<String> neighbors = HexUtil.getNeighbourHex(hexId);
+
+        for (String neighbor : neighbors) {
+            // recursive call
+            // check if the neighbor is occupied by the player and not visited
+            if (playerHexagons.contains(neighbor) && !visited.contains(neighbor)) {
+                search(neighbor, playerHexagons, visited, group);
+            }
+        }
+    }
 }
+
+
