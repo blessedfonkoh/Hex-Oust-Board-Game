@@ -17,6 +17,12 @@ public class OnHoverUtil {
     // Second line "\"
     private final Line line2 = new Line(-8, -8, 8, 8);
 
+    //Lines to display tick
+    //First line "/"
+    private final Line tickLine1 = new Line(-6, 9, 10, -6);
+    // Second line " short \ "
+    private final Line tickLine2 = new Line(-10, 3, -6, 9);
+
     public OnHoverUtil(Pane boardPane) {
         this.boardPane = boardPane;
         // Styling the lines to make them RED
@@ -28,6 +34,13 @@ public class OnHoverUtil {
         // Setting it transparent so when clicked on, error message will pop up
         line1.setMouseTransparent(true);
         line2.setMouseTransparent(true);
+
+        tickLine1.setStroke(Color.GREEN);
+        tickLine1.setStrokeWidth(4);
+        tickLine2.setStroke(Color.GREEN);
+        tickLine2.setStrokeWidth(4);
+        tickLine1.setMouseTransparent(true);
+        tickLine2.setMouseTransparent(true);
     }
 
     /**
@@ -48,11 +61,25 @@ public class OnHoverUtil {
             boardPane.getChildren().addAll(line1, line2);
         }
     }
+    public void createTick(Polygon currentHex) {
+        tickLine1.setLayoutX(currentHex.getLayoutX());
+        tickLine1.setLayoutY(currentHex.getLayoutY());
+        tickLine2.setLayoutX(currentHex.getLayoutX());
+        tickLine2.setLayoutY(currentHex.getLayoutY());
+
+        if (!boardPane.getChildren().contains(tickLine1)) {
+            boardPane.getChildren().addAll(tickLine1, tickLine2);
+        }
+    }
 
     public void removeX() {
         // Removing the line from the view of the board
         boardPane.getChildren().remove(line1);
         boardPane.getChildren().remove(line2);
+    }
+    public void removeTick() {
+        boardPane.getChildren().remove(tickLine1);
+        boardPane.getChildren().remove(tickLine2);
     }
 }
 

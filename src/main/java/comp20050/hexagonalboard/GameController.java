@@ -136,6 +136,8 @@ public class GameController {
         // Show the X on hover if its invalid
         if (invalidHexes.contains(currentHex.getId())) {
             hover.createX(currentHex);
+        }else{
+            hover.createTick(currentHex);
         }
     }
 
@@ -145,6 +147,7 @@ public class GameController {
     @FXML
     public void removeX() {
         hover.removeX();
+        hover.removeTick();
     }
 
     @FXML
