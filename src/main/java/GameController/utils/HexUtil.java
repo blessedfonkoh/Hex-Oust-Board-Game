@@ -49,7 +49,6 @@ public class HexUtil {
         return group;
     }
 
-
     private static void search(String hexId, List<String> playerHexagons, List<String> visited, List<String> group) {
         visited.add(hexId);
         group.add(hexId);
@@ -64,6 +63,26 @@ public class HexUtil {
                 search(neighbor, playerHexagons, visited, group);
             }
         }
+    }
+
+    public static boolean isCapturingMove(String hexId, List<String> playerHexagons, List<String> opponentHexagons) {
+        List<String> group = getGroup(hexId, playerHexagons);
+
+        int maxGroup = 0;
+        List<String> opponent = new ArrayList<>();
+        for(String s: group) {
+            List<String> neighbours = getNeighbourHex(s);
+            for(String neighbour: neighbours) {
+                if(opponentHexagons.contains(neighbour)) {
+                    maxGroup = Math.max(maxGroup, getGroup(neighbour, opponentHexagons).size());
+                }
+            }
+        }
+        //check ravis example for bigger or equal
+        if(getGroup(hexId, playerHexagons).size() > maxGroup && maxGroup > 0) {
+            return true;
+        }
+        return false;
     }
 }
 

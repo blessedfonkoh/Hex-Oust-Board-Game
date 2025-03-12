@@ -16,6 +16,8 @@ import GameController.utils.TurnUtil;
 
 import javax.swing.*;
 
+import static GameController.utils.HexUtil.isCapturingMove;
+
 
 /**
  * Game Controller Class
@@ -117,6 +119,9 @@ public class GameController {
         } else { // Blue's turn
             blueHexagons.add(hexId); // Add placed stone to BLUE's list
         }
+
+        //System.out.println(isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons, turn.isRedTurn() ? blueHexagons : redHexagons));
+
 
         // Switch player's turn
         turn.switchTurn();
