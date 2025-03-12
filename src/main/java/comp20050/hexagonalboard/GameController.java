@@ -11,10 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import GameController.utils.HexUtil;
-import GameController.utils.MessageUtil;
 import GameController.utils.TurnUtil;
-
-import javax.swing.*;
 
 import static GameController.utils.HexUtil.isCapturingMove;
 
@@ -92,11 +89,11 @@ public class GameController {
         List<String> invalidHexes = HexUtil.getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons);
 
         // Display pop-up error message if current hex is invalid, cancels stone placement
-        if (invalidHexes.contains(hexagon.getId())) {
-            JDialog dialog = MessageUtil.showErrorMessage();
-            dialog.setVisible(true);
-            return;
-        }
+//        if (invalidHexes.contains(hexagon.getId())) {
+//            JDialog dialog = MessageUtil.showErrorMessage();
+//            dialog.setVisible(true);
+//            return;
+//        }
 
         //Creating blue or red stone depending on whose turn it is
         Circle stone = new Circle(12, turn.isRedTurn() ? Color.RED : Color.BLUE);
@@ -121,10 +118,40 @@ public class GameController {
         }
 
         //System.out.println(isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons, turn.isRedTurn() ? blueHexagons : redHexagons));
+        List<String> capturedStones = isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons, turn.isRedTurn() ? blueHexagons : redHexagons);
+        if (capturedStones != null) {
+            removeStones(capturedStones);
+            turn.switchTurn();
 
-
+        }
         // Switch player's turn
         turn.switchTurn();
+    }
+
+    /**
+     * Method to remove captured stones from the board
+     *
+     * @param capturedStones
+     */
+
+    public void removeStones(List<String> capturedStones) {
+        for (String hexId : capturedStones) {
+            Polygon hex = (Polygon) boardPane.lookup("#" + hexId);
+            if (hex != null) {
+                boardPane.getChildren().removeIf(node -> node instanceof Circle &&
+                        (node.getLayoutX() == hex.getLayoutX() &&
+                                node.getLayoutY() == hex.getLayoutY()));
+                hex.setDisable(false);
+
+            }
+
+            if (redHexagons.contains(hexId)) {
+                redHexagons.remove(hexId);
+            } else {
+                blueHexagons.remove(hexId);
+            }
+
+        }
     }
 
     /**
@@ -141,7 +168,7 @@ public class GameController {
         // Show the X on hover if its invalid
         if (invalidHexes.contains(currentHex.getId())) {
             hover.createX(currentHex);
-        }else{
+        } else {
             hover.createTick(currentHex);
         }
     }

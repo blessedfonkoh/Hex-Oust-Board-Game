@@ -37,6 +37,7 @@ public class HexUtil {
                 String.valueOf((char) (letter - 1)) + (num - 1), // Bottom left
                 String.valueOf((char) (letter - 1)) + num));
     }
+
     public static List<String> getGroup(String hexId, List<String> playerHexagons) {
         List<String> group = new ArrayList<>();
         List<String> visited = new ArrayList<>();
@@ -49,6 +50,15 @@ public class HexUtil {
         return group;
     }
 
+    /**
+     * Method to get all the neighbours of stones with the same colour,
+     * Recursively gets the neighbours of same colour and adds them to the group of where stone was placed.
+     *
+     * @param hexId the id of the hexagons you are searching.
+     * @param playerHexagons list containing a players placed stones.
+     * @param visited list to keep track of visited hexagons.
+     * @param group list to store HexIds of the connected hexagons of the same colour.
+     */
     private static void search(String hexId, List<String> playerHexagons, List<String> visited, List<String> group) {
         visited.add(hexId);
         group.add(hexId);
@@ -65,24 +75,26 @@ public class HexUtil {
         }
     }
 
-    public static boolean isCapturingMove(String hexId, List<String> playerHexagons, List<String> opponentHexagons) {
+    public static List<String> isCapturingMove(String hexId, List<String> playerHexagons, List<String> opponentHexagons) {
         List<String> group = getGroup(hexId, playerHexagons);
+        List<String> removeStones = new ArrayList<>();
 
         int maxGroup = 0;
         List<String> opponent = new ArrayList<>();
-        for(String s: group) {
+        for (String s : group) {
             List<String> neighbours = getNeighbourHex(s);
-            for(String neighbour: neighbours) {
-                if(opponentHexagons.contains(neighbour)) {
+            for (String neighbour : neighbours) {
+                if (opponentHexagons.contains(neighbour)) {
+                    removeStones.add(neighbour);
                     maxGroup = Math.max(maxGroup, getGroup(neighbour, opponentHexagons).size());
                 }
             }
         }
         //check ravis example for bigger or equal
-        if(getGroup(hexId, playerHexagons).size() > maxGroup && maxGroup > 0) {
-            return true;
+        if (getGroup(hexId, playerHexagons).size() > maxGroup && maxGroup > 0) {
+            return removeStones;
         }
-        return false;
+        return null;
     }
 }
 
