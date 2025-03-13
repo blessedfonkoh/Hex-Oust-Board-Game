@@ -80,12 +80,16 @@ public class HexUtil {
         List<String> removeStones = new ArrayList<>();
 
         int maxGroup = 0;
-        List<String> opponent = new ArrayList<>();
         for (String s : group) {
             List<String> neighbours = getNeighbourHex(s);
             for (String neighbour : neighbours) {
                 if (opponentHexagons.contains(neighbour)) {
-                    removeStones.add(neighbour);
+                    // For each neighbour, need to get the full group of the opponent
+                    List<String> opponentGroup = getGroup(neighbour, opponentHexagons);
+                    //System.out.println("To delete: " + opponentGroup);
+
+                    // Add all grouped stones into removeStones list
+                    removeStones.addAll(opponentGroup);
                     maxGroup = Math.max(maxGroup, getGroup(neighbour, opponentHexagons).size());
                 }
             }
