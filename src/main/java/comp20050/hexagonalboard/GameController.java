@@ -2,6 +2,7 @@ package comp20050.hexagonalboard;
 
 import java.util.*;
 
+
 import GameController.utils.OnHoverUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -86,7 +87,8 @@ public class GameController {
         String hexId = hexagon.getId();
 
         // Get restricted hexes based on current player
-        List<String> invalidHexes = HexUtil.getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons);
+        List<String> invalidHexes = HexUtil.getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons,
+                turn.isRedTurn() ? blueHexagons : redHexagons);
 
         // Display pop-up error message if current hex is invalid, cancels stone placement
 //        if (invalidHexes.contains(hexagon.getId())) {
@@ -118,7 +120,8 @@ public class GameController {
         }
 
         //System.out.println(isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons, turn.isRedTurn() ? blueHexagons : redHexagons));
-        List<String> capturedStones = isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons, turn.isRedTurn() ? blueHexagons : redHexagons);
+        List<String> capturedStones = isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons,
+                turn.isRedTurn() ? blueHexagons : redHexagons);
         if (capturedStones != null) {
             removeStones(capturedStones);
             turn.switchTurn();
@@ -164,7 +167,8 @@ public class GameController {
         Polygon currentHex = (Polygon) event.getSource();
 
         // Get restricted hexes based on current player
-        List<String> invalidHexes = HexUtil.getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons);
+        List<String> invalidHexes = HexUtil.getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons,
+                turn.isRedTurn() ? blueHexagons : redHexagons);
         // Show the X on hover if its invalid
         if (invalidHexes.contains(currentHex.getId())) {
             hover.createX(currentHex);
