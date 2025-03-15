@@ -15,6 +15,7 @@ import GameController.utils.HexUtil;
 import GameController.utils.TurnUtil;
 
 import static GameController.utils.HexUtil.isCapturingMove;
+import static GameController.utils.HexUtil.isValidMove;
 
 
 /**
@@ -166,11 +167,9 @@ public class GameController {
     public void showX(MouseEvent event) {
         Polygon currentHex = (Polygon) event.getSource();
 
-        // Get restricted hexes based on current player
-        List<String> invalidHexes = HexUtil.getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons,
-                turn.isRedTurn() ? blueHexagons : redHexagons);
         // Show the X on hover if its invalid
-        if (invalidHexes.contains(currentHex.getId())) {
+        if (!isValidMove(turn.isRedTurn() ? redHexagons : blueHexagons,
+                turn.isRedTurn() ? blueHexagons : redHexagons, currentHex.getId())) {
             hover.createX(currentHex);
         } else {
             hover.createTick(currentHex);

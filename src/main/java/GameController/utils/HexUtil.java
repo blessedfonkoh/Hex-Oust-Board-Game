@@ -14,7 +14,7 @@ public class HexUtil {
      */
     public static List<String> getInvalidHexes(List<String> playersHexagons, List<String> opponentsHexagons) {
 
-        List<String> invalidHexes = new ArrayList<>();
+       List<String> invalidHexes = new ArrayList<>();
         for (String hexId : playersHexagons) {
             List<String> neighbours = getNeighbourHex(hexId);
 
@@ -35,7 +35,36 @@ public class HexUtil {
                 invalidHexes.addAll(getNeighbourHex(hexId));
             }
         }
+
         return invalidHexes;
+    }
+
+    /**
+     * Method to check if a Hexagon ID is a valid move or not.
+     *
+     * @param playersHexagons list containing a players placed stones.
+     * @param opponentsHexagons list containing opponents placed stones.
+     * @param hexId ID of Hexagon which player has hovered over.
+     * @return true if that Hexagon is a valid move, false otherwise.
+     */
+    public static boolean isValidMove (List<String> playersHexagons, List<String> opponentsHexagons, String hexId) {
+       List<String> playerNeighbours = getNeighbourHex(hexId); //gets neighbours of hexagon hovered over.
+       List<String> neighbouringIDs = new ArrayList<>();
+        for(String n : playerNeighbours) {
+            //adds the neighbours which are occupied by the player.
+            if (playersHexagons.contains(n)) {
+                neighbouringIDs.add(n);
+            }
+        }
+        //if no neighbours r occupied by player, then it's a valid move (e,g the very first round)
+        if(neighbouringIDs.isEmpty()){
+            return true;
+        }
+        //if its not a capturing move, the player's group is smaller than the opponents, therefore move is invalid
+        if(isCapturingMove(hexId, playersHexagons, opponentsHexagons) == null ) {
+            return false;
+        }
+            return true;
     }
 
     /**
@@ -55,6 +84,14 @@ public class HexUtil {
                 String.valueOf((char) (letter - 1)) + (num - 1), // Bottom left
                 String.valueOf((char) (letter - 1)) + num));
     }
+
+    /**
+     * Method that returns a list of hexagon IDs that form a connected group, including the given hexId.
+     *
+     * @param hexId The ID of the hexagon to start the group search from.
+     * @param playerHexagons The list of hexagon IDs occupied by the player.
+     * @return A list of hexagon IDs representing the connected group that includes the given hexId.
+     */
 
     public static List<String> getGroup(String hexId, List<String> playerHexagons) {
         List<String> group = new ArrayList<>();
@@ -93,8 +130,26 @@ public class HexUtil {
         }
     }
 
+    /**
+     * method which determines if placing a stone at the given hexId would result in capturing move or not.
+     * A capturing move occurs when the player's new stone creates a group larger than all the adjacent
+     * opponent's groups.
+     *
+     * @param hexId The ID of the hexagon where the stone is being placed.
+     * @param playerHexagons The list of hexagon IDs occupied by the player.
+     * @param opponentHexagons The list of hexagon IDs occupied by the opponent.
+     * @return A list of hexagon IDs representing the opponent's stones to be removed if the move is capturing.
+     *         Returns null if the move does not result in a capture.
+     */
     public static List<String> isCapturingMove(String hexId, List<String> playerHexagons, List<String> opponentHexagons) {
-        List<String> group = getGroup(hexId, playerHexagons);
+        //created a clone of playerHexagons.
+        //this is because when a user hovers on a hex, its not listed in playerHexagons since it hasnt yet been clicked.
+        //i made a clone so that i can add hexID (the hovered hexagon) to the list, so that this method can be used in
+        //isValidMove.
+        List<String> playerHexClone = new ArrayList<>(playerHexagons);
+        playerHexClone.add(hexId);
+
+        List<String> group = getGroup(hexId, playerHexClone);
         List<String> removeStones = new ArrayList<>();
 
         int maxGroup = 0;
@@ -112,8 +167,7 @@ public class HexUtil {
                 }
             }
         }
-        //check ravis example for bigger or equal
-        if (getGroup(hexId, playerHexagons).size() > maxGroup && maxGroup > 0) {
+        if (getGroup(hexId, playerHexClone).size() > maxGroup && maxGroup > 0) {
             return removeStones;
         }
         return null;
