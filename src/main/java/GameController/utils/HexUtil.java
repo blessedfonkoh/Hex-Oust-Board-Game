@@ -5,39 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class HexUtil {
-    /**
-     * Method to get all the invalid hexagons that are restricted for the current player
-     *
-     * @param playersHexagons : A list of hexagon IDs representing the hexagons occupied by the current player.
-     * @param opponentsHexagons : A list of hexagon IDs representing the hexagons occupied by the player's opponent.
-     * @return invalidHexes : A list of hexagon IDs that are invalid for placement based on the player's occupied hexagons.
-     */
-    public static List<String> getInvalidHexes(List<String> playersHexagons, List<String> opponentsHexagons) {
-
-       List<String> invalidHexes = new ArrayList<>();
-        for (String hexId : playersHexagons) {
-            List<String> neighbours = getNeighbourHex(hexId);
-
-            // check if current hex has adjacent opponents
-            boolean opponentNeighbour = false;
-            for (String neighbour : neighbours) {
-                // when capturing move, player's new group of stones has to touch at least one opponent's stone
-                // if neighbouring cells contains opponent's stone, then neighbouring cells are valid placements
-                if (opponentsHexagons.contains(neighbour)) {
-                    opponentNeighbour = true;
-                    break;
-                }
-            }
-            // if no opponent stone detected, then neighbouring cells are invalid placements
-            // player cannot enlarge one of their own groups without capturing move
-
-            if (!opponentNeighbour){
-                invalidHexes.addAll(getNeighbourHex(hexId));
-            }
-        }
-
-        return invalidHexes;
-    }
 
     /**
      * Method to check if a Hexagon ID is a valid move or not.

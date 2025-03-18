@@ -1,9 +1,12 @@
 package GameController.utils;
 
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
+
+import javax.swing.*;
 
 /**
  * This class holds all the utility methods to display objects to the user on hover
@@ -61,6 +64,7 @@ public class OnHoverUtil {
             boardPane.getChildren().addAll(line1, line2);
         }
     }
+
     public void createTick(Polygon currentHex) {
         tickLine1.setLayoutX(currentHex.getLayoutX());
         tickLine1.setLayoutY(currentHex.getLayoutY());
@@ -77,9 +81,16 @@ public class OnHoverUtil {
         boardPane.getChildren().remove(line1);
         boardPane.getChildren().remove(line2);
     }
+
     public void removeTick() {
         boardPane.getChildren().remove(tickLine1);
         boardPane.getChildren().remove(tickLine2);
+    }
+
+    public void showErrorMessage() {
+        //  Display pop-up error message if current hex is invalid, cancels stone placement
+        JDialog dialog = MessageUtil.showErrorMessage();
+        dialog.setVisible(true);
     }
 }
 

@@ -11,7 +11,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
-import GameController.utils.HexUtil;
 import GameController.utils.TurnUtil;
 
 import static GameController.utils.HexUtil.isCapturingMove;
@@ -81,22 +80,11 @@ public class GameController {
 
         Polygon hexagon = (Polygon) event.getSource();
 
-        if (hexagon.isDisabled()) {
-            return; // Preventing placement on disabled hexagons
+        if(showErrorMessage(hexagon) || hexagon.isDisabled() ){
+            return; // Preventing placement on disabled/ invalid hexagons
         }
 
         String hexId = hexagon.getId();
-
-        // Get restricted hexes based on current player
-        List<String> invalidHexes = HexUtil.getInvalidHexes(turn.isRedTurn() ? redHexagons : blueHexagons,
-                turn.isRedTurn() ? blueHexagons : redHexagons);
-
-        // Display pop-up error message if current hex is invalid, cancels stone placement
-//        if (invalidHexes.contains(hexagon.getId())) {
-//            JDialog dialog = MessageUtil.showErrorMessage();
-//            dialog.setVisible(true);
-//            return;
-//        }
 
         //Creating blue or red stone depending on whose turn it is
         Circle stone = new Circle(12, turn.isRedTurn() ? Color.RED : Color.BLUE);
@@ -174,15 +162,31 @@ public class GameController {
         } else {
             hover.createTick(currentHex);
         }
+
     }
 
     /**
-     * Method to remove the red X from the board after hovering
+     * Method to remove the red X and green tick from the board after hovering
      */
     @FXML
     public void removeX() {
         hover.removeX();
         hover.removeTick();
+    }
+
+    /**
+     * Method to show error message if user attempts to place a stone in an invalid hex.
+     *
+     * @param currentHex
+     * @return True if error message should be displayed and false if it shouldn't
+     */
+    public boolean showErrorMessage(Polygon currentHex) {
+        if (!isValidMove(turn.isRedTurn() ? redHexagons : blueHexagons,
+                turn.isRedTurn() ? blueHexagons : redHexagons, currentHex.getId())) {
+            hover.showErrorMessage(); // Display error message
+            return true;
+        }
+        return false;
     }
 
     @FXML
