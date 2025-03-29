@@ -14,7 +14,8 @@ public class HexUtil {
      * @param hexId ID of Hexagon which player has hovered over.
      * @return true if that Hexagon is a valid move, false otherwise.
      */
-    public static boolean isValidMove (List<String> playersHexagons, List<String> opponentsHexagons, String hexId) {
+    public static boolean isInvalidMove(List<String> playersHexagons, List<String> opponentsHexagons, String hexId) {
+
        List<String> playerNeighbours = getNeighbourHex(hexId); //gets neighbours of hexagon hovered over.
        List<String> neighbouringIDs = new ArrayList<>();
         for(String n : playerNeighbours) {
@@ -25,13 +26,10 @@ public class HexUtil {
         }
         //if no neighbours r occupied by player, then it's a valid move (e,g the very first round)
         if(neighbouringIDs.isEmpty()){
-            return true;
-        }
-        //if its not a capturing move, the player's group is smaller than the opponents, therefore move is invalid
-        if(isCapturingMove(hexId, playersHexagons, opponentsHexagons) == null ) {
             return false;
         }
-            return true;
+        //if its not a capturing move, the player's group is smaller than the opponents, therefore move is invalid
+        return isCapturingMove(hexId, playersHexagons, opponentsHexagons) == null;
     }
 
     /**

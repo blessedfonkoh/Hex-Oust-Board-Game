@@ -2,8 +2,10 @@ package comp20050.hexagonalboard;
 
 import java.util.*;
 
+import GameController.utils.*;
 
-import GameController.utils.OnHoverUtil;
+import static GameController.utils.HexUtil.*;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -11,11 +13,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
-import GameController.utils.TurnUtil;
-
-import static GameController.utils.HexUtil.isCapturingMove;
-import static GameController.utils.HexUtil.isValidMove;
-
 
 /**
  * Game Controller Class
@@ -36,7 +33,7 @@ public class GameController {
     private Pane boardPane; // The container holding all hexagons
 
     @FXML
-    private Pane turnPane; // The container holding the turns and the text "To Make a Move"
+    public Pane turnPane; // The container holding the turns and the text "To Make a Move"
 
     /**
      * Hexagon instances
@@ -71,21 +68,10 @@ public class GameController {
     private Polygon M7, M8, M9, M10, M11, M12, M13;
 
     /**
-     * Method to allow the user to place a stone on the base-7 hexagonal grid
-     *
-     * @param event : Mouse event triggered by clicking on a hexagon.
+     * @param hexagon
+     * @return
      */
-    @FXML
-    public void placeStone(MouseEvent event) {
-
-        Polygon hexagon = (Polygon) event.getSource();
-
-        if(showErrorMessage(hexagon) || hexagon.isDisabled() ){
-            return; // Preventing placement on disabled/ invalid hexagons
-        }
-
-        String hexId = hexagon.getId();
-
+    public Circle createStone(Polygon hexagon) {
         //Creating blue or red stone depending on whose turn it is
         Circle stone = new Circle(12, turn.isRedTurn() ? Color.RED : Color.BLUE);
 
@@ -97,10 +83,39 @@ public class GameController {
         stone.setLayoutX(hexagon.getLayoutX());
         stone.setLayoutY(hexagon.getLayoutY());
 
-        //Display stone to board
-        boardPane.getChildren().add(stone);
-
         hexagon.setDisable(true); // Disabling hexagons with stones to prevent placement on them
+
+        return stone;
+    }
+
+    /**
+     * Method to allow the user to place a stone on the base-7 hexagonal grid
+     *
+     * @param event : Mouse event triggered by clicking on a hexagon.
+     */
+    @FXML
+    public void placeStone(MouseEvent event) {
+
+        Polygon hexagon = (Polygon) event.getSource();
+
+        if (showErrorMessage(hexagon) || hexagon.isDisabled()) {
+            return; // Preventing placement on disabled/ invalid hexagons
+        }
+
+        String hexId = hexagon.getId();
+
+        //Display stone to board
+        boardPane.getChildren().add(createStone(hexagon));
+        logStonePlacement(hexId);
+        processMove(hexId);
+    }
+
+
+    /**
+     * @param hexId
+     */
+
+    public void logStonePlacement(String hexId) {
 
         if (turn.isRedTurn()) { // Red's turn
             redHexagons.add(hexId); // Add placed stone to RED's list
@@ -108,16 +123,6 @@ public class GameController {
             blueHexagons.add(hexId); // Add placed stone to BLUE's list
         }
 
-        //System.out.println(isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons, turn.isRedTurn() ? blueHexagons : redHexagons));
-        List<String> capturedStones = isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons,
-                turn.isRedTurn() ? blueHexagons : redHexagons);
-        if (capturedStones != null) {
-            removeStones(capturedStones);
-            turn.switchTurn();
-
-        }
-        // Switch player's turn
-        turn.switchTurn();
     }
 
     /**
@@ -134,16 +139,25 @@ public class GameController {
                         (node.getLayoutX() == hex.getLayoutX() &&
                                 node.getLayoutY() == hex.getLayoutY()));
                 hex.setDisable(false);
-
             }
-
             if (redHexagons.contains(hexId)) {
                 redHexagons.remove(hexId);
             } else {
                 blueHexagons.remove(hexId);
             }
-
         }
+    }
+
+    public void processMove(String hexId) {
+
+        List<String> capturedStones = isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons,
+                turn.isRedTurn() ? blueHexagons : redHexagons);
+        if (capturedStones != null) {
+            removeStones(capturedStones);
+            turn.switchTurn();
+        }
+        // Switch player's turn
+        turn.switchTurn();
     }
 
     /**
@@ -156,7 +170,7 @@ public class GameController {
         Polygon currentHex = (Polygon) event.getSource();
 
         // Show the X on hover if its invalid
-        if (!isValidMove(turn.isRedTurn() ? redHexagons : blueHexagons,
+        if (isInvalidMove(turn.isRedTurn() ? redHexagons : blueHexagons,
                 turn.isRedTurn() ? blueHexagons : redHexagons, currentHex.getId())) {
             hover.createX(currentHex);
         } else {
@@ -181,7 +195,7 @@ public class GameController {
      * @return True if error message should be displayed and false if it shouldn't
      */
     public boolean showErrorMessage(Polygon currentHex) {
-        if (!isValidMove(turn.isRedTurn() ? redHexagons : blueHexagons,
+        if (isInvalidMove(turn.isRedTurn() ? redHexagons : blueHexagons,
                 turn.isRedTurn() ? blueHexagons : redHexagons, currentHex.getId())) {
             hover.showErrorMessage(); // Display error message
             return true;
