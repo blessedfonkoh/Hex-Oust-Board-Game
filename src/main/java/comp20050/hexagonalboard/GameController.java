@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Shape;
 
 /**
  * Game Controller Class
@@ -67,6 +68,9 @@ public class GameController {
     @FXML
     private Polygon M7, M8, M9, M10, M11, M12, M13;
 
+    @FXML
+    private List<Polygon> hexagons;
+
     /**
      * @param hexagon
      * @return
@@ -108,6 +112,8 @@ public class GameController {
         boardPane.getChildren().add(createStone(hexagon));
         logStonePlacement(hexId);
         processMove(hexId);
+        skipTurn();
+
     }
 
 
@@ -148,6 +154,9 @@ public class GameController {
         }
     }
 
+    /**
+     * @param hexId
+     */
     public void processMove(String hexId) {
 
         List<String> capturedStones = isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons,
@@ -159,6 +168,29 @@ public class GameController {
         // Switch player's turn
         turn.switchTurn();
     }
+
+    public void skipTurn() {
+        //getting list of all empty hexes for possible moves
+        List<String> availableHexes = new ArrayList<>();
+
+        for(Polygon p : hexagons){
+            availableHexes.add(p.getId());
+        }
+        availableHexes.removeAll(redHexagons);
+        availableHexes.removeAll(blueHexagons);
+
+        for (String hexId : availableHexes) {
+            if (!isInvalidMove(turn.isRedTurn() ? redHexagons : blueHexagons,
+                    turn.isRedTurn() ? blueHexagons : redHexagons, hexId)) {
+                //if there is a valid move, function is exited immediately
+                return;
+            }
+        }
+
+        //if it reaches here it means there are no possible moves so turn is skipped
+        turn.switchTurn();
+    }
+
 
     /**
      * Method to show the red X on the board when hovering on a hexagon.
@@ -203,13 +235,14 @@ public class GameController {
         return false;
     }
 
+
     @FXML
     public void initialize() { // Called by the FXMLLoader when initialization is complete
         turn = new TurnUtil(turnPane);
         hover = new OnHoverUtil(boardPane);
         turn.displayTurn(); // Display turns, RED to make a move first
 
-        List<Polygon> hexagons = Arrays.asList(
+        hexagons = Arrays.asList(
                 A1, A2, A3, A4, A5, A6, A7,
                 B1, B2, B3, B4, B5, B6, B7, B8,
                 C1, C2, C3, C4, C5, C6, C7, C8, C9,
