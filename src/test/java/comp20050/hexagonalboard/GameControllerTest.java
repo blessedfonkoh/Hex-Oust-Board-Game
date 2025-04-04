@@ -17,6 +17,7 @@ class GameControllerTest {
 
     private GameController gameController;
 
+    // Initialize JavaFX runtime before all test cases
     @BeforeAll
     static void setupJavaFX() throws Exception {
         CountDownLatch latch = new CountDownLatch(1);
@@ -24,6 +25,7 @@ class GameControllerTest {
         latch.await();
     }
 
+    // Set up new instances of GameController before each test
     @BeforeEach
     void setUp() {
         gameController = new GameController();
@@ -32,6 +34,7 @@ class GameControllerTest {
         gameController.initialize();
     }
 
+    // Test logStonePlacement method: verify stone placement logs for red player
     @Test
     void testLogStonePlacementRed() {
         gameController.turn.resetTurn();
@@ -40,6 +43,7 @@ class GameControllerTest {
         assertFalse(gameController.blueHexagons.contains("D5"));
     }
 
+    // Test logStonePlacement method: verify stone placement logs for blue player
     @Test
     void testLogStonePlacementBlue() {
         gameController.turn.switchTurn();
@@ -48,6 +52,7 @@ class GameControllerTest {
         assertFalse(gameController.redHexagons.contains("E6"));
     }
 
+    // Test createStone method: testing dimensions and properties of stone
     @Test
     void testCreateStone() {
         Polygon hexagon = new Polygon();
@@ -58,6 +63,7 @@ class GameControllerTest {
         assertEquals(gameController.turn.isRedTurn() ? Color.RED : Color.BLUE, stone.getFill());
     }
 
+    // Test the restartGame method: ensure method resets the game state properly
     @Test
     void testRestartGame() {
         gameController.redHexagons.add("A1");
