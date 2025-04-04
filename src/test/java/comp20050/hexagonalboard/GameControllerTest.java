@@ -1,6 +1,8 @@
 package comp20050.hexagonalboard;
 
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -9,6 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,12 +28,14 @@ class GameControllerTest {
         latch.await();
     }
 
-    // Set up new instances of GameController before each test
+    // Load FXML file resources and set up new instances of GameController before each test
     @BeforeEach
-    void setUp() {
-        gameController = new GameController();
-        gameController.boardPane = new Pane();
-        gameController.turnPane = new Pane();
+    void setUp() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(GameApplication.class.getResource("game-view.fxml"));
+        Parent root = fxmlLoader.load();
+        gameController = fxmlLoader.getController();
+        gameController.boardPane = (Pane) root.lookup("#boardPane");
+        gameController.turnPane = (Pane) root.lookup("#turnPane");
         gameController.initialize();
     }
 
