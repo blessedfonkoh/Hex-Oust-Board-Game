@@ -95,8 +95,6 @@ public class GameController {
         for (Polygon hex : hexagons) {
             if (hex == null) {
                 System.out.println("Hex was not injected: check your FXML file 'game-view.fxml'.");
-            } else {
-                System.out.println("Hex successfully loaded: " + hex.getId());
             }
         }
     }
