@@ -92,13 +92,6 @@ public class GameController {
                 L6, L7, L8, L9, L10, L11, L12, L13,
                 M7, M8, M9, M10, M11, M12, M13);
 
-        for (Polygon hex : hexagons) {
-            if (hex == null) {
-                System.out.println("Hex was not injected: check your FXML file 'game-view.fxml'.");
-            } else {
-                System.out.println("Hex successfully loaded: " + hex.getId());
-            }
-        }
     }
 
     /**
@@ -129,7 +122,6 @@ public class GameController {
      */
     @FXML
     public void placeStone(MouseEvent event) {
-
         Polygon hexagon = (Polygon) event.getSource();
 
         if (showErrorMessage(hexagon) || hexagon.isDisabled()) {
@@ -143,8 +135,8 @@ public class GameController {
         logStonePlacement(hexId);
         processMove(hexId);
         skipTurn();
-    }
 
+        }
 
     /**
      * @param hexId
@@ -186,16 +178,34 @@ public class GameController {
     /**
      * @param hexId
      */
+
     public void processMove(String hexId) {
 
         List<String> capturedStones = isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons,
                 turn.isRedTurn() ? blueHexagons : redHexagons);
         if (capturedStones != null) {
             removeStones(capturedStones);
+            //winning move only occurs in a capturing move
+            if(isWinningMove()){
+                if(turn.isRedTurn()){
+                    System.out.println("Red wins");
+                }
+                else{
+                    System.out.println("Blue wins");
+                }
+                restartGame();
+            }
             turn.switchTurn();
         }
         // Switch player's turn
         turn.switchTurn();
+    }
+
+    public boolean isWinningMove() {
+        if(redHexagons.isEmpty() || blueHexagons.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 
     public void skipTurn() {
