@@ -190,10 +190,29 @@ public class GameController {
                 turn.isRedTurn() ? blueHexagons : redHexagons);
         if (capturedStones != null) {
             removeStones(capturedStones);
+
+            if(isWinningMove())
+            {
+                if(turn.isRedTurn()){
+                    System.out.println("Red wins");
+                }
+                else{
+                    System.out.println("Blue wins");
+                }
+                restartGame();
+                return;
+            }
             turn.switchTurn();
         }
         // Switch player's turn
         turn.switchTurn();
+    }
+
+    private boolean isWinningMove(){
+        if(redHexagons.isEmpty() || blueHexagons.isEmpty()){
+            return true;
+        }
+        return false;
     }
 
     public void skipTurn() {
