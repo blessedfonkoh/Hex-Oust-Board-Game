@@ -29,4 +29,44 @@ public class MessageUtil {
 
         return dialog;
     }
+
+
+    public static JDialog showWinner(String winner) {
+
+
+        //Loading image for displaying winner.
+        ImageIcon image = new ImageIcon("src/main/java/GameController/utils/meme.jpg");
+        Image scaledImage = image.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH); // Adjust size as needed
+        ImageIcon meme = new ImageIcon(scaledImage);
+        JLabel icon = new JLabel(meme);
+
+        // Creating the text to display the winner
+        JLabel text = new JLabel(winner);
+        text.setFont(new Font("Impact", Font.PLAIN, 24));
+        text.setForeground(new Color(191, 64, 191));
+        text.setHorizontalAlignment(SwingConstants.CENTER);
+
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.add(icon, BorderLayout.CENTER);
+        panel.add(text, BorderLayout.SOUTH);
+
+
+        // Create a custom button
+        JButton newGameButton = new JButton("New Game");
+        newGameButton.setFont(new Font("Calibri", Font.BOLD, 14));
+        newGameButton.setFocusPainted(false);
+
+
+
+        JOptionPane optionPane = new JOptionPane(panel, JOptionPane.PLAIN_MESSAGE,
+                JOptionPane.DEFAULT_OPTION, null, new Object[] {newGameButton});
+
+        JDialog dialog = optionPane.createDialog(null, "Winner Winner Chicken Dinner!");
+        newGameButton.addActionListener(e -> dialog.dispose());
+
+
+        return dialog;
+    }
 }

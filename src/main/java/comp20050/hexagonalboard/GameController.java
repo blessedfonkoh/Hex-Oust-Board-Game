@@ -15,6 +15,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
 
+import javax.swing.*;
+
 /**
  * Game Controller Class
  * for 'game-view.fxml'
@@ -194,10 +196,10 @@ public class GameController {
             if(isWinningMove())
             {
                 if(turn.isRedTurn()){
-                    System.out.println("Red wins");
+                    showWinner("RED WINS");
                 }
                 else{
-                    System.out.println("Blue wins");
+                    showWinner("BLUE WINS");
                 }
                 restartGame();
                 return;
@@ -207,12 +209,14 @@ public class GameController {
         // Switch player's turn
         turn.switchTurn();
     }
+    public void showWinner(String winner) {
+        //  Display pop-up message to display winner
+        JDialog dialog = MessageUtil.showWinner(winner);
+        dialog.setVisible(true);
+    }
 
     private boolean isWinningMove(){
-        if(redHexagons.isEmpty() || blueHexagons.isEmpty()){
-            return true;
-        }
-        return false;
+        return redHexagons.isEmpty() || blueHexagons.isEmpty();
     }
 
     public void skipTurn() {
