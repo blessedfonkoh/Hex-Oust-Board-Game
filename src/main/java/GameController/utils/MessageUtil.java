@@ -43,7 +43,11 @@ public class MessageUtil {
         // Creating the text to display the winner
         JLabel text = new JLabel(winner);
         text.setFont(new Font("Impact", Font.PLAIN, 24));
-        text.setForeground(new Color(191, 64, 191));
+        if(winner.startsWith("R")){
+        text.setForeground(Color.RED);}
+        else{
+            text.setForeground(Color.BLUE);
+        }
         text.setHorizontalAlignment(SwingConstants.CENTER);
 
 
