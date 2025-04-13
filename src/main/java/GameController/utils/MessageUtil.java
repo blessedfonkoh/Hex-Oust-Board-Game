@@ -58,8 +58,8 @@ public class MessageUtil {
 
 
         // Create a custom button
-        JButton newGameButton = new JButton("New Game");
-        newGameButton.setFont(new Font("Calibri", Font.BOLD, 14));
+        JButton newGameButton = new JButton("NEW GAME");
+        newGameButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
         newGameButton.setFocusPainted(false);
 
 
