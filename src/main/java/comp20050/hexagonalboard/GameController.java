@@ -13,7 +13,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Shape;
 
 import javax.swing.*;
 
@@ -36,7 +35,7 @@ public class GameController {
 
 
     TurnUtil turn;
-    OnHoverUtil hover;
+    GraphicsUtil hover;
 
     @FXML
     Button restartButton;
@@ -85,7 +84,7 @@ public class GameController {
     @FXML
     public void initialize() { // Called by the FXMLLoader when initialization is complete
         turn = new TurnUtil(turnPane);
-        hover = new OnHoverUtil(boardPane);
+        hover = new GraphicsUtil(boardPane, turn);
         turn.displayTurn(); // Display turns, RED to make a move first
 
         hexagons = Arrays.asList(
@@ -114,22 +113,6 @@ public class GameController {
      * @param hexagon
      * @return
      */
-    public Circle createStone(Polygon hexagon) {
-        //Creating blue or red stone depending on whose turn it is
-        Circle stone = new Circle(12, turn.isRedTurn() ? Color.RED : Color.BLUE);
-
-        //Setting the stone border colour and width
-        stone.setStroke(turn.isRedTurn() ? Color.MAROON : Color.NAVY);
-        stone.setStrokeWidth(4);
-
-        //Setting the stone position
-        stone.setLayoutX(hexagon.getLayoutX());
-        stone.setLayoutY(hexagon.getLayoutY());
-
-        hexagon.setDisable(true); // Disabling hexagons with stones to prevent placement on them
-
-        return stone;
-    }
 
     /**
      * Method to allow the user to place a stone on the base-7 hexagonal grid
@@ -152,6 +135,23 @@ public class GameController {
         logStonePlacement(hexId);
         processMove(hexId);
         skipTurn();
+    }
+
+    public Circle createStone(Polygon hexagon) {
+        //Creating blue or red stone depending on whose turn it is
+        Circle stone = new Circle(12, turn.isRedTurn() ? Color.RED : Color.BLUE);
+
+        //Setting the stone border colour and width
+        stone.setStroke(turn.isRedTurn() ? Color.MAROON : Color.NAVY);
+        stone.setStrokeWidth(4);
+
+        //Setting the stone position
+        stone.setLayoutX(hexagon.getLayoutX());
+        stone.setLayoutY(hexagon.getLayoutY());
+
+        hexagon.setDisable(true); // Disabling hexagons with stones to prevent placement on them
+
+        return stone;
     }
 
 
@@ -288,7 +288,7 @@ public class GameController {
     public boolean showErrorMessage(Polygon currentHex) {
         if (isInvalidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
                 turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), currentHex.getId())) {
-            hover.showErrorMessage(); // Display error message
+            GraphicsUtil.showErrorMessage(); // Display error message
             return true;
         }
         return false;

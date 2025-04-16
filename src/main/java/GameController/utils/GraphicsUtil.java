@@ -1,18 +1,36 @@
 package GameController.utils;
 
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * This class holds all the utility methods to display objects to the user on hover
  */
-public class OnHoverUtil {
+public class GraphicsUtil {
     private final Pane boardPane;
+    static TurnUtil turn;
+
+    public Line getLine1() {
+        return line1;
+    }
+
+    public Line getLine2() {
+        return line2;
+    }
+
+    public Line getTickLine1() {
+        return tickLine1;
+    }
+
+    public Line getTickLine2() {
+        return tickLine2;
+    }
 
     // Lines to display X
     // First line "/"
@@ -26,7 +44,8 @@ public class OnHoverUtil {
     // Second line " short \ "
     private final Line tickLine2 = new Line(-10, 3, -6, 9);
 
-    public OnHoverUtil(Pane boardPane) {
+    public GraphicsUtil(Pane boardPane, TurnUtil turn) {
+        GraphicsUtil.turn = turn;
         this.boardPane = boardPane;
         // Styling the lines to make them RED
         line1.setStroke(Color.RED);
@@ -87,8 +106,7 @@ public class OnHoverUtil {
         boardPane.getChildren().remove(tickLine2);
     }
 
-    public void showErrorMessage() {
-        //  Display pop-up error message if current hex is invalid, cancels stone placement
+    public static void showErrorMessage() {
         JDialog dialog = MessageUtil.showErrorMessage();
         dialog.setVisible(true);
     }
