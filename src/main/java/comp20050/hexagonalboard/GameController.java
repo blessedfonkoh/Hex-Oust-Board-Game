@@ -23,8 +23,17 @@ import javax.swing.*;
  */
 public class GameController {
 
-    final List<String> redHexagons = new ArrayList<>(); // List to store RED players moves
-    final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
+    public List<String> getBlueHexagons() {
+        return blueHexagons;
+    }
+
+    public List<String> getRedHexagons() {
+        return redHexagons;
+    }
+
+    private final List<String> redHexagons = new ArrayList<>(); // List to store RED players moves
+    private  final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
+
 
     TurnUtil turn;
     OnHoverUtil hover;
@@ -153,9 +162,9 @@ public class GameController {
     public void logStonePlacement(String hexId) {
 
         if (turn.isRedTurn()) { // Red's turn
-            redHexagons.add(hexId); // Add placed stone to RED's list
+            getRedHexagons().add(hexId); // Add placed stone to RED's list
         } else { // Blue's turn
-            blueHexagons.add(hexId); // Add placed stone to BLUE's list
+            getBlueHexagons().add(hexId); // Add placed stone to BLUE's list
         }
 
     }
@@ -175,10 +184,10 @@ public class GameController {
                                 node.getLayoutY() == hex.getLayoutY()));
                 hex.setDisable(false);
             }
-            if (redHexagons.contains(hexId)) {
-                redHexagons.remove(hexId);
+            if (getRedHexagons().contains(hexId)) {
+                getRedHexagons().remove(hexId);
             } else {
-                blueHexagons.remove(hexId);
+                getBlueHexagons().remove(hexId);
             }
         }
     }
@@ -188,8 +197,8 @@ public class GameController {
      */
     public void processMove(String hexId) {
 
-        List<String> capturedStones = isCapturingMove(hexId, turn.isRedTurn() ? redHexagons : blueHexagons,
-                turn.isRedTurn() ? blueHexagons : redHexagons);
+        List<String> capturedStones = isCapturingMove(hexId, turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
+                turn.isRedTurn() ? getBlueHexagons() : getRedHexagons());
         if (capturedStones != null) {
             removeStones(capturedStones);
 
@@ -216,7 +225,7 @@ public class GameController {
     }
 
     private boolean isWinningMove(){
-        return redHexagons.isEmpty() || blueHexagons.isEmpty();
+        return getRedHexagons().isEmpty() || getBlueHexagons().isEmpty();
     }
 
     public void skipTurn() {
@@ -226,12 +235,12 @@ public class GameController {
         for(Polygon p : hexagons){
             availableHexes.add(p.getId());
         }
-        availableHexes.removeAll(redHexagons);
-        availableHexes.removeAll(blueHexagons);
+        availableHexes.removeAll(getRedHexagons());
+        availableHexes.removeAll(getBlueHexagons());
 
         for (String hexId : availableHexes) {
-            if (!isInvalidMove(turn.isRedTurn() ? redHexagons : blueHexagons,
-                    turn.isRedTurn() ? blueHexagons : redHexagons, hexId)) {
+            if (!isInvalidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
+                    turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), hexId)) {
                 //if there is a valid move, function is exited immediately
                 return;
             }
@@ -252,8 +261,8 @@ public class GameController {
         Polygon currentHex = (Polygon) event.getSource();
 
         // Show the X on hover if its invalid
-        if (isInvalidMove(turn.isRedTurn() ? redHexagons : blueHexagons,
-                turn.isRedTurn() ? blueHexagons : redHexagons, currentHex.getId())) {
+        if (isInvalidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
+                turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), currentHex.getId())) {
             hover.createX(currentHex);
         } else {
             hover.createTick(currentHex);
@@ -277,8 +286,8 @@ public class GameController {
      * @return True if error message should be displayed and false if it shouldn't
      */
     public boolean showErrorMessage(Polygon currentHex) {
-        if (isInvalidMove(turn.isRedTurn() ? redHexagons : blueHexagons,
-                turn.isRedTurn() ? blueHexagons : redHexagons, currentHex.getId())) {
+        if (isInvalidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
+                turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), currentHex.getId())) {
             hover.showErrorMessage(); // Display error message
             return true;
         }
@@ -300,8 +309,8 @@ public class GameController {
         });
 
         // Erasing Lists of placed stones for RED and BLUE
-        redHexagons.clear();
-        blueHexagons.clear();
+        getRedHexagons().clear();
+        getBlueHexagons().clear();
         turn.displayTurn(); // Display turn from beginning
     }
 }

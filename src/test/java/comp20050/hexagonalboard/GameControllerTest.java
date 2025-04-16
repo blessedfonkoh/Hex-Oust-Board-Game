@@ -44,8 +44,8 @@ class GameControllerTest {
     void testLogStonePlacementRed() {
         gameController.turn.resetTurn();
         gameController.logStonePlacement("D5");
-        assertTrue(gameController.redHexagons.contains("D5"));
-        assertFalse(gameController.blueHexagons.contains("D5"));
+        assertTrue(gameController.getRedHexagons().contains("D5"));
+        assertFalse(gameController.getBlueHexagons().contains("D5"));
     }
 
     // Test logStonePlacement method: verify stone placement logs for blue player
@@ -53,8 +53,8 @@ class GameControllerTest {
     void testLogStonePlacementBlue() {
         gameController.turn.switchTurn();
         gameController.logStonePlacement("E6");
-        assertTrue(gameController.blueHexagons.contains("E6"));
-        assertFalse(gameController.redHexagons.contains("E6"));
+        assertTrue(gameController.getBlueHexagons().contains("E6"));
+        assertFalse(gameController.getRedHexagons().contains("E6"));
     }
 
     // Test createStone method: testing dimensions and properties of stone
@@ -71,8 +71,8 @@ class GameControllerTest {
     // Test the restartGame method: ensure method resets the game state properly
     @Test
     void testRestartGame() {
-        gameController.redHexagons.add("A1");
-        gameController.blueHexagons.add("B2");
+        gameController.getRedHexagons().add("A1");
+        gameController.getBlueHexagons().add("B2");
 
         Circle redStone = new Circle(12, Color.RED);
         Circle blueStone = new Circle(12, Color.BLUE);
@@ -85,8 +85,8 @@ class GameControllerTest {
 
         gameController.restartGame();
 
-        assertTrue(gameController.redHexagons.isEmpty());
-        assertTrue(gameController.blueHexagons.isEmpty());
+        assertTrue(gameController.getRedHexagons().isEmpty());
+        assertTrue(gameController.getBlueHexagons().isEmpty());
         assertFalse(gameController.boardPane.getChildren().contains(redStone));
         assertFalse(disabledHex.isDisabled());
     }

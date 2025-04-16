@@ -35,7 +35,7 @@ public class MessageUtil {
 
 
         //Loading image for displaying winner.
-        ImageIcon image = new ImageIcon("src/main/java/GameController/utils/meme.jpg");
+        ImageIcon image = new ImageIcon(MessageUtil.class.getResource("/meme.jpg"));
         Image scaledImage = image.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH); // Adjust size as needed
         ImageIcon meme = new ImageIcon(scaledImage);
         JLabel icon = new JLabel(meme);

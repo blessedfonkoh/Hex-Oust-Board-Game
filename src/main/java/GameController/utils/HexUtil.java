@@ -1,10 +1,14 @@
 package GameController.utils;
 
+import comp20050.hexagonalboard.GameController;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class HexUtil {
+    GameController gc = new GameController();
+
 
     /**
      * Method to check if a Hexagon ID is a valid move or not.
@@ -116,6 +120,7 @@ public class HexUtil {
 
         List<String> group = getGroup(hexId, playerHexClone);
         List<String> removeStones = new ArrayList<>();
+
 
         int maxGroup = 0;
         for (String s : group) {
