@@ -197,7 +197,7 @@ public class GameController {
      */
     public void processMove(String hexId) {
 
-        List<String> capturedStones = isCapturingMove(hexId, turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
+        List<String> capturedStones = capturedStones(hexId, turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
                 turn.isRedTurn() ? getBlueHexagons() : getRedHexagons());
         if (capturedStones != null) {
             removeStones(capturedStones);
@@ -239,7 +239,7 @@ public class GameController {
         availableHexes.removeAll(getBlueHexagons());
 
         for (String hexId : availableHexes) {
-            if (!isInvalidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
+            if (isValidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
                     turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), hexId)) {
                 //if there is a valid move, function is exited immediately
                 return;
@@ -261,7 +261,7 @@ public class GameController {
         Polygon currentHex = (Polygon) event.getSource();
 
         // Show the X on hover if its invalid
-        if (isInvalidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
+        if (!isValidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
                 turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), currentHex.getId())) {
             hover.createX(currentHex);
         } else {
@@ -286,7 +286,7 @@ public class GameController {
      * @return True if error message should be displayed and false if it shouldn't
      */
     public boolean showErrorMessage(Polygon currentHex) {
-        if (isInvalidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
+        if (!isValidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
                 turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), currentHex.getId())) {
             GraphicsUtil.showErrorMessage(); // Display error message
             return true;

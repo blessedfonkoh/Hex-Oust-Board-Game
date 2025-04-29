@@ -6,9 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Polygon;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
@@ -47,8 +45,8 @@ class GraphicsUtilTest {
         Polygon hex = (Polygon) gameController.boardPane.lookup("#A1");
         assertNotNull(hex);
         graphicsUtil.createX(hex);
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getLine1()));
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getLine2()));
+        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine1()));
+        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine2()));
     }
 
     // Test that an X can be removed properly from a hex tile
@@ -57,12 +55,12 @@ class GraphicsUtilTest {
         Polygon hex = (Polygon) gameController.boardPane.lookup("#H5");
         assertNotNull(hex);
         graphicsUtil.createX(hex);
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getLine1()));
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getLine2()));
+        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine1()));
+        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine2()));
 
         graphicsUtil.removeX();
-        assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getLine1()));
-        assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getLine2()));
+        assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine1()));
+        assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine2()));
     }
 
     // Test if a tick mark is successfully created on a specific hex tile

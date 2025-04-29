@@ -1,144 +1,129 @@
 package GameController.utils;
-
-import comp20050.hexagonalboard.GameController;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class HexUtil {
-    GameController gc = new GameController();
-
 
     /**
-     * Method to check if a Hexagon ID is a valid move or not.
+     * Checks if a Hexagon ID is a valid move.
      *
-     * @param playersHexagons list containing a players placed stones.
-     * @param opponentsHexagons list containing opponents placed stones.
+     * @param playersHexagons list containing a player's placed stones.
+     * @param opponentsHexagons list containing opponent's placed stones.
      * @param hexId ID of Hexagon which player has hovered over.
-     * @return true if that Hexagon is a valid move, false otherwise.
+     * @return true if Hexagon is a valid move, false otherwise.
      */
-    public static boolean isInvalidMove(List<String> playersHexagons, List<String> opponentsHexagons, String hexId) {
+    public static boolean isValidMove(List<String> playersHexagons, List<String> opponentsHexagons, String hexId) {
 
-       List<String> playerNeighbours = getNeighbourHex(hexId); //gets neighbours of hexagon hovered over.
-       List<String> neighbouringIDs = new ArrayList<>();
-        for(String n : playerNeighbours) {
-            //adds the neighbours which are occupied by the player.
+       List<String> neighbours = getNeighbourHex(hexId); // Gets all neighbours of hexagon hovered over.
+       List<String> playerNeighbours = new ArrayList<>();
+
+       // Get neighbouring hexagons occupied by player.
+        for(String n : neighbours) {
             if (playersHexagons.contains(n)) {
-                neighbouringIDs.add(n);
+                playerNeighbours.add(n);
             }
         }
-        //if no neighbours r occupied by player, then it's a valid move (e,g the very first round)
-        if(neighbouringIDs.isEmpty()){
-            return false;
+        // If no neighbours are occupied by player, it's a valid move.
+        if(playerNeighbours.isEmpty()){
+            return true;
         }
-        //if its not a capturing move, the player's group is smaller than the opponents, therefore move is invalid
-        return isCapturingMove(hexId, playersHexagons, opponentsHexagons) == null;
+        // If capturedStones is not null, move is valid.
+        return capturedStones(hexId, playersHexagons, opponentsHexagons) != null;
     }
 
     /**
-     * Method to get all valid neighbouring hexagons for a given Hex ID
+     * Gets all neighbouring Hex IDs for a given Hex ID
      *
-     * @param hexId : The ID of the hexagon
-     * @return A list of hexagon IDs representing the neighboring hexagons.
+     * @param hexId : The ID of the hexagon to get surrounding neighbours of
+     * @return A list of hexagon IDs representing the neighbouring hexagons.
      */
     private static List<String> getNeighbourHex(String hexId) {
         char letter = hexId.charAt(0); // Letter for the row e.g A,B,C
         int num = Integer.parseInt(hexId.substring(1)); // Number for the column
 
-        return new ArrayList<>(Arrays.asList(String.valueOf((char) (letter + 1)) + num,  // Top
-                String.valueOf((char) (letter + 1)) + (num + 1), // Top
-                String.valueOf(letter) + (num - 1),  // Left
-                String.valueOf(letter) + (num + 1), // Right
-                String.valueOf((char) (letter - 1)) + (num - 1), // Bottom left
+        // Get surrounding Hex IDs
+        return new ArrayList<>(Arrays.asList(String.valueOf((char) (letter + 1)) + num,
+                String.valueOf((char) (letter + 1)) + (num + 1),
+                String.valueOf(letter) + (num - 1),
+                String.valueOf(letter) + (num + 1),
+                String.valueOf((char) (letter - 1)) + (num - 1),
                 String.valueOf((char) (letter - 1)) + num));
     }
 
     /**
-     * Method that returns a list of hexagon IDs that form a connected group, including the given hexId.
+     * Returns a list of hexagon IDs that form a connected group, including the given hexId.
      *
      * @param hexId The ID of the hexagon to start the group search from.
      * @param playerHexagons The list of hexagon IDs occupied by the player.
-     * @return A list of hexagon IDs representing the connected group that includes the given hexId.
+     * @return A list of hexagon IDs that form a connected group.
      */
-
     public static List<String> getGroup(String hexId, List<String> playerHexagons) {
-        List<String> group = new ArrayList<>();
-        List<String> visited = new ArrayList<>();
-
-        // check if the given hexagon is occupied by the player
         if (playerHexagons.contains(hexId)) {
-            search(hexId, playerHexagons, visited, group);
+            return searchGroup(hexId, playerHexagons, new ArrayList<>());
         }
+        return null;
+    }
 
+
+    /**
+     * Recursively gets all neighbours of stones with the same colour,
+     *
+     * @param hexId id of the hexagon you are searching.
+     * @param playerHexagons list containing a players placed stones.
+     * @param visited list to keep track of visited hexagons.
+     * @return A list of hexagon IDs forming a connected group.
+     */
+    private static List<String> searchGroup(String hexId, List<String> playerHexagons, List<String> visited) {
+        List<String> group = new ArrayList<>();
+
+        group.add(hexId);
+        visited.add(hexId);
+
+        List<String> neighbours = HexUtil.getNeighbourHex(hexId);
+
+        for (String n : neighbours) {
+            if (playerHexagons.contains(n) && !visited.contains(n)) {
+                group.addAll(searchGroup(n, playerHexagons, visited));
+            }
+        }
         return group;
     }
 
-    /**
-     * Method to get all the neighbours of stones with the same colour,
-     * Recursively gets the neighbours of same colour and adds them to the group of where stone was placed.
-     *
-     * @param hexId the id of the hexagons you are searching.
-     * @param playerHexagons list containing a players placed stones.
-     * @param visited list to keep track of visited hexagons.
-     * @param group list to store HexIds of the connected hexagons of the same colour.
-     */
-    private static void search(String hexId, List<String> playerHexagons, List<String> visited, List<String> group) {
-        visited.add(hexId);
-        group.add(hexId);
-
-        // get neighbors of the current hexagon
-        List<String> neighbors = HexUtil.getNeighbourHex(hexId);
-
-        for (String neighbor : neighbors) {
-            // recursive call
-            // check if the neighbor is occupied by the player and not visited
-            if (playerHexagons.contains(neighbor) && !visited.contains(neighbor)) {
-                search(neighbor, playerHexagons, visited, group);
-            }
-        }
-    }
 
     /**
-     * method which determines if placing a stone at the given hexId would result in capturing move or not.
-     * A capturing move occurs when the player's new stone creates a group larger than all the adjacent
-     * opponent's groups.
+     * Gets captured stones.
      *
-     * @param hexId The ID of the hexagon where the stone is being placed.
-     * @param playerHexagons The list of hexagon IDs occupied by the player.
-     * @param opponentHexagons The list of hexagon IDs occupied by the opponent.
-     * @return A list of hexagon IDs representing the opponent's stones to be removed if the move is capturing.
-     *         Returns null if the move does not result in a capture.
+     * @param hexId ID of the hexagon where the stone is being placed.
+     * @param playerHexagons list of hexagon IDs occupied by player.
+     * @param opponentHexagons list of hexagon IDs occupied by opponent.
+     * @return  Hexagon IDs representing the opponent's stones to be removed if the move is capturing.
+     *          Return Null otherwise.
      */
-    public static List<String> isCapturingMove(String hexId, List<String> playerHexagons, List<String> opponentHexagons) {
-        //created a clone of playerHexagons.
-        //this is because when a user hovers on a hex, its not listed in playerHexagons since it hasnt yet been clicked.
-        //i made a clone so that i can add hexID (the hovered hexagon) to the list, so that this method can be used in
-        //isValidMove.
-        List<String> playerHexClone = new ArrayList<>(playerHexagons);
-        playerHexClone.add(hexId);
+    public static List<String> capturedStones(String hexId, List<String> playerHexagons, List<String> opponentHexagons) {
 
-        List<String> group = getGroup(hexId, playerHexClone);
-        List<String> removeStones = new ArrayList<>();
+        // Copy playerHexagons to add hexID (the hovered hexagon) to the list.
+        List<String> playerHexCopy = new ArrayList<>(playerHexagons);
+        playerHexCopy.add(hexId);
 
+        List<String> playerGroup = getGroup(hexId, playerHexCopy);
+        List<String> capturedStones = new ArrayList<>();
 
-        int maxGroup = 0;
-        for (String s : group) {
-            List<String> neighbours = getNeighbourHex(s);
-            for (String neighbour : neighbours) {
-                if (opponentHexagons.contains(neighbour)) {
-                    // For each neighbour, need to get the full group of the opponent
-                    List<String> opponentGroup = getGroup(neighbour, opponentHexagons);
-                    //System.out.println("To delete: " + opponentGroup);
+        int opponentSize = 0; // Track size of opponent's largest group
 
-                    // Add all grouped stones into removeStones list
-                    removeStones.addAll(opponentGroup);
-                    maxGroup = Math.max(maxGroup, getGroup(neighbour, opponentHexagons).size());
+        for (String hex : playerGroup) {
+            List<String> neighbours = getNeighbourHex(hex);
+            for (String n : neighbours) {
+                if (opponentHexagons.contains(n)) {
+                    List<String> opponentGroup = getGroup(n, opponentHexagons);
+
+                    // Add all stones to be removed
+                    capturedStones.addAll(opponentGroup);
+                    opponentSize = Math.max(opponentSize, opponentGroup.size());
                 }
             }
         }
-        if (getGroup(hexId, playerHexClone).size() > maxGroup && maxGroup > 0) {
-            return removeStones;
+
+        if (playerGroup.size() > opponentSize && opponentSize > 0) {
+            return capturedStones;
         }
         return null;
     }

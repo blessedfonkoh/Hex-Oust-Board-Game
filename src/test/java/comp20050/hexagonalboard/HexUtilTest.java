@@ -2,9 +2,7 @@ package comp20050.hexagonalboard;
 
 import GameController.utils.HexUtil;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static GameController.utils.HexUtil.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,16 +16,6 @@ class HexUtilTest {
         List<String> result = invokeGetNeighbourHex("G7");  // Helper to access private method
         assertEquals(expected, result);
     }
-
-    /*
-    // Test for getting neighbours of a corner hex ("A1"), currently fails due to unexpected neighbours
-    @Test
-    void testGetNeighbourHex_CornerHex() {
-        List<String> expected = Arrays.asList("B1", "B2", "A2");
-        List<String> result = invokeGetNeighbourHex("A1");  // Helper to access private method
-        assertEquals(expected, result); //Fails, returns [B1, B2, A0, A2, @0, @1]
-    }
-    */
 
     // Test that a single hex returns itself as a group
     @Test
@@ -58,59 +46,59 @@ class HexUtilTest {
 
     // First move should always be valid (no surrounding constraints)
     @Test
-    void testIsInvalidMove_FirstMove() {
+    void testIsValidMove_FirstMove() {
         List<String> players = new ArrayList<>();
         List<String> opponents = new ArrayList<>();
-        boolean result = isInvalidMove(players, opponents, "A1");
-        assertFalse(result);  // First move should be valid
+        boolean result = isValidMove(players, opponents, "A1");
+        assertTrue(result);  // First move should be valid
     }
 
     // Test a valid capturing move scenario
     @Test
-    void testIsInvalidMove_ValidCapture() {
+    void testIsValidMove_ValidCapture() {
         List<String> players = List.of("H5");
         List<String> opponents = List.of("I5");
-        boolean result = isInvalidMove(players, opponents, "H4");
-        assertFalse(result);
+        boolean result = isValidMove(players, opponents, "H4");
+        assertTrue(result);
     }
 
     // Test a valid move that is not a capturing move scenario
     @Test
-    void testIsInvalidMove_ValidNonCapture() {
+    void testIsValidMove_ValidNonCapture() {
         List<String> player = List.of("C1", "D2");
         List<String> opponent = List.of("C2");
 
-        boolean result = isInvalidMove(player, opponent, "H5");
-        assertFalse(result); // Valid non-capturing move
+        boolean result = isValidMove(player, opponent, "H5");
+        assertTrue(result); // Valid non-capturing move
     }
 
     // Test an invalid move (not adjacent and not a capture)
     @Test
-    void testIsInvalidMove_InvalidMove() {
+    void testIsValidMove_InValidMove() {
         List<String> player = List.of("C1");
         List<String> opponent = List.of();
 
-        boolean result = isInvalidMove(player, opponent, "C2");
-        assertTrue(result); // Move is invalid
+        boolean result = isValidMove(player, opponent, "C2");
+        assertFalse(result); // Move is invalid
     }
 
     // Test that a valid capturing move returns the correct opponent hex
     @Test
-    void testIsCapturingMove_ValidCapture() {
+    void testCapturedStones_ValidCapture() {
         List<String> player = List.of("B2", "C2");
         List<String> opponent = List.of("B3");
 
-        List<String> captured = isCapturingMove("C3", player, opponent);
+        List<String> captured = capturedStones("C3", player, opponent);
         assertNotNull(captured);
         assertTrue(captured.contains("B3"));
     }
 
     // Test that a non-capturing move returns null (no capture)
     @Test
-    void testIsCapturingMove_InvalidCapture() {
+    void testCapturedStones_InvalidCapture() {
         List<String> player = List.of("A1");
         List<String> opponent = List.of("B2", "B1");
-        List<String> captured = isCapturingMove("A2", player, opponent);
+        List<String> captured = capturedStones("A2", player, opponent);
         assertNull(captured);
     }
 
