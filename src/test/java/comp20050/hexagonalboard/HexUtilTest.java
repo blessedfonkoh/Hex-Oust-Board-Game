@@ -10,6 +10,8 @@ import static GameController.utils.HexUtil.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HexUtilTest {
+
+    // Test for getting neighbours of a center hex ("G7"), expecting 6 surrounding hexes
     @Test
     void testGetNeighbourHex_CenterHex() {
         List<String> expected = Arrays.asList("H7", "H8", "G6", "G8", "F6", "F7");
@@ -17,13 +19,17 @@ class HexUtilTest {
         assertEquals(expected, result);
     }
 
-//    @Test
-//    void testGetNeighbourHex_CornerHex() {
-//        List<String> expected = Arrays.asList("B1", "B2", "A2");
-//        List<String> result = invokeGetNeighbourHex("A1");  // Helper to access private method
-//        assertEquals(expected, result); //Fails, returns [B1, B2, A0, A2, @0, @1]
-//    }
+    /*
+    // Test for getting neighbours of a corner hex ("A1"), currently fails due to unexpected neighbours
+    @Test
+    void testGetNeighbourHex_CornerHex() {
+        List<String> expected = Arrays.asList("B1", "B2", "A2");
+        List<String> result = invokeGetNeighbourHex("A1");  // Helper to access private method
+        assertEquals(expected, result); //Fails, returns [B1, B2, A0, A2, @0, @1]
+    }
+    */
 
+    // Test that a single hex returns itself as a group
     @Test
     void testGetGroup_SingleHex() {
         List<String> playerHexagons = List.of("B2");
@@ -31,6 +37,7 @@ class HexUtilTest {
         assertEquals(List.of("B2"), group);
     }
 
+    // Test that all connected hexes are grouped correctly
     @Test
     void testGetGroup_ConnectedHexes() {
         List<String> playerHexagons = List.of("B2", "B3", "C2", "C3", "C4");
@@ -39,6 +46,7 @@ class HexUtilTest {
         assertEquals(5, group.size());
     }
 
+    // Test that disconnected hexes are not grouped together
     @Test
     void testGetGroup_DisconnectedHexes() {
         List<String> playerHexagons = List.of("A1", "H9");
@@ -48,6 +56,7 @@ class HexUtilTest {
         assertEquals(List.of("H9"), group2);
     }
 
+    // First move should always be valid (no surrounding constraints)
     @Test
     void testIsInvalidMove_FirstMove() {
         List<String> players = new ArrayList<>();
@@ -56,6 +65,7 @@ class HexUtilTest {
         assertFalse(result);  // First move should be valid
     }
 
+    // Test a valid capturing move scenario
     @Test
     void testIsInvalidMove_ValidCapture() {
         List<String> players = List.of("H5");
@@ -64,24 +74,27 @@ class HexUtilTest {
         assertFalse(result);
     }
 
+    // Test a valid move that is not a capturing move scenario
     @Test
     void testIsInvalidMove_ValidNonCapture() {
         List<String> player = List.of("C1", "D2");
         List<String> opponent = List.of("C2");
 
         boolean result = isInvalidMove(player, opponent, "H5");
-        assertFalse(result); //Is valid
+        assertFalse(result); // Valid non-capturing move
     }
 
+    // Test an invalid move (not adjacent and not a capture)
     @Test
     void testIsInvalidMove_InvalidMove() {
         List<String> player = List.of("C1");
         List<String> opponent = List.of();
 
         boolean result = isInvalidMove(player, opponent, "C2");
-        assertTrue(result); //Is invalid
+        assertTrue(result); // Move is invalid
     }
 
+    // Test that a valid capturing move returns the correct opponent hex
     @Test
     void testIsCapturingMove_ValidCapture() {
         List<String> player = List.of("B2", "C2");
@@ -92,6 +105,7 @@ class HexUtilTest {
         assertTrue(captured.contains("B3"));
     }
 
+    // Test that a non-capturing move returns null (no capture)
     @Test
     void testIsCapturingMove_InvalidCapture() {
         List<String> player = List.of("A1");
@@ -100,7 +114,7 @@ class HexUtilTest {
         assertNull(captured);
     }
 
-    // Helper to access private method getNeighbourHex using reflection
+    // Helper method to access the private getNeighbourHex method using reflection
     private List<String> invokeGetNeighbourHex(String hexId) {
         try {
             var method = HexUtil.class.getDeclaredMethod("getNeighbourHex", String.class);

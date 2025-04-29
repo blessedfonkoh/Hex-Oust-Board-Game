@@ -20,8 +20,7 @@ class GraphicsUtilTest {
     private GameController gameController;
     private GraphicsUtil graphicsUtil;
 
-
-    // Initialize JavaFX runtime before all test cases
+    // Ensure JavaFX environment is initialized before any test runs
     @BeforeAll
     static void setupJavaFX() throws Exception {
         CountDownLatch latch = new CountDownLatch(1);
@@ -29,7 +28,7 @@ class GraphicsUtilTest {
         latch.await();
     }
 
-    // Load FXML file resources and set up new instances of GameController before each test
+    // Set up the game controller and graphics utility before each test
     @BeforeEach
     void setUp() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GameApplication.class.getResource("game-view.fxml"));
@@ -42,15 +41,17 @@ class GraphicsUtilTest {
         graphicsUtil = new GraphicsUtil(gameController.boardPane, gameController.turn);
     }
 
+    // Test if an X is successfully created on a specific hex tile
     @Test
     void testCreateX() {
         Polygon hex = (Polygon) gameController.boardPane.lookup("#A1");
         assertNotNull(hex);
         graphicsUtil.createX(hex);
         assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getLine1()));
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getLine1()));
+        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getLine2()));
     }
 
+    // Test that an X can be removed properly from a hex tile
     @Test
     void testRemoveX() {
         Polygon hex = (Polygon) gameController.boardPane.lookup("#H5");
@@ -58,12 +59,13 @@ class GraphicsUtilTest {
         graphicsUtil.createX(hex);
         assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getLine1()));
         assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getLine2()));
-        
+
         graphicsUtil.removeX();
         assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getLine1()));
         assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getLine2()));
     }
 
+    // Test if a tick mark is successfully created on a specific hex tile
     @Test
     void testCreateTick() {
         Polygon hex = (Polygon) gameController.boardPane.lookup("#J5");
@@ -73,6 +75,7 @@ class GraphicsUtilTest {
         assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getTickLine2()));
     }
 
+    // Test that a tick mark can be removed properly from a hex tile
     @Test
     void testRemoveTick() {
         Polygon hex = (Polygon) gameController.boardPane.lookup("#B4");
@@ -80,7 +83,7 @@ class GraphicsUtilTest {
         graphicsUtil.createTick(hex);
         assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getTickLine1()));
         assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getTickLine2()));
-        
+
         graphicsUtil.removeTick();
         assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getTickLine1()));
         assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getTickLine2()));
