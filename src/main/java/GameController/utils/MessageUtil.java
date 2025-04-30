@@ -6,18 +6,12 @@ import java.awt.*;
 import java.util.Objects;
 
 public class MessageUtil {
-    public static boolean suppressMessages = false;
-
     /**
      * Method to create a custom error message dialog for invalid cell placement.
      *
      * @return dialog : JDialog instance displaying the custom error message.
      */
     public static JDialog showErrorMessage() {
-        if (suppressMessages) {
-            return new JDialog(); // return dummy dialog without setting up anything
-        }
-
         JPanel panel = new JPanel();
 
         // Create a custom message label
@@ -40,9 +34,6 @@ public class MessageUtil {
 
 
     public static JDialog showWinner(String winner) {
-        if (suppressMessages) {
-            return new JDialog(); // return dummy dialog without setting up anything
-        }
 
         //Loading image for displaying winner.
         ImageIcon image = new ImageIcon(Objects.requireNonNull(MessageUtil.class.getResource("/meme.jpg")));
