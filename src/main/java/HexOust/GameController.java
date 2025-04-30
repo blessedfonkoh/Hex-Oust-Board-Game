@@ -21,10 +21,10 @@ import javax.swing.*;
  */
 public class GameController {
 
-   
+
     private final List<String> redHexagons = new ArrayList<>(); // List to store RED players moves
     private final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
-    
+
     TurnUtil turn;
     GraphicsUtil hover;
 
@@ -164,7 +164,7 @@ public class GameController {
     }
 
     /**
-     * Method to remove captured stones from the board
+     * Removes all given stones from the board and updates state lists.
      *
      * @param capturedStones
      */
