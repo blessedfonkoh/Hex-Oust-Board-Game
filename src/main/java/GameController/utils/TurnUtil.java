@@ -5,11 +5,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class TurnUtil {
+
     private boolean redTurn = true; // True for red, False for blue
     private final Pane turnPane; // The container holding the turns and the text "To Make a Move"
 
     public TurnUtil(Pane turnPane) {
         this.turnPane = turnPane;
+    }
+
+    public Pane getTurnPane() {
+        return turnPane;
     }
 
     /**
@@ -21,6 +26,7 @@ public class TurnUtil {
     }
 
     public boolean isRedTurn() {
+
         return redTurn;
     }
 
@@ -36,7 +42,7 @@ public class TurnUtil {
         stone.setCenterX(-30);
         stone.setCenterY(-9);
 
-        turnPane.getChildren().add(stone); // Add stone to the board
+        getTurnPane().getChildren().add(stone); // Add stone to the board
     }
 
     /**
