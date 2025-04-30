@@ -7,7 +7,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.*;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 

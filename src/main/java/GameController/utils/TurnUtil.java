@@ -36,8 +36,8 @@ public class TurnUtil {
     public void displayTurn() {
 
         // Display stone depending on players turn
-        Circle stone = new Circle(12, redTurn ? Color.RED : Color.BLUE);
-        stone.setStroke(redTurn ? Color.MAROON : Color.NAVY);
+        Circle stone = new Circle(12, isRedTurn() ? Color.RED : Color.BLUE);
+        stone.setStroke(isRedTurn() ? Color.MAROON : Color.NAVY);
         stone.setStrokeWidth(4);
         stone.setCenterX(-30);
         stone.setCenterY(-9);
