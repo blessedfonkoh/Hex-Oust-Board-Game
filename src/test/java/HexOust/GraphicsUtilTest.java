@@ -31,10 +31,12 @@ class GraphicsUtilTest {
     void setUp() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GameApplication.class.getResource("game-view.fxml"));
         Parent root = fxmlLoader.load();
-        gameController = fxmlLoader.getController();
+
+        GameUIController gameUIController = fxmlLoader.getController();
+        gameController = gameUIController.gameController;
         gameController.boardPane = (Pane) root.lookup("#boardPane");
-        gameController.turnPane = (Pane) root.lookup("#turnPane");
-        gameController.initialize();
+        gameUIController.turnPane = (Pane) root.lookup("#turnPane");
+        gameUIController.initialize();
 
         graphicsUtil = new GraphicsUtil(gameController.boardPane, gameController.turn);
     }

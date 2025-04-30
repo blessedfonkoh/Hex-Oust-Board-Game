@@ -50,7 +50,7 @@ public class MessageUtil {
         JPanel panel = getPanel(winner, scaledImage);
 
         // Create a custom button
-        JButton newGameButton = new JButton("START NEW GAME");
+        JButton newGameButton = new JButton("NEW GAME");
         newGameButton.setFont(new Font("Arial", Font.BOLD, 14));
         newGameButton.setFocusPainted(false);
         newGameButton.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));

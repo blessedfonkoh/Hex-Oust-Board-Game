@@ -4,17 +4,11 @@ import GameController.utils.MessageUtil;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.input.PickResult;
+import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Polygon;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import javafx.scene.input.MouseEvent;
-
+import javafx.scene.shape.*;
+import org.junit.jupiter.api.*;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
@@ -23,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class GameControllerTest {
 
     private GameController gameController;
+    private GameUIController gameUIController;
 
 
     // Initialize JavaFX runtime before all test cases
@@ -38,10 +33,11 @@ class GameControllerTest {
     void setUp() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GameApplication.class.getResource("game-view.fxml"));
         Parent root = fxmlLoader.load();
-        gameController = fxmlLoader.getController();
+        gameUIController = fxmlLoader.getController();
+        gameController = gameUIController.gameController;
         gameController.boardPane = (Pane) root.lookup("#boardPane");
-        gameController.turnPane = (Pane) root.lookup("#turnPane");
-        gameController.initialize();
+        gameUIController.turnPane = (Pane) root.lookup("#turnPane");
+        gameUIController.initialize();
 
         MessageUtil.suppressMessages = true;
     }
@@ -188,7 +184,7 @@ class GameControllerTest {
                 .filter(n -> n instanceof Circle).count();
 
         // Simulate placing the stone
-        gameController.placeStone(event);
+        gameUIController.placeStone(event);
 
         int finalStoneCount = (int) gameController.boardPane.getChildren().stream()
                 .filter(n -> n instanceof Circle).count();
@@ -222,7 +218,7 @@ class GameControllerTest {
 
 
         int initialCount = gameController.boardPane.getChildren().size();
-        gameController.placeStone(event);
+        gameUIController.placeStone(event);
         int finalCount = gameController.boardPane.getChildren().size();
 
         // Should not place a stone if invalid
@@ -249,7 +245,7 @@ class GameControllerTest {
         );
 
         int initialCount = gameController.boardPane.getChildren().size();
-        gameController.placeStone(event);
+        gameUIController.placeStone(event);
         int finalCount = gameController.boardPane.getChildren().size();
 
         assertEquals(initialCount, finalCount);

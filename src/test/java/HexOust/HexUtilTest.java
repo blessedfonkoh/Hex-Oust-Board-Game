@@ -1,10 +1,10 @@
 package HexOust;
 
-import GameController.utils.HexUtil;
+import GameController.utils.*;
+import static GameController.utils.HexUtil.*;
+
 import org.junit.jupiter.api.Test;
 import java.util.*;
-
-import static GameController.utils.HexUtil.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HexUtilTest {
