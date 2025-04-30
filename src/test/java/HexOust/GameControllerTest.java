@@ -50,19 +50,19 @@ class GameControllerTest {
     // Test logStonePlacement method: verify stone placement logs for red player
     @Test
     void testLogStonePlacementRed() {
-        gameController.turn.resetTurn();
+        GameController.turn.resetTurn();
         gameController.logStonePlacement("D5");
-        assertTrue(gameController.getRedHexagons().contains("D5"));
-        assertFalse(gameController.getBlueHexagons().contains("D5"));
+        assertTrue(GameController.getRedHexagons().contains("D5"));
+        assertFalse(GameController.getBlueHexagons().contains("D5"));
     }
 
     // Test logStonePlacement method: verify stone placement logs for blue player
     @Test
     void testLogStonePlacementBlue() {
-        gameController.turn.switchTurn();
+        GameController.turn.switchTurn();
         gameController.logStonePlacement("E6");
-        assertTrue(gameController.getBlueHexagons().contains("E6"));
-        assertFalse(gameController.getRedHexagons().contains("E6"));
+        assertTrue(GameController.getBlueHexagons().contains("E6"));
+        assertFalse(GameController.getRedHexagons().contains("E6"));
     }
 
     // Test createStone method: testing dimensions and properties of stone
@@ -73,14 +73,14 @@ class GameControllerTest {
 
         assertNotNull(stone);
         assertEquals(12, stone.getRadius());
-        assertEquals(gameController.turn.isRedTurn() ? Color.RED : Color.BLUE, stone.getFill());
+        assertEquals(GameController.turn.isRedTurn() ? Color.RED : Color.BLUE, stone.getFill());
     }
 
     // Test the restartGame method: ensure method resets the game state properly
     @Test
     void testRestartGame() {
-        gameController.getRedHexagons().add("A1");
-        gameController.getBlueHexagons().add("B2");
+        GameController.getRedHexagons().add("A1");
+        GameController.getBlueHexagons().add("B2");
 
         Circle redStone = new Circle(12, Color.RED);
         Circle blueStone = new Circle(12, Color.BLUE);
@@ -93,15 +93,16 @@ class GameControllerTest {
 
         gameController.restartGame();
 
-        assertTrue(gameController.getRedHexagons().isEmpty());
-        assertTrue(gameController.getBlueHexagons().isEmpty());
+        assertTrue(GameController.getRedHexagons().isEmpty());
+        assertTrue(GameController.getBlueHexagons().isEmpty());
         assertFalse(gameController.boardPane.getChildren().contains(redStone));
         assertFalse(disabledHex.isDisabled());
     }
 
+    // testShowErrorMessage: check if showErrorMessage correctly flags invalid moves
     @Test
     public void testShowErrorMessage_InvalidMove() {
-        gameController.turn.resetTurn();
+        GameController.turn.resetTurn();
         gameController.logStonePlacement("D5");
 
         Polygon currentHex = new Polygon();
@@ -111,9 +112,10 @@ class GameControllerTest {
         assertTrue(result);
     }
 
+    // testShowErrorMessage: check if showErrorMessage correctly flags valid moves
     @Test
     public void testShowErrorMessage_ValidMove() {
-        gameController.turn.resetTurn();
+        GameController.turn.resetTurn();
         gameController.logStonePlacement("D5");
 
         Polygon currentHex = new Polygon();
@@ -123,10 +125,11 @@ class GameControllerTest {
         assertFalse(result);
     }
 
+    // testSkipTurn: Simulate full board state, player will be skipped
     @Test
     public void testSkipTurn_FullBoard() {
-        gameController.turn.resetTurn();
-        boolean initial = gameController.turn.isRedTurn();
+        GameController.turn.resetTurn();
+        boolean initial = GameController.turn.isRedTurn();
         String[] hexCells = {
                 "A1", "A2", "A3", "A4", "A5", "A6", "A7",
                 "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8",
@@ -146,22 +149,23 @@ class GameControllerTest {
             gameController.logStonePlacement(hex);
         }
         gameController.skipTurn();
-        assertNotEquals(initial, gameController.turn.isRedTurn());
+        assertNotEquals(initial, GameController.turn.isRedTurn());
     }
 
+    // testSkipTurn: Simulate empty board state, player will not be skipped
     @Test
     public void testSkipTurn_EmptyBoard() {
-        gameController.turn.resetTurn();
-        boolean initial = gameController.turn.isRedTurn();
+        GameController.turn.resetTurn();
+        boolean initial = GameController.turn.isRedTurn();
 
         gameController.skipTurn();
-        assertEquals(initial, gameController.turn.isRedTurn());
+        assertEquals(initial, GameController.turn.isRedTurn());
     }
 
-
+    // testPlaceStone: Simulate a mouse click on a valid hexagon and confirm a stone is added to board
     @Test
     public void testPlaceStone_validMove() {
-        gameController.turn.resetTurn(); // Red's turn
+        GameController.turn.resetTurn(); // Red's turn
 
         Polygon hex = new Polygon();
         hex.setId("C3");
@@ -190,10 +194,10 @@ class GameControllerTest {
                 .filter(n -> n instanceof Circle).count();
 
         assertEquals(initialStoneCount + 1, finalStoneCount);
-        assertTrue(gameController.getRedHexagons().contains("C3") || gameController.getBlueHexagons().contains("C3"));
+        assertTrue(GameController.getRedHexagons().contains("C3") || GameController.getBlueHexagons().contains("C3"));
     }
 
-
+    // testPlaceStone: Simulate a mouse click on a invalid hexagon and shows error
     @Test
     public void testPlaceStone_invalidMove_showError() {
         gameController.turn.resetTurn();
@@ -225,6 +229,7 @@ class GameControllerTest {
         assertEquals(initialCount, finalCount);
     }
 
+    // testPlaceStone: Simulate a mouse click on a disabled hexagon
     @Test
     public void testPlaceStone_disabledHexagon() {
         Polygon hex = new Polygon();
@@ -251,29 +256,38 @@ class GameControllerTest {
         assertEquals(initialCount, finalCount);
     }
 
+    //testProcessMove_NullHex: Checking null exception for method
+    @Test
+    void testProcessMove_NullHex() {
+        assertThrows(NullPointerException.class, () -> gameController.processMove(null));
+    }
+
+    //testWinningMove_RedWins: Checking winning logic, red should win
     @Test
     public void testIsWinningMove_RedWins() {
         //Blue has no stones -> red wins
-        gameController.turn.resetTurn();
+        GameController.turn.resetTurn();
         gameController.logStonePlacement("A1");
         assertTrue(gameController.isWinningMove());
     }
 
+    //testWinningMove_BlueWins: Checking winning logic, blue should win
     @Test
     public void testIsWinningMove_BlueWins() {
         //Red has no stones -> blue wins
-        gameController.turn.switchTurn();
+        GameController.turn.switchTurn();
         gameController.logStonePlacement("A1");
         assertTrue(gameController.isWinningMove());
     }
 
+    //testWinningMove_NoWins: Checking winning logic, not winning state
     @Test
     public void testIsWinningMove_NoWins() {
-        gameController.turn.resetTurn();
+        GameController.turn.resetTurn();
         gameController.logStonePlacement("B1"); // Red
         gameController.logStonePlacement("B2"); // Red
 
-        gameController.turn.switchTurn();
+        GameController.turn.switchTurn();
         gameController.logStonePlacement("A1"); // Blue
         gameController.logStonePlacement("A2"); // Blue
 

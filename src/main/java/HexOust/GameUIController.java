@@ -80,7 +80,6 @@ public class GameUIController {
      */
 @FXML
     public void restartGame() {
-
         gameController.turn.resetTurn(); // Reset turn to begin from RED
         boardPane.getChildren().removeIf(node -> node instanceof Circle); // Remove all stones from the board
         boardPane.getChildren().forEach(node -> {
@@ -122,8 +121,4 @@ public class GameUIController {
         hover.removeX();
         hover.removeTick();
     }
-
-
-
-
 }
