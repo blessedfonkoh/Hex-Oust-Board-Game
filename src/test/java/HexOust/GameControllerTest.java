@@ -251,4 +251,33 @@ class GameControllerTest {
         assertEquals(initialCount, finalCount);
     }
 
+    @Test
+    public void testIsWinningMove_RedWins() {
+        //Blue has no stones -> red wins
+        gameController.turn.resetTurn();
+        gameController.logStonePlacement("A1");
+        assertTrue(gameController.isWinningMove());
+    }
+
+    @Test
+    public void testIsWinningMove_BlueWins() {
+        //Red has no stones -> blue wins
+        gameController.turn.switchTurn();
+        gameController.logStonePlacement("A1");
+        assertTrue(gameController.isWinningMove());
+    }
+
+    @Test
+    public void testIsWinningMove_NoWins() {
+        gameController.turn.resetTurn();
+        gameController.logStonePlacement("B1"); // Red
+        gameController.logStonePlacement("B2"); // Red
+
+        gameController.turn.switchTurn();
+        gameController.logStonePlacement("A1"); // Blue
+        gameController.logStonePlacement("A2"); // Blue
+
+        // Both red and blue have stones
+        assertFalse(gameController.isWinningMove());
+    }
 }

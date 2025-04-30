@@ -26,10 +26,9 @@ public class GameController {
     List<Polygon> hexagons;
     TurnUtil turn;
 
-    private boolean isWinningMove() {
+    protected boolean isWinningMove() {
         return getRedHexagons().isEmpty() || getBlueHexagons().isEmpty();
     }
-
 
     public List<String> getBlueHexagons() {
         return blueHexagons;
@@ -77,7 +76,6 @@ public class GameController {
      */
 
     public void logStonePlacement(String hexID) {
-
         getCurrentPlayerHexes().add(hexID);
     }
 
