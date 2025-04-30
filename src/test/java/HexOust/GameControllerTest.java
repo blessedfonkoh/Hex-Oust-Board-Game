@@ -1,4 +1,4 @@
-package comp20050.hexagonalboard;
+package HexOust;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -30,13 +30,19 @@ class GameControllerTest {
 
     // Load FXML file resources and set up new instances of GameController before each test
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp(){
         FXMLLoader fxmlLoader = new FXMLLoader(GameApplication.class.getResource("game-view.fxml"));
-        Parent root = fxmlLoader.load();
-        gameController = fxmlLoader.getController();
-        gameController.boardPane = (Pane) root.lookup("#boardPane");
-        gameController.turnPane = (Pane) root.lookup("#turnPane");
-        gameController.initialize();
+        try {
+            Parent root = fxmlLoader.load();
+            gameController = fxmlLoader.getController();
+            gameController.boardPane = (Pane) root.lookup("#boardPane");
+            gameController.turnPane = (Pane) root.lookup("#turnPane");
+            gameController.initialize();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     // Test logStonePlacement method: verify stone placement logs for red player
@@ -71,23 +77,29 @@ class GameControllerTest {
     // Test the restartGame method: ensure method resets the game state properly
     @Test
     void testRestartGame() {
+        //  Creating RED Stone on the board
         gameController.getRedHexagons().add("A1");
-        gameController.getBlueHexagons().add("B2");
-
         Circle redStone = new Circle(12, Color.RED);
-        Circle blueStone = new Circle(12, Color.BLUE);
         gameController.boardPane.getChildren().add(redStone);
+
+        // Creating BLUE stone on the board
+        gameController.getBlueHexagons().add("B2");
+        Circle blueStone = new Circle(12, Color.BLUE);
         gameController.boardPane.getChildren().add(blueStone);
 
+        // Creating a disabled Hex
         Polygon disabledHex = new Polygon();
         disabledHex.setDisable(true);
         gameController.boardPane.getChildren().add(disabledHex);
 
         gameController.restartGame();
 
+        // All Lists should be empty after restarting game
         assertTrue(gameController.getRedHexagons().isEmpty());
         assertTrue(gameController.getBlueHexagons().isEmpty());
-        assertFalse(gameController.boardPane.getChildren().contains(redStone));
-        assertFalse(disabledHex.isDisabled());
+
+        assertFalse(gameController.boardPane.getChildren().contains(redStone)); // All stones should be cleared from the board
+        assertTrue(disabledHex.isDisabled()); // Hex should now be enabled
     }
+
 }

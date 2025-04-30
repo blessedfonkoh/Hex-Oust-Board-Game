@@ -1,4 +1,4 @@
-package comp20050.hexagonalboard;
+package HexOust;
 
 import GameController.utils.TurnUtil;
 import javafx.application.Platform;

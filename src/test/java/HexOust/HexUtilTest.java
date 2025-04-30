@@ -1,4 +1,4 @@
-package comp20050.hexagonalboard;
+package HexOust;
 
 import GameController.utils.HexUtil;
 import org.junit.jupiter.api.Test;

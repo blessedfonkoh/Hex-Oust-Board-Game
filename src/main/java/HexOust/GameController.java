@@ -1,4 +1,4 @@
-package comp20050.hexagonalboard;
+package HexOust;
 
 import java.util.*;
 
@@ -11,8 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Polygon;
+import javafx.scene.shape.*;
 
 import javax.swing.*;
 
@@ -22,30 +21,22 @@ import javax.swing.*;
  */
 public class GameController {
 
-    public List<String> getBlueHexagons() {
-        return blueHexagons;
-    }
-
-    public List<String> getRedHexagons() {
-        return redHexagons;
-    }
-
+   
     private final List<String> redHexagons = new ArrayList<>(); // List to store RED players moves
-    private  final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
-
-
+    private final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
+    
     TurnUtil turn;
     GraphicsUtil hover;
 
     @FXML
     Button restartButton;
-
     @FXML
     Pane boardPane; // The container holding all hexagons
-
     @FXML
     Pane turnPane; // The container holding the turns and the text "To Make a Move"
-
+    @FXML
+    List<Polygon> hexagons;
+    
     /**
      * Hexagon instances
      * Values are injected by FXMLLoader
@@ -77,9 +68,16 @@ public class GameController {
     private Polygon L6, L7, L8, L9, L10, L11, L12, L13;
     @FXML
     private Polygon M7, M8, M9, M10, M11, M12, M13;
+   
+    public List<String> getBlueHexagons() {
+        return blueHexagons;
+    }
 
-    @FXML
-    List<Polygon> hexagons;
+    public List<String> getRedHexagons() {
+        return redHexagons;
+    }
+
+    
 
     @FXML
     public void initialize() { // Called by the FXMLLoader when initialization is complete
@@ -108,12 +106,7 @@ public class GameController {
             }
         }
     }
-
-    /**
-     * @param hexagon
-     * @return
-     */
-
+    
     /**
      * Method to allow the user to place a stone on the base-7 hexagonal grid
      *
@@ -128,12 +121,13 @@ public class GameController {
             return; // Preventing placement on disabled/ invalid hexagons
         }
 
-        String hexId = hexagon.getId();
+        String hexID = hexagon.getId();
 
         //Display stone to board
         boardPane.getChildren().add(createStone(hexagon));
-        logStonePlacement(hexId);
-        processMove(hexId);
+        
+        logStonePlacement(hexID);
+        processMove(hexID);
         skipTurn();
     }
 
@@ -156,15 +150,15 @@ public class GameController {
 
 
     /**
-     * @param hexId
+     * @param hexID
      */
 
-    public void logStonePlacement(String hexId) {
+    public void logStonePlacement(String hexID) {
 
         if (turn.isRedTurn()) { // Red's turn
-            getRedHexagons().add(hexId); // Add placed stone to RED's list
+            getRedHexagons().add(hexID); // Add placed stone to RED's list
         } else { // Blue's turn
-            getBlueHexagons().add(hexId); // Add placed stone to BLUE's list
+            getBlueHexagons().add(hexID); // Add placed stone to BLUE's list
         }
 
     }
@@ -176,28 +170,29 @@ public class GameController {
      */
 
     public void removeStones(List<String> capturedStones) {
-        for (String hexId : capturedStones) {
-            Polygon hex = (Polygon) boardPane.lookup("#" + hexId);
+        
+        for (String hexID : capturedStones) {
+            Polygon hex = (Polygon) boardPane.lookup("#" + hexID);
             if (hex != null) {
                 boardPane.getChildren().removeIf(node -> node instanceof Circle &&
                         (node.getLayoutX() == hex.getLayoutX() &&
                                 node.getLayoutY() == hex.getLayoutY()));
                 hex.setDisable(false);
             }
-            if (getRedHexagons().contains(hexId)) {
-                getRedHexagons().remove(hexId);
+            if (getRedHexagons().contains(hexID)) {
+                getRedHexagons().remove(hexID);
             } else {
-                getBlueHexagons().remove(hexId);
+                getBlueHexagons().remove(hexID);
             }
         }
     }
 
     /**
-     * @param hexId
+     * @param hexID
      */
-    public void processMove(String hexId) {
+    public void processMove(String hexID) {
 
-        List<String> capturedStones = capturedStones(hexId, turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
+        List<String> capturedStones = capturedStones(hexID, turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
                 turn.isRedTurn() ? getBlueHexagons() : getRedHexagons());
         if (capturedStones != null) {
             removeStones(capturedStones);
@@ -218,6 +213,7 @@ public class GameController {
         // Switch player's turn
         turn.switchTurn();
     }
+    
     public void showWinner(String winner) {
         //  Display pop-up message to display winner
         JDialog dialog = MessageUtil.showWinner(winner);
@@ -238,9 +234,9 @@ public class GameController {
         availableHexes.removeAll(getRedHexagons());
         availableHexes.removeAll(getBlueHexagons());
 
-        for (String hexId : availableHexes) {
+        for (String hexID : availableHexes) {
             if (isValidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
-                    turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), hexId)) {
+                    turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), hexID)) {
                 //if there is a valid move, function is exited immediately
                 return;
             }
@@ -258,14 +254,14 @@ public class GameController {
      */
     @FXML
     public void showX(MouseEvent event) {
-        Polygon currentHex = (Polygon) event.getSource();
+        Polygon hexagon = (Polygon) event.getSource();
 
         // Show the X on hover if its invalid
         if (!isValidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
-                turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), currentHex.getId())) {
-            hover.createX(currentHex);
+                turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), hexagon.getId())) {
+            hover.createX(hexagon);
         } else {
-            hover.createTick(currentHex);
+            hover.createTick(hexagon);
         }
 
     }
@@ -282,13 +278,15 @@ public class GameController {
     /**
      * Method to show error message if user attempts to place a stone in an invalid hex.
      *
-     * @param currentHex
+     * @param hexagon
      * @return True if error message should be displayed and false if it shouldn't
      */
-    public boolean showErrorMessage(Polygon currentHex) {
+    public boolean showErrorMessage(Polygon hexagon) {
+
         if (!isValidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
-                turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), currentHex.getId())) {
+                turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), hexagon.getId())) {
             GraphicsUtil.showErrorMessage(); // Display error message
+
             return true;
         }
         return false;
