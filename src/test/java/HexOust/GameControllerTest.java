@@ -39,8 +39,13 @@ class GameControllerTest {
         gameUIController.turnPane = (Pane) root.lookup("#turnPane");
         gameUIController.initialize();
 
+        GameController.turn.resetTurn();
+        GameController.getRedHexagons().clear();
+        GameController.getBlueHexagons().clear();
+
         MessageUtil.suppressMessages = true;
     }
+
 
     @AfterEach
     public void tearDown() {
@@ -194,7 +199,7 @@ class GameControllerTest {
                 .filter(n -> n instanceof Circle).count();
 
         assertEquals(initialStoneCount + 1, finalStoneCount);
-        assertTrue(GameController.getRedHexagons().contains("C3") || GameController.getBlueHexagons().contains("C3"));
+        assertTrue(gameController.getRedHexagons().contains("C3") || GameController.getBlueHexagons().contains("C3"));
     }
 
     // testPlaceStone: Simulate a mouse click on a invalid hexagon and shows error

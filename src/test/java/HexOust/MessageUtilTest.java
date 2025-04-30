@@ -1,8 +1,7 @@
-package GameController.utils;
+package HexOust;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import GameController.utils.MessageUtil;
+import org.junit.jupiter.api.*;
 
 import javax.swing.*;
 
