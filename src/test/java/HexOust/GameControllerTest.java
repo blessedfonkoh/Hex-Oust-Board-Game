@@ -1,4 +1,4 @@
-package comp20050.hexagonalboard;
+package HexOust;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
