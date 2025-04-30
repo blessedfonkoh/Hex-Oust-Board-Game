@@ -106,7 +106,7 @@ public class GameUIController {
         Polygon hexagon = (Polygon) event.getSource();
 
         // Show the X on hover if its invalid
-        if (!isValidMove(gameController.getCurrentPlayerHexes(), gameController.getOpponentPlayerHexes(), hexagon.getId())) {
+        if (!isValidMove(hexagon.getId())) {
             hover.createX(hexagon);
         } else {
             hover.createTick(hexagon);

@@ -1,4 +1,8 @@
 package GameController.utils;
+import HexOust.GameController;
+import HexOust.GameUIController;
+import static HexOust.GameController.*;
+
 import java.util.*;
 
 public class HexUtil {
@@ -6,19 +10,17 @@ public class HexUtil {
     /**
      * Checks if a Hexagon ID is a valid move.
      *
-     * @param playersHexagons list containing a player's placed stones.
-     * @param opponentsHexagons list containing opponent's placed stones.
      * @param hexId ID of Hexagon which player has hovered over.
      * @return true if Hexagon is a valid move, false otherwise.
      */
-    public static boolean isValidMove(List<String> playersHexagons, List<String> opponentsHexagons, String hexId) {
+    public static boolean isValidMove(String hexId) {
 
        List<String> neighbours = getNeighbourHex(hexId); // Gets all neighbours of hexagon hovered over.
        List<String> playerNeighbours = new ArrayList<>();
 
        // Get neighbouring hexagons occupied by player.
         for(String n : neighbours) {
-            if (playersHexagons.contains(n)) {
+            if (getCurrentPlayerHexes().contains(n)) {
                 playerNeighbours.add(n);
             }
         }
@@ -27,7 +29,7 @@ public class HexUtil {
             return true;
         }
         // If capturedStones is not null, move is valid.
-        return capturedStones(hexId, playersHexagons, opponentsHexagons) != null;
+        return capturedStones(hexId) != null;
     }
 
     /**
@@ -93,15 +95,14 @@ public class HexUtil {
      * Gets captured stones.
      *
      * @param hexId ID of the hexagon where the stone is being placed.
-     * @param playerHexagons list of hexagon IDs occupied by player.
-     * @param opponentHexagons list of hexagon IDs occupied by opponent.
+
      * @return  Hexagon IDs representing the opponent's stones to be removed if the move is capturing.
      *          Return Null otherwise.
      */
-    public static List<String> capturedStones(String hexId, List<String> playerHexagons, List<String> opponentHexagons) {
+    public static List<String> capturedStones(String hexId) {
 
         // Copy playerHexagons to add hexID (the hovered hexagon) to the list.
-        List<String> playerHexCopy = new ArrayList<>(playerHexagons);
+        List<String> playerHexCopy = new ArrayList<>(getCurrentPlayerHexes());
         playerHexCopy.add(hexId);
 
         List<String> playerGroup = getGroup(hexId, playerHexCopy);
@@ -112,8 +113,8 @@ public class HexUtil {
         for (String hex : playerGroup) {
             List<String> neighbours = getNeighbourHex(hex);
             for (String n : neighbours) {
-                if (opponentHexagons.contains(n)) {
-                    List<String> opponentGroup = getGroup(n, opponentHexagons);
+                if (getOpponentPlayerHexes().contains(n)) {
+                    List<String> opponentGroup = getGroup(n, getOpponentPlayerHexes());
 
                     // Add all stones to be removed
                     capturedStones.addAll(opponentGroup);

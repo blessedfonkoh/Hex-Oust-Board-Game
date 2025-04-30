@@ -2,12 +2,19 @@ package HexOust;
 
 import GameController.utils.*;
 import static GameController.utils.HexUtil.*;
+import static HexOust.GameController.*;
 
+import javafx.scene.layout.Pane;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HexUtilTest {
+    @BeforeAll
+    static void setUp() {
+        GameController.turn = new TurnUtil(new Pane());
+    }
 
     // Test for getting neighbours of a center hex ("G7"), expecting 6 surrounding hexes
     @Test
@@ -47,48 +54,50 @@ class HexUtilTest {
     // First move should always be valid (no surrounding constraints)
     @Test
     void testIsValidMove_FirstMove() {
-        List<String> players = new ArrayList<>();
-        List<String> opponents = new ArrayList<>();
-        boolean result = isValidMove(players, opponents, "A1");
+
+        boolean result = isValidMove( "A1");
         assertTrue(result);  // First move should be valid
     }
 
     // Test a valid capturing move scenario
     @Test
     void testIsValidMove_ValidCapture() {
-        List<String> players = List.of("H5");
-        List<String> opponents = List.of("I5");
-        boolean result = isValidMove(players, opponents, "H4");
+        getCurrentPlayerHexes().add("H5");
+        getOpponentPlayerHexes().add("I5");
+        boolean result = isValidMove( "H4");
         assertTrue(result);
     }
 
     // Test a valid move that is not a capturing move scenario
     @Test
     void testIsValidMove_ValidNonCapture() {
-        List<String> player = List.of("C1", "D2");
-        List<String> opponent = List.of("C2");
 
-        boolean result = isValidMove(player, opponent, "H5");
+        getCurrentPlayerHexes().add("C1");
+        getCurrentPlayerHexes().add("D2");
+        getOpponentPlayerHexes().add("C2");
+        boolean result = isValidMove("H5");
         assertTrue(result); // Valid non-capturing move
     }
 
     // Test an invalid move (not adjacent and not a capture)
     @Test
     void testIsValidMove_InValidMove() {
-        List<String> player = List.of("C1");
-        List<String> opponent = List.of();
 
-        boolean result = isValidMove(player, opponent, "C2");
+        getCurrentPlayerHexes().add("C1");
+        boolean result = isValidMove("C2");
+
         assertFalse(result); // Move is invalid
     }
 
     // Test that a valid capturing move returns the correct opponent hex
     @Test
     void testCapturedStones_ValidCapture() {
-        List<String> player = List.of("B2", "C2");
-        List<String> opponent = List.of("B3");
 
-        List<String> captured = capturedStones("C3", player, opponent);
+        getCurrentPlayerHexes().add("B2");
+        getCurrentPlayerHexes().add("C2");
+        getOpponentPlayerHexes().add("B3");
+
+        List<String> captured = capturedStones("C3");
         assertNotNull(captured);
         assertTrue(captured.contains("B3"));
     }
@@ -96,9 +105,11 @@ class HexUtilTest {
     // Test that a non-capturing move returns null (no capture)
     @Test
     void testCapturedStones_InvalidCapture() {
-        List<String> player = List.of("A1");
-        List<String> opponent = List.of("B2", "B1");
-        List<String> captured = capturedStones("A2", player, opponent);
+
+        getCurrentPlayerHexes().add("A1");
+        getOpponentPlayerHexes().add("B2");
+        getOpponentPlayerHexes().add("B1");
+        List<String> captured = capturedStones("A2");
         assertNull(captured);
     }
 
@@ -114,4 +125,6 @@ class HexUtilTest {
             return List.of();
         }
     }
+
+
 }

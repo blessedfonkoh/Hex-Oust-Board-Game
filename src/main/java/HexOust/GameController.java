@@ -20,29 +20,29 @@ import javax.swing.*;
 public class GameController {
 
 
-    private final List<String> redHexagons = new ArrayList<>(); // List to store RED players moves
-    private final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
+    private static final List<String> redHexagons = new ArrayList<>(); // List to store RED players moves
+    private static final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
     Pane boardPane;
     List<Polygon> hexagons;
-    TurnUtil turn;
+    static TurnUtil turn;
 
     protected boolean isWinningMove() {
         return getRedHexagons().isEmpty() || getBlueHexagons().isEmpty();
     }
 
-    public List<String> getBlueHexagons() {
+    public static List<String> getBlueHexagons() {
         return blueHexagons;
     }
 
-    public List<String> getRedHexagons() {
+    public static List<String> getRedHexagons() {
         return redHexagons;
     }
 
-    public List<String> getCurrentPlayerHexes() {
+    public static List<String> getCurrentPlayerHexes() {
         return turn.isRedTurn() ? getRedHexagons() : getBlueHexagons();
     }
 
-    public List<String> getOpponentPlayerHexes() {
+    public static List<String> getOpponentPlayerHexes() {
         return turn.isRedTurn() ? getBlueHexagons() : getRedHexagons();
     }
 
@@ -106,8 +106,7 @@ public class GameController {
      */
     public void processMove(String hexID) {
 
-        List<String> capturedStones = capturedStones(hexID, getCurrentPlayerHexes(),
-                getOpponentPlayerHexes());
+        List<String> capturedStones = capturedStones(hexID);
         if (capturedStones != null) {
             removeStones(capturedStones);
 
@@ -138,8 +137,7 @@ public class GameController {
         availableHexes.removeAll(getBlueHexagons());
 
         for (String hexID : availableHexes) {
-            if (isValidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
-                    turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), hexID)) {
+            if (isValidMove( hexID)) {
                 //if there is a valid move, function is exited immediately
                 return;
             }
@@ -185,8 +183,7 @@ public class GameController {
      */
     public boolean showErrorMessage(Polygon hexagon) {
 
-        if (!isValidMove(turn.isRedTurn() ? getRedHexagons() : getBlueHexagons(),
-                turn.isRedTurn() ? getBlueHexagons() : getRedHexagons(), hexagon.getId())) {
+        if (!isValidMove(hexagon.getId())) {
             GraphicsUtil.showErrorMessage(); // Display error message
 
             return true;
