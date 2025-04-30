@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GraphicsUtilTest {
 
-    private GameController gameController;
+    private GameUIController gameUIController;
     private GraphicsUtil graphicsUtil;
 
     // Ensure JavaFX environment is initialized before any test runs
@@ -31,60 +31,60 @@ class GraphicsUtilTest {
     void setUp() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GameApplication.class.getResource("game-view.fxml"));
         Parent root = fxmlLoader.load();
-        gameController = fxmlLoader.getController();
-        gameController.boardPane = (Pane) root.lookup("#boardPane");
-        gameController.turnPane = (Pane) root.lookup("#turnPane");
-        gameController.initialize();
+        gameUIController = fxmlLoader.getController();
+        gameUIController.boardPane = (Pane) root.lookup("#boardPane");
+        gameUIController.turnPane = (Pane) root.lookup("#turnPane");
+        gameUIController.initialize();
 
-        graphicsUtil = new GraphicsUtil(gameController.boardPane, gameController.turn);
+        graphicsUtil = new GraphicsUtil(gameUIController.boardPane, gameUIController.turn);
     }
 
     // Test if an X is successfully created on a specific hex tile
     @Test
     void testCreateX() {
-        Polygon hex = (Polygon) gameController.boardPane.lookup("#A1");
+        Polygon hex = (Polygon) gameUIController.boardPane.lookup("#A1");
         assertNotNull(hex);
         graphicsUtil.createX(hex);
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine1()));
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine2()));
+        assertTrue(gameUIController.boardPane.getChildren().contains(graphicsUtil.getXLine1()));
+        assertTrue(gameUIController.boardPane.getChildren().contains(graphicsUtil.getXLine2()));
     }
 
     // Test that an X can be removed properly from a hex tile
     @Test
     void testRemoveX() {
-        Polygon hex = (Polygon) gameController.boardPane.lookup("#H5");
+        Polygon hex = (Polygon) gameUIController.boardPane.lookup("#H5");
         assertNotNull(hex);
         graphicsUtil.createX(hex);
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine1()));
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine2()));
+        assertTrue(gameUIController.boardPane.getChildren().contains(graphicsUtil.getXLine1()));
+        assertTrue(gameUIController.boardPane.getChildren().contains(graphicsUtil.getXLine2()));
 
         graphicsUtil.removeX();
-        assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine1()));
-        assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getXLine2()));
+        assertFalse(gameUIController.boardPane.getChildren().contains(graphicsUtil.getXLine1()));
+        assertFalse(gameUIController.boardPane.getChildren().contains(graphicsUtil.getXLine2()));
     }
 
     // Test if a tick mark is successfully created on a specific hex tile
     @Test
     void testCreateTick() {
-        Polygon hex = (Polygon) gameController.boardPane.lookup("#J5");
+        Polygon hex = (Polygon) gameUIController.boardPane.lookup("#J5");
         assertNotNull(hex);
         graphicsUtil.createTick(hex);
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getTickLine1()));
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getTickLine2()));
+        assertTrue(gameUIController.boardPane.getChildren().contains(graphicsUtil.getTickLine1()));
+        assertTrue(gameUIController.boardPane.getChildren().contains(graphicsUtil.getTickLine2()));
     }
 
     // Test that a tick mark can be removed properly from a hex tile
     @Test
     void testRemoveTick() {
-        Polygon hex = (Polygon) gameController.boardPane.lookup("#B4");
+        Polygon hex = (Polygon) gameUIController.boardPane.lookup("#B4");
         assertNotNull(hex);
         graphicsUtil.createTick(hex);
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getTickLine1()));
-        assertTrue(gameController.boardPane.getChildren().contains(graphicsUtil.getTickLine2()));
+        assertTrue(gameUIController.boardPane.getChildren().contains(graphicsUtil.getTickLine1()));
+        assertTrue(gameUIController.boardPane.getChildren().contains(graphicsUtil.getTickLine2()));
 
         graphicsUtil.removeTick();
-        assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getTickLine1()));
-        assertFalse(gameController.boardPane.getChildren().contains(graphicsUtil.getTickLine2()));
+        assertFalse(gameUIController.boardPane.getChildren().contains(graphicsUtil.getTickLine1()));
+        assertFalse(gameUIController.boardPane.getChildren().contains(graphicsUtil.getTickLine2()));
     }
 
 }
