@@ -1,13 +1,16 @@
 package HexOust;
 
 import GameController.utils.*;
+
 import static GameController.utils.HexUtil.*;
 import static HexOust.GameController.*;
 
 import javafx.scene.layout.Pane;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class HexUtilTest {
@@ -55,7 +58,7 @@ class HexUtilTest {
     @Test
     void testIsValidMove_FirstMove() {
 
-        boolean result = isValidMove( "A1");
+        boolean result = isValidMove("A1");
         assertTrue(result);  // First move should be valid
     }
 
@@ -64,7 +67,7 @@ class HexUtilTest {
     void testIsValidMove_ValidCapture() {
         getCurrentPlayerHexes().add("H5");
         getOpponentPlayerHexes().add("I5");
-        boolean result = isValidMove( "H4");
+        boolean result = isValidMove("H4");
         assertTrue(result);
     }
 

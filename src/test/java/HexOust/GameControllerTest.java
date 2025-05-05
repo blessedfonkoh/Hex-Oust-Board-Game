@@ -9,6 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import org.junit.jupiter.api.*;
+
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
@@ -150,7 +151,7 @@ class GameControllerTest {
                 "L6", "L7", "L8", "L9", "L10", "L11", "L12", "L13",
                 "M7", "M8", "M9", "M10", "M11", "M12", "M13"
         };
-        for (String hex : hexCells){
+        for (String hex : hexCells) {
             gameController.logStonePlacement(hex);
         }
         gameController.skipTurn();

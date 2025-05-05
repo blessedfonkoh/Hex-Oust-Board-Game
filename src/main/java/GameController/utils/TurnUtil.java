@@ -4,6 +4,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+/**
+ * Utility class for managing player turns in the game.
+ * Handles switching turns and updating the UI with current player's color.
+ */
 public class TurnUtil {
 
     private boolean redTurn = true; // True for red, False for blue
@@ -17,37 +21,26 @@ public class TurnUtil {
         return turnPane;
     }
 
-    /**
-     * Method to switch players turns
-     */
     public void switchTurn() {
         redTurn = !redTurn;
-        displayTurn(); // Calling displayTurn() method to display next turn
+        displayTurn();
     }
 
     public boolean isRedTurn() {
-
         return redTurn;
     }
 
-    /**
-     * Method to display turns below the board.
-     */
     public void displayTurn() {
 
-        // Display stone depending on players turn
         Circle stone = new Circle(12, isRedTurn() ? Color.RED : Color.BLUE);
         stone.setStroke(isRedTurn() ? Color.MAROON : Color.NAVY);
         stone.setStrokeWidth(4);
         stone.setCenterX(-30);
         stone.setCenterY(-9);
 
-        getTurnPane().getChildren().add(stone); // Add stone to the board
+        getTurnPane().getChildren().add(stone);
     }
 
-    /**
-     * Method to reset turn to red player.
-     */
     public void resetTurn() {
         redTurn = true;
         displayTurn();

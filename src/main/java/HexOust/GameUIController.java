@@ -2,7 +2,6 @@ package HexOust;
 
 import GameController.utils.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.*;
@@ -13,34 +12,35 @@ import java.util.stream.Collectors;
 import static GameController.utils.HexUtil.isValidMove;
 
 /**
- * Game Controller Class
- * for 'game-view.fxml'
+ * JavaFX Controller class for 'game-view.fxml'.
+ * Handles UI interaction logic and delegates game state changes to GameController.
  */
 public class GameUIController {
 
 
     @FXML
-    Pane boardPane; // The container holding all hexagons
+    Pane boardPane; // Container for all hexagon tiles
+
     @FXML
-    Pane turnPane; // The container holding the turns and the text "To Make a Move"
-    @FXML
-    private Button restartButton;
+    Pane turnPane; // Container for turn indicator
 
     @FXML
     List<Polygon> hexagons;
 
     public final GameController gameController = new GameController();
-    private GraphicsUtil graphicsUtil;
+
     GraphicsUtil hover;
 
-
+    /**
+     * Called automatically by the FXMLLoader after loading the FXML.
+     * Initializes game state and sets up references between UI elements and controller logic.
+     */
     @FXML
     public void initialize() { // Called by the FXMLLoader when initialization is complete
         gameController.turn = new TurnUtil(turnPane);
         hover = new GraphicsUtil(boardPane, gameController.turn);
-        gameController.turn.displayTurn(); // Display turns, RED to make a move first
+        gameController.turn.displayTurn();
 
-        // Hexagon instances where values are injected by FXMLLoader
         hexagons = boardPane.getChildren()
                 .filtered(node -> node instanceof Polygon)
                 .stream()
@@ -52,10 +52,12 @@ public class GameUIController {
 
     }
 
+
     /**
-     * Method to allow the user to place a stone on the base-7 hexagonal grid
+     * Places a stone on the board if the selected hexagon is valid.
+     * Called when the user clicks on a hexagon.
      *
-     * @param event : Mouse event triggered by clicking on a hexagon.
+     * @param event MouseEvent triggered by clicking a hexagon.
      */
     @FXML
     public void placeStone(MouseEvent event) {
@@ -67,43 +69,41 @@ public class GameUIController {
             return; // Preventing placement on disabled/ invalid hexagons
         }
 
-
-        //Display stone to board
         boardPane.getChildren().add(gameController.createStone(hexagon));
 
         gameController.playMove(hexID, hexagon);
     }
 
     /**
-     * Method to restart the game by clearing the board and removing all stones
+     * Resets the game state and UI by clearing all stones and restoring the board to its initial state.
      */
-@FXML
+    @FXML
     public void restartGame() {
-        gameController.turn.resetTurn(); // Reset turn to begin from RED
-        boardPane.getChildren().removeIf(node -> node instanceof Circle); // Remove all stones from the board
+        gameController.turn.resetTurn();
+
+        boardPane.getChildren().removeIf(node -> node instanceof Circle);
+
         boardPane.getChildren().forEach(node -> {
             if (node instanceof Polygon) {
-                node.setDisable(false); // Enable all the hexagons
+                node.setDisable(false);
             }
         });
 
-        // Erasing Lists of placed stones for RED and BLUE
         gameController.getRedHexagons().clear();
         gameController.getBlueHexagons().clear();
-        gameController.turn.displayTurn(); // Display turn from beginning
+        gameController.turn.displayTurn();
     }
 
-
     /**
-     * Method to show the red X on the board when hovering on a hexagon.
+     * Displays a red X or green tick on a hexagon when the mouse hovers over it,
+     * indicating whether it’s a valid move.
      *
-     * @param event : Mouse event triggered by cursor hovering on the hexagon.
+     * @param event MouseEvent triggered by hovering on a hexagon.
      */
     @FXML
     public void showX(MouseEvent event) {
         Polygon hexagon = (Polygon) event.getSource();
 
-        // Show the X on hover if its invalid
         if (!isValidMove(hexagon.getId())) {
             hover.createX(hexagon);
         } else {
@@ -113,10 +113,10 @@ public class GameUIController {
     }
 
     /**
-     * Method to remove the red X and green tick from the board after hovering
+     * Removes hover indicators (X or tick) when the mouse leaves a hexagon.
      */
     @FXML
-    public void removeX() {
+    public void removeHover() {
         hover.removeX();
         hover.removeTick();
     }

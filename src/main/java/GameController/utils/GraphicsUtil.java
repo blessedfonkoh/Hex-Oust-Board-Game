@@ -11,6 +11,7 @@ import javax.swing.*;
  * This class holds all the utility methods to display objects to the user on hover
  */
 public class GraphicsUtil {
+
     private final Pane boardPane;
     static TurnUtil turn;
 
@@ -66,11 +67,7 @@ public class GraphicsUtil {
         tickLine2.setMouseTransparent(true);
     }
 
-    /**
-     * Show the red X on the board when hovering on a hexagon.
-     *
-     * @param currentHex : Hexagon for which "X" is to be displayed on.
-     */
+
     public void createX(Polygon currentHex) {
         Xline1.setLayoutX(currentHex.getLayoutX());
         Xline1.setLayoutY(currentHex.getLayoutY());
@@ -84,11 +81,7 @@ public class GraphicsUtil {
         }
     }
 
-    /**
-     * Show green tick on the board when hovering on a hexagon.
-     *
-     * @param currentHex : Hexagon for which tick is to be displayed on.
-     */
+
     public void createTick(Polygon currentHex) {
         tickLine1.setLayoutX(currentHex.getLayoutX());
         tickLine1.setLayoutY(currentHex.getLayoutY());
@@ -101,7 +94,6 @@ public class GraphicsUtil {
     }
 
     public void removeX() {
-        // Remove lines from the view of the board
         boardPane.getChildren().remove(Xline1);
         boardPane.getChildren().remove(Xline2);
     }

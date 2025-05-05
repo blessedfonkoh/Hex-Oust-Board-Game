@@ -13,19 +13,25 @@ import javafx.scene.shape.*;
 import javax.swing.*;
 
 /**
- * Handles game state and logic (not the JavaFX UI).
+ * GameController handles core game state logic for HexOust.
+ * It manages moves, captures, turns, and win conditions, separate from UI rendering.
  * Used by GameUIController to manage gameplay.
  */
-
 public class GameController {
 
+    private static List<String> redHexagons = new ArrayList<>();   // Stores RED player's hex IDs
+    private static List<String> blueHexagons = new ArrayList<>();  // Stores BLUE player's hex IDs
 
-    private static final List<String> redHexagons = new ArrayList<>(); // List to store RED players moves
-    private static final List<String> blueHexagons = new ArrayList<>(); // List to store BLUE players moves
     Pane boardPane;
     List<Polygon> hexagons;
     static TurnUtil turn;
 
+
+    /**
+     * Determines if the current move leads to a win (i.e., one player has no pieces).
+     *
+     * @return true if game is over, false otherwise.
+     */
     protected boolean isWinningMove() {
         return getRedHexagons().isEmpty() || getBlueHexagons().isEmpty();
     }
@@ -46,54 +52,57 @@ public class GameController {
         return turn.isRedTurn() ? getBlueHexagons() : getRedHexagons();
     }
 
-
+    /**
+     * Executes a move by logging and processing it, then possibly skipping turn.
+     *
+     * @param hexID   ID of the hexagon where the move is made.
+     * @param hexagon Polygon representing the hexagon.
+     */
     public void playMove(String hexID, Polygon hexagon) {
         logStonePlacement(hexID);
         processMove(hexID);
         skipTurn();
     }
 
-
+    /**
+     * Creates a stone with color and border matching current player's turn.
+     *
+     * @param hexagon The hexagon where the stone will be placed.
+     * @return Circle representing the stone.
+     */
     public Circle createStone(Polygon hexagon) {
-        //Creating blue or red stone depending on whose turn it is
         Circle stone = new Circle(12, turn.isRedTurn() ? Color.RED : Color.BLUE);
-
-        //Setting the stone border colour and width
         stone.setStroke(turn.isRedTurn() ? Color.MAROON : Color.NAVY);
         stone.setStrokeWidth(4);
 
-        //Setting the stone position
         stone.setLayoutX(hexagon.getLayoutX());
         stone.setLayoutY(hexagon.getLayoutY());
 
-        hexagon.setDisable(true); // Disabling hexagons with stones to prevent placement on them
+        hexagon.setDisable(true); // Prevent reusing a hex already occupied
 
         return stone;
     }
 
     /**
-     * @param hexID
+     * Records the move in the current player's list.
+     *
+     * @param hexID ID of the hex placed.
      */
-
     public void logStonePlacement(String hexID) {
         getCurrentPlayerHexes().add(hexID);
     }
 
     /**
-     * Removes all given stones from the board and updates state lists.
+     * Removes captured stones from the board and updates opponent's state.
      *
-     * @param capturedStones
+     * @param capturedStones List of hex IDs to be removed.
      */
-
-
     public void removeStones(List<String> capturedStones) {
 
         for (String hexID : capturedStones) {
             Polygon hex = (Polygon) boardPane.lookup("#" + hexID);
             if (hex != null) {
-                boardPane.getChildren().removeIf(node -> node instanceof Circle &&
-                        (node.getLayoutX() == hex.getLayoutX() &&
-                                node.getLayoutY() == hex.getLayoutY()));
+                boardPane.getChildren().removeIf(node -> node instanceof Circle && (node.getLayoutX() == hex.getLayoutX() && node.getLayoutY() == hex.getLayoutY()));
                 hex.setDisable(false);
             }
             getOpponentPlayerHexes().removeAll(capturedStones);
@@ -102,7 +111,9 @@ public class GameController {
     }
 
     /**
-     * @param hexID
+     * Processes a move, checks for captures and win conditions, then switches turn.
+     *
+     * @param hexID ID of the hex where the move occurred.
      */
     public void processMove(String hexID) {
 
@@ -111,23 +122,21 @@ public class GameController {
             removeStones(capturedStones);
 
             if (isWinningMove()) {
-                if (turn.isRedTurn()) {
-                    showWinner("RED WINS");
-                } else {
-                    showWinner("BLUE WINS");
-                }
+                showWinner(turn.isRedTurn() ? "RED WINS" : "BLUE WINS");
                 restartGame();
                 return;
             }
             turn.switchTurn();
         }
-        // Switch player's turn
+        // Always switch turn after processing
         turn.switchTurn();
     }
 
 
+    /**
+     * Skips the turn if no valid moves are available.
+     */
     public void skipTurn() {
-        //getting list of all empty hexes for possible moves
         List<String> availableHexes = new ArrayList<>();
 
         for (Polygon p : hexagons) {
@@ -137,54 +146,54 @@ public class GameController {
         availableHexes.removeAll(getBlueHexagons());
 
         for (String hexID : availableHexes) {
-            if (isValidMove( hexID)) {
-                //if there is a valid move, function is exited immediately
-                return;
+            if (isValidMove(hexID)) {
+                return; // Valid move found, do not skip
             }
         }
 
-        //if it reaches here it means there are no possible moves so turn is skipped
+        // No moves available, skip turn
         turn.switchTurn();
     }
 
-
+    /**
+     * Displays a dialog box showing the winner.
+     *
+     * @param winner String to show in the dialog.
+     */
     private void showWinner(String winner) {
-        //  Display pop-up message to display winner
         JDialog dialog = MessageUtil.showWinner(winner);
         dialog.setVisible(true);
     }
 
     /**
-     * Method to restart the game by clearing the board and removing all stones
+     * Restarts the game by resetting state and clearing the board.
      */
-
     public void restartGame() {
 
-        turn.resetTurn(); // Reset turn to begin from RED
+        turn.resetTurn();
         boardPane.getChildren().removeIf(node -> node instanceof Circle); // Remove all stones from the board
         boardPane.getChildren().forEach(node -> {
             if (node instanceof Polygon) {
-                node.setDisable(false); // Enable all the hexagons
+                node.setDisable(false);
             }
         });
 
-        // Erasing Lists of placed stones for RED and BLUE
         getRedHexagons().clear();
         getBlueHexagons().clear();
-        turn.displayTurn(); // Display turn from beginning
+        turn.displayTurn();
     }
 
 
     /**
-     * Method to show error message if user attempts to place a stone in an invalid hex.
+     * Shows an error message for invalid moves.
      *
-     * @param hexagon
-     * @return True if error message should be displayed and false if it shouldn't
+     * @param hexagon The polygon that was clicked.
+     * @return true if move is invalid and message is shown, false otherwise.
      */
     public boolean showErrorMessage(Polygon hexagon) {
 
         if (!isValidMove(hexagon.getId())) {
-            GraphicsUtil.showErrorMessage(); // Display error message
+            GraphicsUtil.showErrorMessage();
 
             return true;
         }

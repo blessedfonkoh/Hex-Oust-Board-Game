@@ -6,13 +6,9 @@ import java.awt.*;
 import java.util.Objects;
 
 public class MessageUtil {
+
     public static boolean suppressMessages = false;
 
-    /**
-     * Method to create a custom error message dialog for invalid cell placement.
-     *
-     * @return dialog : JDialog instance displaying the custom error message.
-     */
     public static JDialog showErrorMessage() {
         if (suppressMessages) {
             return new JDialog(); // return dummy dialog without setting up anything
@@ -30,7 +26,7 @@ public class MessageUtil {
         okButton.setFocusPainted(false);
 
         JOptionPane optionPane = new JOptionPane(messageLabel, JOptionPane.ERROR_MESSAGE,
-                JOptionPane.DEFAULT_OPTION, null, new Object[] {okButton});
+                JOptionPane.DEFAULT_OPTION, null, new Object[]{okButton});
 
         JDialog dialog = optionPane.createDialog(panel, "Invalid Move");
         okButton.addActionListener(e -> dialog.dispose());
@@ -41,10 +37,10 @@ public class MessageUtil {
 
     public static JDialog showWinner(String winner) {
         if (suppressMessages) {
-            return new JDialog(); // return dummy dialog without setting up anything
+            return new JDialog(); // Return dummy dialog without setting up anything
         }
 
-        //Loading image for displaying winner.
+        // Loading image for displaying winner.
         ImageIcon image = new ImageIcon(Objects.requireNonNull(MessageUtil.class.getResource("/meme.jpg")));
         Image scaledImage = image.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH); // Adjust size as needed
         JPanel panel = getPanel(winner, scaledImage);
@@ -56,7 +52,7 @@ public class MessageUtil {
         newGameButton.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
 
         JOptionPane optionPane = new JOptionPane(panel, JOptionPane.PLAIN_MESSAGE,
-                JOptionPane.DEFAULT_OPTION, null, new Object[] {newGameButton});
+                JOptionPane.DEFAULT_OPTION, null, new Object[]{newGameButton});
 
         JDialog dialog = optionPane.createDialog(null, "Winner Winner Chicken Dinner!");
         newGameButton.addActionListener(e -> dialog.dispose());
@@ -68,12 +64,12 @@ public class MessageUtil {
         ImageIcon meme = new ImageIcon(scaledImage);
         JLabel icon = new JLabel(meme);
 
-        // Creating the text to display the winner
         JLabel text = new JLabel(winner);
         text.setFont(new Font("Impact", Font.PLAIN, 24));
-        if(winner.startsWith("R")){
-            text.setForeground(Color.RED);}
-        else{
+
+        if (winner.startsWith("R")) {
+            text.setForeground(Color.RED);
+        } else {
             text.setForeground(Color.BLUE);
         }
         text.setHorizontalAlignment(SwingConstants.CENTER);
