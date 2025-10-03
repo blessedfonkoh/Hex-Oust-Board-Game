@@ -1,5 +1,4 @@
-# Software-Engineering-Project-II 
-# Hex Oust - Group 4
+# Hex Oust 
 
 
 
